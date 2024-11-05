@@ -1,5 +1,2 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+# What's Legal Intelligence here?
+## give me an URL with legal case or upload a document (pdf, doc, docx, or txt) with some prompts, a legal case study report will be generated for your review.
