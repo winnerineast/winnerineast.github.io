@@ -1,5 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blogs</title><link>https://winnerineast.github.io</link><description>A Humachine Studio's engineer is here and thinking...</description><copyright>Winnerineast Blogs</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Wed, 22 Jan 2025 12:25:10 +0000</lastBuildDate><managingEditor>Winnerineast Blogs</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blogs</webMaster><item><title>废土日记之末日庄园 - 第一章</title><link>https://winnerineast.github.io/post/5.html</link><description>世界崩塌只在一瞬间。
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blogs</title><link>https://winnerineast.github.io</link><description>A Humachine Studio's engineer is here and thinking...</description><copyright>Winnerineast Blogs</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Mon, 24 Mar 2025 01:53:55 +0000</lastBuildDate><managingEditor>Winnerineast Blogs</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blogs</webMaster><item><title>从零开始训练LLM的最新教程</title><link>https://winnerineast.github.io/post/10.html</link><description>模型训练专家Sebastian Raschka发布了一个从零开始预训练LLM的最新教程，内容包括理解、计算和优化损失函数的详细步骤，以及如何使用温度缩放和top-k采样更新文本生成功能。
+
+教程还提供了10个加速LLM训练的技巧：    
+
+（1）动态创建因果掩码以减少内存使用
+
+（2）使用张量核心（适用于A100等Ampere GPU及更新版本）
+
+（3）使用AdamW的CUDA融合内核
+
+（4）通过数据加载器中的锁定内存设置预分配和重用GPU内存
+
+（5）从32位浮点切换到16位脑浮点(bfloat16)精度
+
+（6）用PyTorch优化的CUDA内核替代从头实现的注意力机制等
+
+（7）使用FlashAttention提高内存读写效率
+
+（8）编译模型
+
+（9）优化词汇表大小
+
+（10）在节省内存后增加批处理大小
+
+这些技巧不仅适用于LLM，也适用于视觉Transformer等其他基于Transformer的模型。
+
+教程链接：https://www.</description><guid isPermaLink="true">https://winnerineast.github.io/post/10.html</guid><pubDate>Mon, 24 Mar 2025 01:52:56 +0000</pubDate></item><item><title>MCP深度解析与AI工具的未来</title><link>https://winnerineast.github.io/post/9.html</link><description>自从OpenAI在2023年推出函数调用功能以来，AI模型与外部工具、数据和API的交互方式一直面临碎片化问题。2024年11月推出的模型上下文协议(Model Context Protocol, MCP)正在成为一个潜在的解决方案，为执行、数据获取和工具调用创建标准接口。
+
+MCP协议的意义在于：
+
+（1）从API到工具的演变
+
+（2）机器可读文档（如llms.</description><guid isPermaLink="true">https://winnerineast.github.io/post/9.html</guid><pubDate>Mon, 24 Mar 2025 01:51:37 +0000</pubDate></item><item><title>小模型的大突破：强化学习显著提升小型LLM推理能力</title><link>https://winnerineast.github.io/post/7.html</link><description>新加坡Knovel Engineering Lab的研究人员Quy-Anh Dang和Chris Ngo展示了如何用极低成本提升小型LLM的推理能力。他们仅使用4块NVIDIA A40 GPU，在24小时内将1.</description><guid isPermaLink="true">https://winnerineast.github.io/post/7.html</guid><pubDate>Mon, 24 Mar 2025 01:46:15 +0000</pubDate></item><item><title>斯坦福研究揭秘：为何有些AI能"越想越聪明"，而有些却原地踏步？</title><link>https://winnerineast.github.io/post/6.html</link><description>斯坦福研究揭秘：为何有些AI能'越想越聪明'，而有些却原地踏步？
+
+
+你是否曾想过，为什么面对复杂问题时，有些人能够通过深入思考找到解决方案，而有些人却陷入死胡同？AI世界也存在这样的差异——有些模型能通过'思考'变得更聪明，有些却停滞不前。斯坦福大学最新研究揭示了背后的奥秘.</description><guid isPermaLink="true">https://winnerineast.github.io/post/6.html</guid><pubDate>Mon, 24 Mar 2025 01:44:45 +0000</pubDate></item><item><title>废土日记之末日庄园 - 第一章</title><link>https://winnerineast.github.io/post/5.html</link><description>世界崩塌只在一瞬间。
 我永远忘不了那一幕，公司同事小张，平时那个老实巴交的小伙子，突然像发了疯似的，眼睛血红，表情狰狞，口中发出野兽般的嘶吼，猛地扑向老板。老板手里还拿着激光笔，指着投影幕布上的数据报表，徒劳地挣扎着，却根本无法阻挡小张那疯狂的攻击。我眼睁睁地看着小张一口咬在老板的脖子上，鲜血喷涌而出，染红了老板的白衬衫……
 那一刻，整个办公室变成了人间地狱。尖叫声、哭喊声、搏斗声，混杂着令人作呕的血腥味，充斥着整个空间。我吓得魂飞魄散，抄起桌上的水果刀，发了疯似的冲出办公室，只想逃离这个恐怖的地方。
 走廊里也挤满了“疯子”，他们疯狂地追逐着逃窜的员工，如同地狱里爬出来的恶鬼，眼中只有嗜血的疯狂。我拼命地奔跑，心脏快要跳出嗓子眼，恐惧像冰冷的蛇一样缠绕着我，让我几乎无法呼吸。
