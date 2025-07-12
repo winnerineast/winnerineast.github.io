@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+
+Nov 20, 2024
+
+[Read the paper](https://arxiv.org/abs/2411.00640)
+
+Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?
+
+With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a [new research paper](https://arxiv.org/abs/2411.00640) that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.
+
+### Recommendation #1: Use the Central Limit Theorem
+
+Evals often consist of hundreds or thousands of unrelated questions. [MMLU](https://arxiv.org/abs/2009.03300v3), for instance, contains questions as diverse as:
+
+- Who discovered the first virus?
+- What is the inverse of 𝑓(𝑥)=4−5𝑥?
+- Who said that “Jurisprudence is the eye of law”?
+
+To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the _observed_ average, but rather the _theoretical_ average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying _skill_, independent of the “luck of the draw”—using statistical theory.
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&w=3840&q=75)
+
+If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.
+
+This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.
+
+In technical terms: under the fairly mild conditions of the [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), the mean values of several random samples taken from the same underlying distribution will tend to follow a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution). The standard deviation (or width) of that normal distribution is commonly known as the [standard error of the mean](https://en.wikipedia.org/wiki/Standard_error), or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% [confidence interval](https://en.wikipedia.org/wiki/Confidence_interval) can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.
+
+### Recommendation #2: Cluster standard errors
+
+Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include [DROP](https://aclanthology.org/N19-1246/), [QuAC](https://arxiv.org/abs/1808.07036), [RACE](https://aclanthology.org/D17-1082/), and [SQuAD](https://arxiv.org/abs/1806.03822).
+
+For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.
+
+Fortunately, the problem of [clustered standard errors](https://en.wikipedia.org/wiki/Clustered_standard_errors) has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of [randomization](https://en.wikipedia.org/wiki/Randomization) (for example, passage of text), and we provide applicable formulas in our paper.
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&w=3840&q=75)
+
+If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.
+
+In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.
+
+### Recommendation #3: Reduce variance within questions
+
+Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.
+
+A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:
+
+- The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and
+- A random component (the difference between a realized question score and the mean score for that question).
+
+Thanks to the [law of total variance](https://en.wikipedia.org/wiki/Law_of_total_variance), reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).
+
+If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the [Inspect framework](https://github.com/UKGovernmentBEIS/inspect_ai/) correctly computes standard errors in this way via its [_epochs_ parameter](https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs).
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&w=3840&q=75)
+
+If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.
+
+If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.
+
+### Recommendation #4: Analyze paired differences
+
+Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a [two-sample _t_-test](https://en.wikipedia.org/wiki/Student%27s_t-test), using only the standard errors of the mean calculated from both eval scores.
+
+However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a [paired-differences test](https://en.wikipedia.org/wiki/Paired_difference_test) lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.
+
+In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.
+
+### Recommendation #5: Use power analysis
+
+The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, [statistical power](https://en.wikipedia.org/wiki/Power_(statistics)), the [false positive rate](https://en.wikipedia.org/wiki/False_positive_rate), and the [effect size](https://en.wikipedia.org/wiki/Effect_size) of interest.
+
+In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as _Model A outperforms Model B by 3 percentage points_) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as _Model A and Model B are tied_).
+
+We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.
+
+### Conclusion
+
+Statistics is the science of measurement in the presence of noise. Evals present a number of practical [challenges](https://www.anthropic.com/news/evaluating-ai-systems), and a true [science of evals](https://www.apolloresearch.ai/blog/we-need-a-science-of-evals) remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper [**Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations**](https://arxiv.org/abs/2411.00640) will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.
+
+  
+。">
+<meta property="og:title" content="A statistical approach to model evaluations">
+<meta property="og:description" content="
+
+Nov 20, 2024
+
+[Read the paper](https://arxiv.org/abs/2411.00640)
+
+Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?
+
+With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a [new research paper](https://arxiv.org/abs/2411.00640) that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.
+
+### Recommendation #1: Use the Central Limit Theorem
+
+Evals often consist of hundreds or thousands of unrelated questions. [MMLU](https://arxiv.org/abs/2009.03300v3), for instance, contains questions as diverse as:
+
+- Who discovered the first virus?
+- What is the inverse of 𝑓(𝑥)=4−5𝑥?
+- Who said that “Jurisprudence is the eye of law”?
+
+To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the _observed_ average, but rather the _theoretical_ average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying _skill_, independent of the “luck of the draw”—using statistical theory.
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&w=3840&q=75)
+
+If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.
+
+This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.
+
+In technical terms: under the fairly mild conditions of the [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), the mean values of several random samples taken from the same underlying distribution will tend to follow a [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution). The standard deviation (or width) of that normal distribution is commonly known as the [standard error of the mean](https://en.wikipedia.org/wiki/Standard_error), or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% [confidence interval](https://en.wikipedia.org/wiki/Confidence_interval) can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.
+
+### Recommendation #2: Cluster standard errors
+
+Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include [DROP](https://aclanthology.org/N19-1246/), [QuAC](https://arxiv.org/abs/1808.07036), [RACE](https://aclanthology.org/D17-1082/), and [SQuAD](https://arxiv.org/abs/1806.03822).
+
+For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.
+
+Fortunately, the problem of [clustered standard errors](https://en.wikipedia.org/wiki/Clustered_standard_errors) has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of [randomization](https://en.wikipedia.org/wiki/Randomization) (for example, passage of text), and we provide applicable formulas in our paper.
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&w=3840&q=75)
+
+If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.
+
+In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.
+
+### Recommendation #3: Reduce variance within questions
+
+Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.
+
+A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:
+
+- The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and
+- A random component (the difference between a realized question score and the mean score for that question).
+
+Thanks to the [law of total variance](https://en.wikipedia.org/wiki/Law_of_total_variance), reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).
+
+If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the [Inspect framework](https://github.com/UKGovernmentBEIS/inspect_ai/) correctly computes standard errors in this way via its [_epochs_ parameter](https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs).
+
+![](https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&w=3840&q=75)
+
+If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.
+
+If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.
+
+### Recommendation #4: Analyze paired differences
+
+Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a [two-sample _t_-test](https://en.wikipedia.org/wiki/Student%27s_t-test), using only the standard errors of the mean calculated from both eval scores.
+
+However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a [paired-differences test](https://en.wikipedia.org/wiki/Paired_difference_test) lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.
+
+In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.
+
+### Recommendation #5: Use power analysis
+
+The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, [statistical power](https://en.wikipedia.org/wiki/Power_(statistics)), the [false positive rate](https://en.wikipedia.org/wiki/False_positive_rate), and the [effect size](https://en.wikipedia.org/wiki/Effect_size) of interest.
+
+In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as _Model A outperforms Model B by 3 percentage points_) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as _Model A and Model B are tied_).
+
+We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.
+
+### Conclusion
+
+Statistics is the science of measurement in the presence of noise. Evals present a number of practical [challenges](https://www.anthropic.com/news/evaluating-ai-systems), and a true [science of evals](https://www.apolloresearch.ai/blog/we-need-a-science-of-evals) remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper [**Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations**](https://arxiv.org/abs/2411.00640) will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.
+
+  
+。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/A%20statistical%20approach%20to%20model%20evaluations.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>A statistical approach to model evaluations</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">A statistical approach to model evaluations</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/19" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>Nov 20, 2024</p>
+<p><a href="https://arxiv.org/abs/2411.00640" rel="nofollow">Read the paper</a></p>
+<p>Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?</p>
+<p>With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a <a href="https://arxiv.org/abs/2411.00640" rel="nofollow">new research paper</a> that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.</p>
+<h3>Recommendation #1: Use the Central Limit Theorem</h3>
+<p>Evals often consist of hundreds or thousands of unrelated questions. <a href="https://arxiv.org/abs/2009.03300v3" rel="nofollow">MMLU</a>, for instance, contains questions as diverse as:</p>
+<ul>
+<li>Who discovered the first virus?</li>
+<li>What is the inverse of 𝑓(𝑥)=4−5𝑥?</li>
+<li>Who said that “Jurisprudence is the eye of law”?</li>
+</ul>
+<p>To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the <em>observed</em> average, but rather the <em>theoretical</em> average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying <em>skill</em>, independent of the “luck of the draw”—using statistical theory.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4c0e0296a283dc32170139369b2f624f8ed34e286ebc77640c8452ad5c830350/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246623334383731613336616436366661303333306533616436343838656538376562393662646464612d3234303178313236302e706e6726773d3338343026713d3735"><img src="https://camo.githubusercontent.com/4c0e0296a283dc32170139369b2f624f8ed34e286ebc77640c8452ad5c830350/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246623334383731613336616436366661303333306533616436343838656538376562393662646464612d3234303178313236302e706e6726773d3338343026713d3735" alt="" data-canonical-src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75" style="max-width: 100%;"></a></p>
+<p>If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.</p>
+<p>This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.</p>
+<p>In technical terms: under the fairly mild conditions of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem" rel="nofollow">Central Limit Theorem</a>, the mean values of several random samples taken from the same underlying distribution will tend to follow a <a href="https://en.wikipedia.org/wiki/Normal_distribution" rel="nofollow">normal distribution</a>. The standard deviation (or width) of that normal distribution is commonly known as the <a href="https://en.wikipedia.org/wiki/Standard_error" rel="nofollow">standard error of the mean</a>, or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% <a href="https://en.wikipedia.org/wiki/Confidence_interval" rel="nofollow">confidence interval</a> can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.</p>
+<h3>Recommendation #2: Cluster standard errors</h3>
+<p>Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include <a href="https://aclanthology.org/N19-1246/" rel="nofollow">DROP</a>, <a href="https://arxiv.org/abs/1808.07036" rel="nofollow">QuAC</a>, <a href="https://aclanthology.org/D17-1082/" rel="nofollow">RACE</a>, and <a href="https://arxiv.org/abs/1806.03822" rel="nofollow">SQuAD</a>.</p>
+<p>For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.</p>
+<p>Fortunately, the problem of <a href="https://en.wikipedia.org/wiki/Clustered_standard_errors" rel="nofollow">clustered standard errors</a> has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of <a href="https://en.wikipedia.org/wiki/Randomization" rel="nofollow">randomization</a> (for example, passage of text), and we provide applicable formulas in our paper.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/20f13c739911309a91f8b93c99bce83f052bd981afa22bccb1569bee70f5b0c3/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246663666393066393364633636333830393034373039613365663464363362393233333238373166642d3234303178313236302e706e6726773d3338343026713d3735"><img src="https://camo.githubusercontent.com/20f13c739911309a91f8b93c99bce83f052bd981afa22bccb1569bee70f5b0c3/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246663666393066393364633636333830393034373039613365663464363362393233333238373166642d3234303178313236302e706e6726773d3338343026713d3735" alt="" data-canonical-src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75" style="max-width: 100%;"></a></p>
+<p>If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.</p>
+<p>In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.</p>
+<h3>Recommendation #3: Reduce variance within questions</h3>
+<p>Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.</p>
+<p>A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:</p>
+<ul>
+<li>The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and</li>
+<li>A random component (the difference between a realized question score and the mean score for that question).</li>
+</ul>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Law_of_total_variance" rel="nofollow">law of total variance</a>, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).</p>
+<p>If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the <a href="https://github.com/UKGovernmentBEIS/inspect_ai/">Inspect framework</a> correctly computes standard errors in this way via its <a href="https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs" rel="nofollow"><em>epochs</em> parameter</a>.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/73a08e73c28b9cfc710005fe466ac4919188161b5254afded2bc4be512a14726/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246656665663539613036646465623533306661313566333164633039333766323866373066363535622d3234303178313236302e706e6726773d3338343026713d3735"><img src="https://camo.githubusercontent.com/73a08e73c28b9cfc710005fe466ac4919188161b5254afded2bc4be512a14726/68747470733a2f2f7777772e616e7468726f7069632e636f6d2f5f6e6578742f696d6167653f75726c3d68747470732533412532462532467777772d63646e2e616e7468726f7069632e636f6d253246696d61676573253246347a727a6f76626225324677656273697465253246656665663539613036646465623533306661313566333164633039333766323866373066363535622d3234303178313236302e706e6726773d3338343026713d3735" alt="" data-canonical-src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75" style="max-width: 100%;"></a></p>
+<p>If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.</p>
+<p>If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.</p>
+<h3>Recommendation #4: Analyze paired differences</h3>
+<p>Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a <a href="https://en.wikipedia.org/wiki/Student%27s_t-test" rel="nofollow">two-sample <em>t</em>-test</a>, using only the standard errors of the mean calculated from both eval scores.</p>
+<p>However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a <a href="https://en.wikipedia.org/wiki/Paired_difference_test" rel="nofollow">paired-differences test</a> lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" rel="nofollow">Pearson correlation coefficient</a> between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.</p>
+<p>In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.</p>
+<h3>Recommendation #5: Use power analysis</h3>
+<p>The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, <a href="https://en.wikipedia.org/wiki/Power_(statistics)" rel="nofollow">statistical power</a>, the <a href="https://en.wikipedia.org/wiki/False_positive_rate" rel="nofollow">false positive rate</a>, and the <a href="https://en.wikipedia.org/wiki/Effect_size" rel="nofollow">effect size</a> of interest.</p>
+<p>In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as <em>Model A outperforms Model B by 3 percentage points</em>) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as <em>Model A and Model B are tied</em>).</p>
+<p>We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.</p>
+<h3>Conclusion</h3>
+<p>Statistics is the science of measurement in the presence of noise. Evals present a number of practical <a href="https://www.anthropic.com/news/evaluating-ai-systems" rel="nofollow">challenges</a>, and a true <a href="https://www.apolloresearch.ai/blog/we-need-a-science-of-evals" rel="nofollow">science of evals</a> remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper <a href="https://arxiv.org/abs/2411.00640" rel="nofollow"><strong>Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations</strong></a> will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
