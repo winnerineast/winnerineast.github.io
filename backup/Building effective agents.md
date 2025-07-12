@@ -1,11 +1,10 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:01:37 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Building effective agents</title><link>https://winnerineast.github.io/post/Building%20effective%20agents.html</link><description>Over the past year, we've worked with dozens of teams building large language model (LLM) agents across industries. Consistently, the most successful implementations weren't using complex frameworks or specialized libraries. Instead, they were building with simple, composable patterns.
+Over the past year, we've worked with dozens of teams building large language model (LLM) agents across industries. Consistently, the most successful implementations weren't using complex frameworks or specialized libraries. Instead, they were building with simple, composable patterns.
 
 In this post, we share what we’ve learned from working with our customers and building agents ourselves, and give practical advice for developers on building effective agents.
 
 ## What are agents?
 
-'Agent' can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. Others use the term to describe more prescriptive implementations that follow predefined workflows. At Anthropic, we categorize all these variations as **agentic systems**, but draw an important architectural distinction between **workflows** and **agents**:
+"Agent" can be defined in several ways. Some customers define agents as fully autonomous systems that operate independently over extended periods, using various tools to accomplish complex tasks. Others use the term to describe more prescriptive implementations that follow predefined workflows. At Anthropic, we categorize all these variations as **agentic systems**, but draw an important architectural distinction between **workflows** and **agents**:
 
 - **Workflows** are systems where LLMs and tools are orchestrated through predefined code paths.
 - **Agents**, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks.
@@ -47,7 +46,7 @@ For the remainder of this post, we'll assume each LLM call has access to these a
 
 ### Workflow: Prompt chaining
 
-Prompt chaining decomposes a task into a sequence of steps, where each LLM call processes the output of the previous one. You can add programmatic checks (see 'gate” in the diagram below) on any intermediate steps to ensure that the process is still on track.
+Prompt chaining decomposes a task into a sequence of steps, where each LLM call processes the output of the previous one. You can add programmatic checks (see "gate” in the diagram below) on any intermediate steps to ensure that the process is still on track.
 
 **When to use this workflow:** This workflow is ideal for situations where the task can be easily and cleanly decomposed into fixed subtasks. The main goal is to trade off latency for higher accuracy, by making each LLM call an easier task.
 
@@ -111,7 +110,7 @@ In the evaluator-optimizer workflow, one LLM call generates a response while ano
 
 Agents are emerging in production as LLMs mature in key capabilities—understanding complex inputs, engaging in reasoning and planning, using tools reliably, and recovering from errors. Agents begin their work with either a command from, or interactive discussion with, the human user. Once the task is clear, agents plan and operate independently, potentially returning to the human for further information or judgement. During execution, it's crucial for the agents to gain “ground truth” from the environment at each step (such as tool call results or code execution) to assess its progress. Agents can then pause for human feedback at checkpoints or when encountering blockers. The task often terminates upon completion, but it’s also common to include stopping conditions (such as a maximum number of iterations) to maintain control.
 
-Agents can handle sophisticated tasks, but their implementation is often straightforward. They are typically just LLMs using tools based on environmental feedback in a loop. It is therefore crucial to design toolsets and their documentation clearly and thoughtfully. We expand on best practices for tool development in Appendix 2 ('Prompt Engineering your Tools').
+Agents can handle sophisticated tasks, but their implementation is often straightforward. They are typically just LLMs using tools based on environmental feedback in a loop. It is therefore crucial to design toolsets and their documentation clearly and thoughtfully. We expand on best practices for tool development in Appendix 2 ("Prompt Engineering your Tools").
 
 **When to use agents:** Agents can be used for open-ended problems where it’s difficult or impossible to predict the required number of steps, and where you can’t hardcode a fixed path. The LLM will potentially operate for many turns, and you must have some level of trust in its decision-making. Agents' autonomy makes them ideal for scaling tasks in trusted environments.
 
@@ -178,9 +177,9 @@ There are often several ways to specify the same action. For instance, you can s
 
 Our suggestions for deciding on tool formats are the following:
 
-- Give the model enough tokens to 'think' before it writes itself into a corner.
+- Give the model enough tokens to "think" before it writes itself into a corner.
 - Keep the format close to what the model has seen naturally occurring in text on the internet.
-- Make sure there's no formatting 'overhead' such as having to keep an accurate count of thousands of lines of code, or string-escaping any code it writes.
+- Make sure there's no formatting "overhead" such as having to keep an accurate count of thousands of lines of code, or string-escaping any code it writes.
 
 One rule of thumb is to think about how much effort goes into human-computer interfaces (HCI), and plan to invest just as much effort in creating good *agent*\-computer interfaces (ACI). Here are some thoughts on how to do so:
 
@@ -189,16 +188,4 @@ One rule of thumb is to think about how much effort goes into human-computer int
 - Test how the model uses your tools: Run many example inputs in our [workbench](https://console.anthropic.com/workbench) to see what mistakes the model makes, and iterate.
 - [Poka-yoke](https://en.wikipedia.org/wiki/Poka-yoke) your tools. Change the arguments so that it is harder to make mistakes.
 
-While building our agent for [SWE-bench](https://www.anthropic.com/research/swe-bench-sonnet), we actually spent more time optimizing our tools than the overall prompt. For example, we found that the model would make mistakes with tools using relative filepaths after the agent had moved out of the root directory. To fix this, we changed the tool to always require absolute filepaths—and we found that the model used this method flawlessly.。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Building%20effective%20agents.html</guid><pubDate>Sat, 12 Jul 2025 12:01:15 +0000</pubDate></item><item><title>AI智慧与检索的巅峰融合：RAG解锁下一代信息生成新架构</title><link>https://winnerineast.github.io/post/AI-zhi-hui-yu-jian-suo-de-dian-feng-rong-he-%EF%BC%9ARAG-jie-suo-xia-yi-dai-xin-xi-sheng-cheng-xin-jia-gou.html</link><description>**GPTDAOCN-e/acc** @GPTDAOCN [2024-12-11](https://x.com/GPTDAOCN/status/1866947666690838557)
-
-AI智慧与检索的巅峰融合：RAG解锁下一代信息生成新架构
-
-这张图展示了'检索增强生成（Retrieval-Augmented Generation，RAG）'技术的不同架构，用来描述如何结合信息检索和生成式AI模型（如GPT）来更好地回答问题或生成内容。</description><guid isPermaLink="true">https://winnerineast.github.io/post/AI-zhi-hui-yu-jian-suo-de-dian-feng-rong-he-%EF%BC%9ARAG-jie-suo-xia-yi-dai-xin-xi-sheng-cheng-xin-jia-gou.html</guid><pubDate>Sat, 12 Jul 2025 12:00:46 +0000</pubDate></item><item><title>【论文推荐】DeepResearch</title><link>https://winnerineast.github.io/post/%E3%80%90-lun-wen-tui-jian-%E3%80%91DeepResearch.html</link><description>（好一些的综述）[https://arxiv.org/abs/2506.18096](https://t.co/KqENoLuAiv) 
-（过于求全反而缺乏洞见的综述） [https://arxiv.org/pdf/2506.12594](https://t.co/xeWo94wXZq) 
-（评估方法，从报告质量和引用精度两个角度评估）[https://arxiv.org/pdf/2506.11763](https://t.co/vKR0NO4HLO)
-
-（推荐，带UI，字节开源的基于LangGraph的DeepFlow）[https://github.com/bytedance/deer-flow…](https://t.co/EtqKMqlKBf) 
-（推荐，带UI，Gemini基于LangGraph的Deep Search实现，比较简单） [https://github.com/google-gemini/gemini-fullstack-langgraph-quickstart…](https://t.co/VTe064Fsx2) 
-（没有UI，但是功能比较丰富）[https://github.com/foreveryh/mentis/tree/main/super_agents/deep_research…](https://t.co/9TJy0juGLG)
-[](https://t.co/VTe064Fsx2)
-（基于smolagents框架，比较简单）[https://github.com/huggingface/smolagents/tree/main/examples/open_deep_research…](https://t.co/9wXwCsbxeL) （基于OpenAI Agents 库实现，比较简单） [https://huggingface.co/spaces/mallocode200/Deep_Research_Assistant/blob/main/research_manager.py](https://t.co/BaoHko5WT9)。</description><guid isPermaLink="true">https://winnerineast.github.io/post/%E3%80%90-lun-wen-tui-jian-%E3%80%91DeepResearch.html</guid><pubDate>Sat, 12 Jul 2025 10:13:59 +0000</pubDate></item></channel></rss>
+While building our agent for [SWE-bench](https://www.anthropic.com/research/swe-bench-sonnet), we actually spent more time optimizing our tools than the overall prompt. For example, we found that the model would make mistakes with tools using relative filepaths after the agent had moved out of the root directory. To fix this, we changed the tool to always require absolute filepaths—and we found that the model used this method flawlessly.
