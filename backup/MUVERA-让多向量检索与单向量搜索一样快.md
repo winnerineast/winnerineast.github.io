@@ -1,0 +1,4 @@
+做RAG的朋友一定要看看 Google 这个新论文——MUVERA：让多向量检索与单向量搜索一样快 大家在RAG的检索内容过程都会遇到这种情况，如果用传统搜索（例如ElasticSearch），文档 = 1 个向量 → 快速但不准确。如果用向量数据库，现代多向量搜索：文档 = 数百个向量 → 准确但极其缓慢。 于是谷歌提出了 DFEs (固定维度编码) 将多个向量转换为单个固定长度的向量，同时保留相似性关系。其神奇之处在于，两个 FDE 向量之间的点积近似于多向量集合之间的原始 Chamfer 相似度。(Chamfer 相似度是啥详见文尾的文章) MUVERA 的一个关键优势是 FDE 变换是无数据的。这意味着它不依赖于特定的数据集，使其既能够抵抗数据分布的变化，又适合流式应用。此外，与模型产生的单向量不同，FDE 保证在指定的误差范围内近似真实的 Chamfer 相似度。因此，在重排序阶段之后，MUVERA 保证能够找到最相似的多向量表示。 所以这个新方法能有效地提升RAG检索阶段的效率，现阶段连Python库都有了，需要的同学可以试试。 
+论文地址：[http://research.google/blog/muvera-making-multi-vector-retrieval-as-fast-as-single-vector-search/](https://t.co/hv0haZERwy) 
+Chamfer 相似度：[http://sciencedirect.com/topics/engineering/chamfer-matching](https://t.co/Asy06NObom) 
+python库：[http://github.com/sigridjineth/muvera-py](https://t.co/CtxEujg9C6)
