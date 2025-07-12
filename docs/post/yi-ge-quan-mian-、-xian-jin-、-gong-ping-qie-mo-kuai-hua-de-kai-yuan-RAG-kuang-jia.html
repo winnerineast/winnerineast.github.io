@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+两个关键问题限制了 RAG 的发展：
+
+- 新型 RAG 算法之间缺乏**全面和公平**的比较。">
+<meta property="og:title" content="一个全面、先进、公平且模块化的开源RAG框架">
+<meta property="og:description" content="
+两个关键问题限制了 RAG 的发展：
+
+- 新型 RAG 算法之间缺乏**全面和公平**的比较。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/yi-ge-quan-mian-%E3%80%81-xian-jin-%E3%80%81-gong-ping-qie-mo-kuai-hua-de-kai-yuan-RAG-kuang-jia.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>一个全面、先进、公平且模块化的开源RAG框架</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">一个全面、先进、公平且模块化的开源RAG框架</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/28" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>两个关键问题限制了 RAG 的发展：</p>
+<ul>
+<li>
+<p>新型 RAG 算法之间缺乏<strong>全面和公平</strong>的比较。</p>
+</li>
+<li>
+<p>像 LlamaIndex 和 LangChain 这样的开源工具使用了高级抽象，这导致了透明度的缺失，并限制了<strong>开****发新算法和评估指标</strong>的能力。</p>
+</li>
+</ul>
+<p>RAGLAB：是一个<strong>模块化</strong>的开源库。RAGLAB 复现了 6 种<strong>先进的</strong>算法，并为研究 RAG 算法提供了一个<strong>全面的</strong>生态系统。利用 RAGLAB，对 10 个基准上的 6 种 RAG 算法进行了<strong>公平</strong>比较。有了 RAGLAB，研究人员可以高效地比较各种算法的性能并<strong>开发新算法</strong>。</p>
+<p><strong>不同 RAG 库和框架的比较</strong>。<strong>公平比较</strong>指的是在评估过程中对所有基本组件进行对齐，包括随机种子、生成器、检索器和指令。<strong>数据收集器</strong>指的是能够收集或生成训练和测试数据的能力，无论是通过从现有的原始数据集中抽样，还是通过使用LLM构建标记数据。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1ca2f7f98c4e2c90ae9f934b397249795f42f34827347289ee6ab0fece9bf3c1/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768545478546f516359637677574258794843516e586e5161587446594a67306e574e396f7576647a33775069614e675439306159426e67412f3634303f77785f666d743d706e672666726f6d3d6170706d736726777866726f6d3d3133"><img src="https://camo.githubusercontent.com/1ca2f7f98c4e2c90ae9f934b397249795f42f34827347289ee6ab0fece9bf3c1/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768545478546f516359637677574258794843516e586e5161587446594a67306e574e396f7576647a33775069614e675439306159426e67412f3634303f77785f666d743d706e672666726f6d3d6170706d736726777866726f6d3d3133" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whTTxToQcYcvwWBXyHCQnXnQaXtFYJg0nWN9ouvdz3wPiaNgT90aYBngA/640?wx_fmt=png&amp;from=appmsg&amp;wxfrom=13" style="max-width: 100%;"></a></p>
+<p><strong>RAGLAB</strong>提供了一个模块化的架构，允许用户轻松地替换和扩展算法的各个组成部分，包括检索器（retriever）、生成器（generator）和指令（instruction）。</p>
+<p><strong>RAGLAB 框架的架构和组件</strong></p>
+<p><strong><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1f48838887bb85ffefc2904685f13958491701c8f8a353c1ce422768083a3138/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b30563536776877544239453250634132726963444e41316d55705841356f306d5532454d4b4941686b4e46365235684547787a7a4f39795250553478412f3634303f77785f666d743d706e672666726f6d3d6170706d736726777866726f6d3d3133"><img src="https://camo.githubusercontent.com/1f48838887bb85ffefc2904685f13958491701c8f8a353c1ce422768083a3138/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b30563536776877544239453250634132726963444e41316d55705841356f306d5532454d4b4941686b4e46365235684547787a7a4f39795250553478412f3634303f77785f666d743d706e672666726f6d3d6170706d736726777866726f6d3d3133" alt="" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whwTB9E2PcA2ricDNA1mUpXA5o0mU2EMKIAhkNF6R5hEGxzzO9yRPU4xA/640?wx_fmt=png&amp;from=appmsg&amp;wxfrom=13" style="max-width: 100%;"></a></strong></p>
+<ul>
+<li>
+<p>检索器（Retriever）：集成了基于BERT的模型，如Contriever和ColBERT，提供了统一的查询接口和客户端-服务器架构，以及检索缓存机制。</p>
+</li>
+<li>
+<p>语料库（Corpus）：提供预处理的Wikipedia语料库，包括2018年和2023年的版本，以及对应的索引和嵌入。</p>
+</li>
+<li>
+<p>生成器（Generator）：集成了Huggingface Transformers和VLLM，支持量化和低秩适应（LoRA）技术，允许使用大型模型。</p>
+</li>
+<li>
+<p>指令实验室（Instruction Lab）：包含系统指令、任务指令和算法指令，允许用户自定义和组合指令。</p>
+</li>
+<li>
+<p>训练器（Trainer）：集成了Accelerate和DeepSpeed库，支持模型的微调，包括LoRA和量化LoRA技术。</p>
+</li>
+<li>
+<p>数据集和度量（Dataset and Metric）：收集了10个广泛使用的基准数据集，覆盖五种不同的任务类型，并提供了灵活的数据适配机制和多种评估指标</p>
+</li>
+<li>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2205abd85be1ec66924635e80a81faa9d0510aac0403e1c94d28f8c9e95c20ac/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b3056353677685675696163367631644b3138764e696130497739726655634c545472414e3467755a4871386d6a507a75426a68373130653455484c7439512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/2205abd85be1ec66924635e80a81faa9d0510aac0403e1c94d28f8c9e95c20ac/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b3056353677685675696163367631644b3138764e696130497739726655634c545472414e3467755a4871386d6a507a75426a68373130653455484c7439512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whVuiac6v1dK18vNia0Iw9rfUcLTTrAN4guZHq8mjPzuBjh710e4UHLt9Q/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+</li>
+</ul>
+<p>RAGLAB进行了全面的实验，使用不同的基础模型作为生成器，同时保持其他基本组件的一致性，以促进不同高级RAG算法之间的公平比较。</p>
+<p><strong>一个使用 RAGLAB 来复现 Self-RAG 算法的脚本</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f05b0033af29bdb9939ae30bb42bdedacca1e11aa82e7c5258b34148cdff3c0e/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b3056353677685730684176444b453761593962343037555a34566f6d38626a4a734d4e657170305341455938586e517371676961465147633769627931672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/f05b0033af29bdb9939ae30bb42bdedacca1e11aa82e7c5258b34148cdff3c0e/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b3056353677685730684176444b453761593962343037555a34566f6d38626a4a734d4e657170305341455938586e517371676961465147633769627931672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whW0hAvDKE7aY9b407UZ4Vom8bjJsMNeqp0SAEY8XnQsqgiaFQGc7iby1g/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+<p>分析了使用不同基础模型的RAG算法（<strong>Naive RAG、RRR 、ITER-RETGEN、Self-Ask、Active RAG、Self-RAG</strong>）在多个基准上的性能，发现<strong>Self-RAG算法</strong>在使用特定生成器时显著优于其他算法。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c4f562b37e393bbfe856ec59acf1a85f49fdcd2934d87ddeb41fe4483a65e124/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768376a7941445a67473156504c63786962744f4b37386d53677336644566557542477968594643316c41583976746963645839546a4a745a672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/c4f562b37e393bbfe856ec59acf1a85f49fdcd2934d87ddeb41fe4483a65e124/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768376a7941445a67473156504c63786962744f4b37386d53677336644566557542477968594643316c41583976746963645839546a4a745a672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56wh7jyADZgG1VPLcxibtOK78mSgs6dEfUuBGyhYFC1lAX9vticdX9TjJtZg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fc783e451b8c602050e7f146b915994c4e6483848ac1d6c79550de7bfece72a6/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768634e696343384647655a6c6f52364a57464d6b594c69624e4b78346e4c6367563350356438686962585171655a6c43624d66657941326d79672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/fc783e451b8c602050e7f146b915994c4e6483848ac1d6c79550de7bfece72a6/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b305635367768634e696343384647655a6c6f52364a57464d6b594c69624e4b78346e4c6367563350356438686962585171655a6c43624d66657941326d79672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whcNicC8FGeZloR6JWFMkYLibNKx4nLcgV3P5d8hibXQqeZlCbMfeyA2myg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+<p><strong>不同算法的指令</strong></p>
+<pre class="notranslate"><code class="notranslate">Naive RAG
+</code></pre>
+<p><strong>RAGLAB 系统用户评估问卷</strong></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6c4d1a2900aad978c12de896064aed8c05b9da2f00f598cb8dff892567b7b6b3/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b30563536776857356474396963444b696262394246474c6d614669615669615354426548727047624c62524e5a4868376e414c6b5432526d6b467a55745952772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/6c4d1a2900aad978c12de896064aed8c05b9da2f00f598cb8dff892567b7b6b3/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f414537346961363258726963487a357962397a4c61706b743446564b30563536776857356474396963444b696262394246474c6d614669615669615354426548727047624c62524e5a4868376e414c6b5432526d6b467a55745952772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="图片" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/AE74ia62XricHz5yb9zLapkt4FVK0V56whW5dt9icDKibb9BFGLmaFiaViaSTBeHrpGbLbRNZHh7nALkT2RmkFzUtYRw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+<pre class="notranslate"><code class="notranslate">RAGLAB: A Modular and Research-Oriented Unified Framework for Retrieval-Augmented Generation
+https://arxiv.org/pdf/2408.11381
+https://github.com/fate-ubw/RAGLab
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>

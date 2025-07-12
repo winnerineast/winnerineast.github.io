@@ -1,0 +1,9 @@
+
+AI，尽管在处理复杂任务时表现出色，但其思考过程更像是一个“平庸的研究助理”，缺乏真正的理解与创造力。相比之下，人类的学习能力不仅仅是积累知识，更在于如何将这些知识应用于新情境中，推动创新与发现。AI可以高效地完成常规任务，但无法替代人类在创造性思维和情感驱动下的学习过程。 通过将AI的计算能力与人类的独特创造力相结合，我们或许能够在新兴的“工业级数学”领域中开辟出前所未有的可能性。AI是辅助工具，而非替代者，未来的成功在于我们如何利用这一工具，提升自身的学习与创造能力。
+
+
+# We’re Entering Uncharted Territory for Math
+
+Terence Tao, a mathematics professor at UCLA, is a real-life superintelligence. The “Mozart of Math,” as he is sometimes called, is widely considered the world’s greatest living mathematician. He has won numerous awards, including the equivalent of a Nobel Prize for mathematics, for his advances and proofs. Right now, AI is nowhere close to his level.
+
+But technology companies are trying to get it there. Recent, attention-grabbing generations of AI—even the almighty ChatGPT—were not built to handle mathematical reasoning. They were instead focused on language: When you asked such a program to answer a basic question, it did not understand and execute an equation or formulate a proof, but instead presented an answer based on which words were likely to appear in sequence. For instance, the original ChatGPT can’t add or multiply, but has seen enough examples of algebra to solve _x +_ 2 = 4: “To solve the equation _x_ + 2 = 4, subtract 2 from both sides …” Now, however, OpenAI is explicitly marketing a new line of “[reasoning models](https://www.theatlantic.com/technology/archive/2024/09/openai-reasoning-model-o1/679863/),” known collectively as the o1 series, for their ability to problem-solve “much like a person” and work through complex [mathematical](https://www.youtube.com/watch?v=MAZyQ-38b8M) and scientific tasks and queries. If these models are successful, they could represent a sea change for the slow, lonely work that Tao and his peers do.

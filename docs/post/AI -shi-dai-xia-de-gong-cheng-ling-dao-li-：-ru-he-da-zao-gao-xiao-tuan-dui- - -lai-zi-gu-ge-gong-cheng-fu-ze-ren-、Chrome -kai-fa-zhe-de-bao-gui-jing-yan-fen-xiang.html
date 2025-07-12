@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="Original 邵猛 *2025年03月25日 19:32*
+
+今天偶然读到 Chrome 开发者、Google 工程负责人、著名技术书籍作者 - Addy Osmani 的一篇文章 「 Leading Effective Engineering Teams in the Age of GenAI」 ，讲的特别好，对于产品和研发方向如何变得高效，不管你是团队领导者、还是团队成员，都很有价值，分享给朋友们，可以先看我的阅读笔记，针对自己感兴趣的部门再阅读原文（推荐阅读，作者信息和文章链接放在文末）
+
+![Image](https://mmbiz.qpic.cn/mmbiz_png/5CmZha6ohm38sDnEfwzjLtq29sCwghGUjmFhN5danpeEvVtb5WDldZDnQ2ycAe4FIymxLYyBbQyQfk54eflBDA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> 文章的核心观点是：在生成式 AI 时代，领导一个工程团队不是为了让代码写得更快，而是要让软件做得更好。">
+<meta property="og:title" content="AI 时代下的工程领导力：如何打造高效团队 - 来自谷歌工程负责人、Chrome 开发者的宝贵经验分享">
+<meta property="og:description" content="Original 邵猛 *2025年03月25日 19:32*
+
+今天偶然读到 Chrome 开发者、Google 工程负责人、著名技术书籍作者 - Addy Osmani 的一篇文章 「 Leading Effective Engineering Teams in the Age of GenAI」 ，讲的特别好，对于产品和研发方向如何变得高效，不管你是团队领导者、还是团队成员，都很有价值，分享给朋友们，可以先看我的阅读笔记，针对自己感兴趣的部门再阅读原文（推荐阅读，作者信息和文章链接放在文末）
+
+![Image](https://mmbiz.qpic.cn/mmbiz_png/5CmZha6ohm38sDnEfwzjLtq29sCwghGUjmFhN5danpeEvVtb5WDldZDnQ2ycAe4FIymxLYyBbQyQfk54eflBDA/640?wx_fmt=png&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> 文章的核心观点是：在生成式 AI 时代，领导一个工程团队不是为了让代码写得更快，而是要让软件做得更好。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/AI%20-shi-dai-xia-de-gong-cheng-ling-dao-li-%EF%BC%9A-ru-he-da-zao-gao-xiao-tuan-dui-%20-%20-lai-zi-gu-ge-gong-cheng-fu-ze-ren-%E3%80%81Chrome%20-kai-fa-zhe-de-bao-gui-jing-yan-fen-xiang.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>AI 时代下的工程领导力：如何打造高效团队 - 来自谷歌工程负责人、Chrome 开发者的宝贵经验分享</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">AI 时代下的工程领导力：如何打造高效团队 - 来自谷歌工程负责人、Chrome 开发者的宝贵经验分享</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/33" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>Original 邵猛 <em>2025年03月25日 19:32</em></p>
+<p>今天偶然读到 Chrome 开发者、Google 工程负责人、著名技术书籍作者 - Addy Osmani 的一篇文章 「 Leading Effective Engineering Teams in the Age of GenAI」 ，讲的特别好，对于产品和研发方向如何变得高效，不管你是团队领导者、还是团队成员，都很有价值，分享给朋友们，可以先看我的阅读笔记，针对自己感兴趣的部门再阅读原文（推荐阅读，作者信息和文章链接放在文末）</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/129c02cf5ec83a8406557f30940aebeb0ddda63975d660f691de84e42343a31c/68747470733a2f2f6d6d62697a2e717069632e636e2f6d6d62697a5f706e672f35436d5a6861366f686d333873446e4566777a6a4c74713239734377676847556a6d46684e3564616e706545765674623557446c645a446e513279634165344649796d784c59794262517951666b353465666c4244412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31"><img src="https://camo.githubusercontent.com/129c02cf5ec83a8406557f30940aebeb0ddda63975d660f691de84e42343a31c/68747470733a2f2f6d6d62697a2e717069632e636e2f6d6d62697a5f706e672f35436d5a6861366f686d333873446e4566777a6a4c74713239734377676847556a6d46684e3564616e706545765674623557446c645a446e513279634165344649796d784c59794262517951666b353465666c4244412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d312677785f636f3d31" alt="Image" data-canonical-src="https://mmbiz.qpic.cn/mmbiz_png/5CmZha6ohm38sDnEfwzjLtq29sCwghGUjmFhN5danpeEvVtb5WDldZDnQ2ycAe4FIymxLYyBbQyQfk54eflBDA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" style="max-width: 100%;"></a></p>
+<blockquote>
+<p>文章的核心观点是：在生成式 AI 时代，领导一个工程团队不是为了让代码写得更快，而是要让软件做得更好。AI 是个好帮手，但不能全靠它，领导者得搞清楚“更好”到底是啥意思，然后带着团队更快地往那儿走。</p>
+</blockquote>
+<p>先看看文章的结构：</p>
+<p>1. Introduction to GenAI in Engineering - 介绍生成式 AI 在工程领域的兴起及其重要性</p>
+<p>2. The Evolving Role of Engineering Leaders - 探讨生成式 AI 如何改变工程领导者的角色和职责</p>
+<p>3. Integrating GenAI into Engineering Workflows - 提供将 生成式 AI 融入工程工作流程的实用策略</p>
+<p>4. Managing Teams in the GenAI Era - 讨论在 生成式 AI 环境下如何有效管理和激励团队</p>
+<p>5. Case Studies: Leadership with GenAI - 展示通过 生成式 AI 实现成功领导的实际案例</p>
+<p>6. Conclusion: The Future of Engineering Leadership - 总结关键要点并展望工程领导力的未来</p>
+<h3>几个关键点</h3>
+<h4>1. AI 像个新手同事</h4>
+<p>· AI 就跟一个刚入行的小伙伴差不多，干活快、有热情，但经验少（跟你的团队相关的），容易出错。</p>
+<p>· 领导者得让团队学会“信任但要验证”，用 AI 生成的代码不能直接拿来就上，得好好检查，确保没问题。</p>
+<p>· 别让大家太依赖 AI，不然时间长了，自己的本事可能会退步。</p>
+<h4>2. 领导的活儿变了</h4>
+<p>· 以前领导可能盯着代码细节，现在得更多想想大方向，比如“我们为啥要做这个”。</p>
+<p>· AI 能帮你解决“怎么做”，但“为啥做”还得人来定。</p>
+<p>· 领导得干这些事儿：</p>
+<p>- 教团队怎么用好 AI，比如怎么问 AI 问题、怎么检查它给的东西。</p>
+<p>- 定个计划，把 AI 融入工作，保证跟公司的目标和底线不冲突。</p>
+<p>- 立规矩，确保代码安全、公平、不出乱子。</p>
+<h4>3. “70% 问题”</h4>
+<p>· AI 干活儿通常能搞定 70%，比如写个初稿很快，但剩下的 30%——需要人动脑子的部分——特别重要。</p>
+<p>· 领导得鼓励大家把 AI 当伙伴，别当拐杖。</p>
+<p>· 有些基本功，比如系统设计、调试问题，AI 还替代不了，得让团队继续练。</p>
+<h4>4. 知识悖论</h4>
+<p>· 有经验的老手用 AI，能干得更牛；但新手用 AI，可能稀里糊涂就信了错的东西。</p>
+<p>· 领导得多花心思带新手，让他们搞懂 AI 给的东西，不能瞎用。</p>
+<h4>5. 领导得干啥</h4>
+<p>· 建个“信任但要验证”的氛围，AI 的代码必须过关。</p>
+<p>· 经常培训团队，让他们用 AI 用得溜。</p>
+<p>· 别忘了基本功，比如怎么思考、怎么判断。</p>
+<p>· 盯着质量、代码好维护，还有知识传下去，别只图快。</p>
+<h3>一些具体内容</h3>
+<p>AI 在开发中的角色</p>
+<p>AI 工具正在改变开发者的日常工作方式。想象一下，根据谷歌的数据，超过 75% 的开发者 已经在用或者计划用 AI 工具。这意味着领导者得在提升效率、保证代码质量和培养团队技能之间找到一个平衡点。比如，既要让 AI 帮忙干活，又不能让团队完全依赖它。</p>
+<p>具体工具和例子</p>
+<p>AI 工具种类不少，功能也很实在，这里举几个例子：</p>
+<p>- GitHub Copilot： 微软研究发现，用它之后开发者的效率能提高 26% 。具体点说，每周提交的代码量多了 13.5% ，而且代码质量还稳得住。</p>
+<p>- Cursor： 这是一款基于 VSCode 的 AI IDE，特别擅长大改代码，比如一次性能搞定几百行的调整。</p>
+<p>- Windsurf： 又一个基于 VSCode 的 AI IDE，能干多步骤任务，比如自动跑测试、找 bug 还顺手修好。</p>
+<p>- Cline： 开源的 AI 助手，免费又好用，很适合预算不多但想试水的团队。</p>
+<p>面对挑战的解决方案</p>
+<p>AI 用起来爽，但也有些坑要躲开，这里是几招应对方法：</p>
+<p>- 别太依赖 AI： 可以试试搞个“无 AI 日”，让大家纯手工写代码，保持基本功。或者让老手带新人，教他们怎么聪明地用 AI。</p>
+<p>- 代码质量别翻车： 多搞几轮审查和测试，确保 AI 写的代码靠谱。微软研究说，用 Copilot 后代码质量没下降，说明管得好就没问题。</p>
+<p>- 隐私别漏： 用自托管的 AI 模型，别把敏感代码传出去。比如，三星就因为有人把代码泄露给 ChatGPT，直接禁了外部 AI。</p>
+<p>团队与技能提升</p>
+<p>AI 不只是工具，还能帮团队成长：</p>
+<p>- 别怕丢饭碗： KPMG 调查显示， 50% 的程序员 觉得 AI 能让他们干更有创意的事，而不是抢活儿。</p>
+<p>- 学点新技能： 团队得学会怎么跟 AI 打交道，比如怎么问问题、怎么检查 AI 的输出。微软数据说，新手用 AI 后效率能提升 35-40% ，跟老手的差距都缩小了。</p>
+<p>伦理与规范</p>
+<p>用 AI 得有规矩，不然容易乱套：</p>
+<p>- 责任得扛： AI 写的代码出了问题，人得担着，不能甩锅给工具。</p>
+<p>- 安全得保： 有些公司（比如 IBM）用 AI 扫描代码，找出安全漏洞，还会给改进建议，确保不出岔子。</p>
+<p>实际案例</p>
+<p>看看别人是怎么玩转 AI 的：</p>
+<p>- Bancolombia（拉美银行）： 用了 AI，代码产出速度快了 30% ，每年自动改动 1.8 万次 应用，每天部署 42 次 。</p>
+<p>- LambdaTest（测试平台）： 开发时间缩短 30% ，新功能上线快，新手也能快速上手。</p>
+<p>- Infosys（IT 服务公司）： 项目交付速度提升 20% ，代码更扎实，bug 也少了。</p>
+<h4>原文信息</h4>
+<p>作者信息：Addy Osmani - Engineering leader and senior thinker</p>
+<p><a href="https://addyosmani.com/" rel="nofollow">https://addyosmani.com/</a></p>
+<p>文章：Leading Effective Engineering Teams in the Age of GenAI</p>
+<p><a href="https://addyo.substack.com/p/leading-effective-engineering-teams-c9b" rel="nofollow">https://addyo.substack.com/p/leading-effective-engineering-teams-c9b</a></p>
+<p>欢迎朋友们关注❤️和星标⭐️</p>
+<p>素材来源官方媒体/网络新闻 <a href="https://mp.weixin.qq.com/s/" rel="nofollow">Read more</a></p>
+<p>素材来源官方媒体/网络新闻 <a href="https://mp.weixin.qq.com/s/" rel="nofollow">Read more</a> 继续滑动看下一个</p>
+<p>向上滑动看下一个 <a href="https://mp.weixin.qq.com/s/" rel="nofollow">Got It</a>: ， ， ， ， ， ， ， ， ， ， ， ，.Video Mini Program Like ，轻点两下取消赞 Wow ，轻点两下取消在看 Share Comment Favorite 听过</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
