@@ -1,5 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:16:48 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>OpenCoder：首个完全开源的顶级代码大模型，训练秘籍全公开，LLM×MapReduce，无需训练就超越GPT-4</title><link>https://winnerineast.github.io/post/OpenCoder%EF%BC%9A-shou-ge-wan-quan-kai-yuan-de-ding-ji-dai-ma-da-mo-xing-%EF%BC%8C-xun-lian-mi-ji-quan-gong-kai-%EF%BC%8CLLM%C3%97MapReduce%EF%BC%8C-wu-xu-xun-lian-jiu-chao-yue-GPT-4.html</link><description>大模型领域的发展日新月异，每天都有许多有趣的论文值得深入品读。</description><guid isPermaLink="true">https://winnerineast.github.io/post/OpenCoder%EF%BC%9A-shou-ge-wan-quan-kai-yuan-de-ding-ji-dai-ma-da-mo-xing-%EF%BC%8C-xun-lian-mi-ji-quan-gong-kai-%EF%BC%8CLLM%C3%97MapReduce%EF%BC%8C-wu-xu-xun-lian-jiu-chao-yue-GPT-4.html</guid><pubDate>Sat, 12 Jul 2025 12:16:21 +0000</pubDate></item><item><title>MiniMind：已开源！只要3小时就能训练一个26M的大模型，教程非常清晰我感觉我又行了！</title><link>https://winnerineast.github.io/post/MiniMind%EF%BC%9A-yi-kai-yuan-%EF%BC%81-zhi-yao-3-xiao-shi-jiu-neng-xun-lian-yi-ge-26M-de-da-mo-xing-%EF%BC%8C-jiao-cheng-fei-chang-qing-xi-wo-gan-jue-wo-you-xing-le-%EF%BC%81.html</link><description>很多人都觉得训练大模型是个很难的事情，包括大部分的程序员自己也搞不出来。</description><guid isPermaLink="true">https://winnerineast.github.io/post/MiniMind%EF%BC%9A-yi-kai-yuan-%EF%BC%81-zhi-yao-3-xiao-shi-jiu-neng-xun-lian-yi-ge-26M-de-da-mo-xing-%EF%BC%8C-jiao-cheng-fei-chang-qing-xi-wo-gan-jue-wo-you-xing-le-%EF%BC%81.html</guid><pubDate>Sat, 12 Jul 2025 12:15:48 +0000</pubDate></item><item><title>DeepSearcher开源：告别传统RAG，私有数据+Deepseek，打造本地版Deep Research</title><link>https://winnerineast.github.io/post/DeepSearcher-kai-yuan-%EF%BC%9A-gao-bie-chuan-tong-RAG%EF%BC%8C-si-you-shu-ju-%2BDeepseek%EF%BC%8C-da-zao-ben-di-ban-Deep%20Research.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:17:19 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>大一统2.0！CNN, RNN, GNN和Transformer模型的统一表示和泛化误差理论分析</title><link>https://winnerineast.github.io/post/da-yi-tong-2.0%EF%BC%81CNN%2C%20RNN%2C%20GNN-he-Transformer-mo-xing-de-tong-yi-biao-shi-he-fan-hua-wu-cha-li-lun-fen-xi.html</link><description>
+Original 让你更懂AI的 PaperWeekly
+
+ _2024年11月29日 22:37_
+
+![Image](https://mmbiz.qpic.cn/mmbiz_gif/Psho9dm7oDHKVtfYDubjKdZRUjAfBQQicXjoZWJ3qnK42ooD4eeJUfJBM4SSZVa2RE5lO0j6rWwzliby0j9u4bDg/640?wx_fmt=gif&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1)
+
+![Image](https://mmbiz.qpic.cn/mmbiz_png/Psho9dm7oDEpFIiarozsxcDrKF6ib5G4gvAXKjq7NY1gVRh2S7gokhal1S23ibxkic9LYeQLwQ6AjZOx1jUKNPaFUw/640?wx_fmt=png&amp;from=appmsg&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1)
+
+**论文标题：**
+
+RPN 2: On Interdependence Function Learning Towards Unifying and Advancing CNN, RNN, GNN, and Transformer
+
+**论文链接：**
+
+https://arxiv.org/abs/2411.11162
+
+**官方网站：**
+
+https://www.tinybig.org/
+
+**代码链接：**
+
+https://github.com/jwzhanggy/tinyBIG
+
+**PyPI Package:**
+
+https://pypi.org/project/tinybig/
+
+  
+
+  
+
+![Image](data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)
+
+**背景介绍**
+
+![Image](data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3E%3C/title%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0'%3E%3Cg transform='translate(-249.000000, -126.000000)' fill='%23FFFFFF'%3E%3Crect x='249' y='126' width='1' height='1'%3E%3C/rect%3E%3C/g%3E%3C/g%3E%3C/svg%3E)
+
+本文是基于我们之前的 [RPN（Reconciled Polynomial Network）](https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&amp;mid=2247674123&amp;idx=1&amp;sn=1e17a56a803e6a7be051ebd04c5bf526&amp;token=1293808530&amp;lang=zh_CN&amp;scene=21#wechat_redirect)研究的后续工作。</description><guid isPermaLink="true">https://winnerineast.github.io/post/da-yi-tong-2.0%EF%BC%81CNN%2C%20RNN%2C%20GNN-he-Transformer-mo-xing-de-tong-yi-biao-shi-he-fan-hua-wu-cha-li-lun-fen-xi.html</guid><pubDate>Sat, 12 Jul 2025 12:16:55 +0000</pubDate></item><item><title>OpenCoder：首个完全开源的顶级代码大模型，训练秘籍全公开，LLM×MapReduce，无需训练就超越GPT-4</title><link>https://winnerineast.github.io/post/OpenCoder%EF%BC%9A-shou-ge-wan-quan-kai-yuan-de-ding-ji-dai-ma-da-mo-xing-%EF%BC%8C-xun-lian-mi-ji-quan-gong-kai-%EF%BC%8CLLM%C3%97MapReduce%EF%BC%8C-wu-xu-xun-lian-jiu-chao-yue-GPT-4.html</link><description>大模型领域的发展日新月异，每天都有许多有趣的论文值得深入品读。</description><guid isPermaLink="true">https://winnerineast.github.io/post/OpenCoder%EF%BC%9A-shou-ge-wan-quan-kai-yuan-de-ding-ji-dai-ma-da-mo-xing-%EF%BC%8C-xun-lian-mi-ji-quan-gong-kai-%EF%BC%8CLLM%C3%97MapReduce%EF%BC%8C-wu-xu-xun-lian-jiu-chao-yue-GPT-4.html</guid><pubDate>Sat, 12 Jul 2025 12:16:21 +0000</pubDate></item><item><title>MiniMind：已开源！只要3小时就能训练一个26M的大模型，教程非常清晰我感觉我又行了！</title><link>https://winnerineast.github.io/post/MiniMind%EF%BC%9A-yi-kai-yuan-%EF%BC%81-zhi-yao-3-xiao-shi-jiu-neng-xun-lian-yi-ge-26M-de-da-mo-xing-%EF%BC%8C-jiao-cheng-fei-chang-qing-xi-wo-gan-jue-wo-you-xing-le-%EF%BC%81.html</link><description>很多人都觉得训练大模型是个很难的事情，包括大部分的程序员自己也搞不出来。</description><guid isPermaLink="true">https://winnerineast.github.io/post/MiniMind%EF%BC%9A-yi-kai-yuan-%EF%BC%81-zhi-yao-3-xiao-shi-jiu-neng-xun-lian-yi-ge-26M-de-da-mo-xing-%EF%BC%8C-jiao-cheng-fei-chang-qing-xi-wo-gan-jue-wo-you-xing-le-%EF%BC%81.html</guid><pubDate>Sat, 12 Jul 2025 12:15:48 +0000</pubDate></item><item><title>DeepSearcher开源：告别传统RAG，私有数据+Deepseek，打造本地版Deep Research</title><link>https://winnerineast.github.io/post/DeepSearcher-kai-yuan-%EF%BC%9A-gao-bie-chuan-tong-RAG%EF%BC%8C-si-you-shu-ju-%2BDeepseek%EF%BC%8C-da-zao-ben-di-ban-Deep%20Research.html</link><description>
 原创 和你一起进步的 Zilliz
 
  _2025年02月13日 19:06_
