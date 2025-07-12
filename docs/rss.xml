@@ -1,5 +1,103 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:02:45 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>MUVERA-让多向量检索与单向量搜索一样快</title><link>https://winnerineast.github.io/post/MUVERA--rang-duo-xiang-liang-jian-suo-yu-dan-xiang-liang-sou-suo-yi-yang-kuai.html</link><description>做RAG的朋友一定要看看 Google 这个新论文——MUVERA：让多向量检索与单向量搜索一样快 大家在RAG的检索内容过程都会遇到这种情况，如果用传统搜索（例如ElasticSearch），文档 = 1 个向量 → 快速但不准确。</description><guid isPermaLink="true">https://winnerineast.github.io/post/MUVERA--rang-duo-xiang-liang-jian-suo-yu-dan-xiang-liang-sou-suo-yi-yang-kuai.html</guid><pubDate>Sat, 12 Jul 2025 12:02:17 +0000</pubDate></item><item><title>Deep Research,  WebDancer,  WebSailor</title><link>https://winnerineast.github.io/post/Deep%20Research%2C%20%20WebDancer%2C%20%20WebSailor.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:03:39 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Optimizing ColPali for Retrieval at Scale, 13x Faster Results</title><link>https://winnerineast.github.io/post/Optimizing%20ColPali%20for%20Retrieval%20at%20Scale%2C%2013x%20Faster%20Results.html</link><description>
+ColPali is a fascinating leap in document retrieval. Its precision in handling visually rich PDFs is phenomenal, but scaling it to handle real-world datasets comes with its share of computational challenges.
+
+Here’s how we solved these challenges to make ColPali 13x faster without sacrificing the precision it’s known for.
+
+## [](https://qdrant.tech/blog/colpali-qdrant-optimization/#the-scaling-dilemma)The Scaling Dilemma
+
+ColPali generates **1,030 vectors for just one page of a PDF.** While this is manageable for small-scale tasks, in a real-world production setting where you may need to store hundreds od thousands of PDFs, the challenge of scaling becomes significant.
+
+Consider this scenario:
+
+- **Dataset Size:** 20,000 PDF pages.
+- **Number of Vectors:** Each page generates ~1,000 vectors of 128 dimensions.
+
+The total number of comparisons is calculated as:
+
+1,000⋅1,000⋅20,000⋅128=2.56×1012 comparisons!
+
+That’s trillions of comparisons needed to build the index. Even advanced indexing algorithms like **HNSW** struggle with this scale, as computational costs grow quadratically with amount of multivectors per page.
+
+We turned to a hybrid optimization strategy combining **pooling** (to reduce computational overhead) and **reranking** (to preserve accuracy).
+
+Before we go any deeper, watch our [Webinar video](https://www.youtube.com/live/_h6SN1WwnLs?si=n8gwiIjJ5dnfucXC) for the full demo walkthrough.
+
+For those eager to explore, the [codebase is available here](https://github.com/qdrant/demo-colpali-optimized).
+
+## [](https://qdrant.tech/blog/colpali-qdrant-optimization/#two-stage-retrieval-process)Two-Stage Retrieval Process
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#pooling)Pooling
+
+Pooling is well-known in machine learning as a way to compress data while keeping important information. For ColPali, we reduced 1,030 vectors per page to just 38 vectors by pooling rows in the document’s 32x32 grid.
+
+![](https://qdrant.tech/blog/colpali-optimization/rows.png)
+
+Max and mean pooling are the two most popular types, so we decided to test both approaches on the rows of the grid. Likewise, we could apply pooling on columns, which we plan to explore in the future.
+
+- **Mean Pooling:** Averages values across rows.
+- **Max Pooling:** Selects the maximum value for each feature.
+
+32 vectors represent the pooled rows, while 6 vectors encode contextual information derived from ColPali’s special tokens (e.g., for the beginning of the sequence, and task-specific instructions like “Describe the image”).
+
+For our experiments, we chose to preserve these 6 additional vectors.
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#the-colpali-as-a-reranker-experiment)The “ColPali as a Reranker” Experiment
+
+Pooling drastically reduces retrieval costs, but there’s a risk of losing fine-grained precision. To address this, we implemented a **two-stage retrieval system**, where embeddings generated with ColPali were max/mean pooled by grid rows to create lightweight vectors for the initial retrieval stage, followed by reranking with the original high-resolution embeddings:
+
+1. **Pooled Retrieval:** Quickly retrieves the top 200 candidates using lightweight pooled embeddings.
+2. **Full Reranking:** Refines these candidates using the original, high-resolution embeddings, delivering the final top 20 results.
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#implementation)Implementation
+
+We created a custom dataset with over 20,000 unique PDF pages by merging:
+
+- **ViDoRe Benchmark:** Designed for PDF documents retrieval evaluation.
+- **UFO Dataset:** Visually rich documents paired with synthetic queries [generated by Daniel van Strien](https://huggingface.co/datasets/davanstrien/ufo-ColPali).
+- **DocVQA Dataset:** A large set of document-derived Q&amp;A pairs.
+
+Each document was processed into 32x32 grids, generating both full-resolution and pooled embeddings. **Full-resolution** embeddings consisted of 1,030 vectors per page, while **pooled embeddings** included mean and max pooling variants.
+
+All embeddings were were stored and kept in RAM to avoid caching effects during retrieval speed experiments.
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#experiment-setup)Experiment Setup
+
+We evaluated retrieval quality with 1,000 queries. First, pooled embeddings retrieved the top 200 candidates. Then, full-resolution embeddings reranked them to produce the final top 20 results.
+
+To measure performance, we used:
+
+- **NDCG@20:** Measures ranking quality (how well the top results align with expectations).
+- **Recall@20:** Measures the overlap between this method and the original ColPali retrieval.
+
+## [](https://qdrant.tech/blog/colpali-qdrant-optimization/#results)Results
+
+The experiment showed promising improvements in speed and accuracy. Retrieval time improved **13x** compared to using full-resolution embeddings alone.
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#metrics)Metrics
+
+|Pooling Type|NDCG@20|Recall@20|
+|---|---|---|
+|**Mean**|0.952|0.917|
+|**Max**|0.759|0.656|
+
+Mean pooling preserved nearly identical quality to the original ColPali, with NDCG@20 = 0.952 and Recall@20 = 0.917. Max pooling did not perform well enough to be considered viable since it sacrificed significant accuracy without delivering a meaningful speed advantage.
+
+## [](https://qdrant.tech/blog/colpali-qdrant-optimization/#whats-next)What’s Next?
+
+Future experiments could push these results even further:
+
+- Investigating column-wise pooling for additional compression.
+- Testing half-precision (float16) vectors to balance memory use and speed.
+- Skipping special multivectors during prefetch to streamline retrieval.
+- Combining quantization with oversampling for even faster search.
+
+### [](https://qdrant.tech/blog/colpali-qdrant-optimization/#try-it-yourself)Try It Yourself
+
+Curious to see this in action? Explore the full codebase and experiment with ColPali optimizations:
+
+- **Demo Notebook:** [GitHub Repository](https://github.com/qdrant/demo-colpali-optimized)
+- **Webinar Walkthrough:** [Watch Here](https://www.youtube.com/live/_h6SN1WwnLs?si=n8gwiIjJ5dnfucXC)。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Optimizing%20ColPali%20for%20Retrieval%20at%20Scale%2C%2013x%20Faster%20Results.html</guid><pubDate>Sat, 12 Jul 2025 12:03:14 +0000</pubDate></item><item><title>MUVERA-让多向量检索与单向量搜索一样快</title><link>https://winnerineast.github.io/post/MUVERA--rang-duo-xiang-liang-jian-suo-yu-dan-xiang-liang-sou-suo-yi-yang-kuai.html</link><description>做RAG的朋友一定要看看 Google 这个新论文——MUVERA：让多向量检索与单向量搜索一样快 大家在RAG的检索内容过程都会遇到这种情况，如果用传统搜索（例如ElasticSearch），文档 = 1 个向量 → 快速但不准确。</description><guid isPermaLink="true">https://winnerineast.github.io/post/MUVERA--rang-duo-xiang-liang-jian-suo-yu-dan-xiang-liang-sou-suo-yi-yang-kuai.html</guid><pubDate>Sat, 12 Jul 2025 12:02:17 +0000</pubDate></item><item><title>Deep Research,  WebDancer,  WebSailor</title><link>https://winnerineast.github.io/post/Deep%20Research%2C%20%20WebDancer%2C%20%20WebSailor.html</link><description>
 - 问：“一部知名电视剧：女二 1993 年入行；女一现任丈夫是浙江湖州人；男一六年后登上春晚。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Deep%20Research%2C%20%20WebDancer%2C%20%20WebSailor.html</guid><pubDate>Sat, 12 Jul 2025 12:01:43 +0000</pubDate></item><item><title>Building effective agents</title><link>https://winnerineast.github.io/post/Building%20effective%20agents.html</link><description>Over the past year, we've worked with dozens of teams building large language model (LLM) agents across industries. Consistently, the most successful implementations weren't using complex frameworks or specialized libraries. Instead, they were building with simple, composable patterns.
 
 In this post, we share what we’ve learned from working with our customers and building agents ourselves, and give practical advice for developers on building effective agents.
