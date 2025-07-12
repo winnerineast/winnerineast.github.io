@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+<img width='2000' height='1125' alt='Image' src='https://github.com/user-attachments/assets/2a7cad0a-f31b-4ff1-b153-7c14a45da4ba' />
+
+「来自 Sapphire Ventures 的重要文章，通过设计、数据、专业领域、动态特性、商业分发五大维度，探讨 AI 如何从'功能附加'转向'核心驱动'，重塑下一代企业软件的发展方向」 「AI 原生应用的定义」 - AI 是应用的核心体验，而不只是附加功能 - 建立在基础 AI 能力之上 - 能突破传统的速度、规模和成本限制 - 能持续改进和优化 - 包含一定程度的专有 AI 技术 「市场现状」 - 2024年 AI 原生应用的融资达到85亿美元 - 已有至少47家 AI 原生应用公司年收入超过2500万美元 - 预计明年将有同等数量公司年收入超过5000万美元 「评估框架(5个维度)」 A. 设计(Design): - 创建新的交互模式 - 加速反馈循环 - 开发 AI 原生系统架构 B. 数据(Data): - 提高端到端数据管理的严谨性 - 利用潜在数据价值 - 创建新的专有数据集 C. 领域专长(Domain Expertise): - 将特定领域活动转化为 AI 加速的工作流 - 大规模快速合成 - 结合全局和本地知识 D. 动态性(Dynamism): - 实时优化性能与成本权衡 - 创建生成式客户旅程 - 实现多层次超个性化 E. 分发(Distribution): - 增加定价和包装灵活性 - 实现新商业模式。">
+<meta property="og:title" content="解构 AI 原生应用 - 企业软件的未来图景">
+<meta property="og:description" content="
+<img width='2000' height='1125' alt='Image' src='https://github.com/user-attachments/assets/2a7cad0a-f31b-4ff1-b153-7c14a45da4ba' />
+
+「来自 Sapphire Ventures 的重要文章，通过设计、数据、专业领域、动态特性、商业分发五大维度，探讨 AI 如何从'功能附加'转向'核心驱动'，重塑下一代企业软件的发展方向」 「AI 原生应用的定义」 - AI 是应用的核心体验，而不只是附加功能 - 建立在基础 AI 能力之上 - 能突破传统的速度、规模和成本限制 - 能持续改进和优化 - 包含一定程度的专有 AI 技术 「市场现状」 - 2024年 AI 原生应用的融资达到85亿美元 - 已有至少47家 AI 原生应用公司年收入超过2500万美元 - 预计明年将有同等数量公司年收入超过5000万美元 「评估框架(5个维度)」 A. 设计(Design): - 创建新的交互模式 - 加速反馈循环 - 开发 AI 原生系统架构 B. 数据(Data): - 提高端到端数据管理的严谨性 - 利用潜在数据价值 - 创建新的专有数据集 C. 领域专长(Domain Expertise): - 将特定领域活动转化为 AI 加速的工作流 - 大规模快速合成 - 结合全局和本地知识 D. 动态性(Dynamism): - 实时优化性能与成本权衡 - 创建生成式客户旅程 - 实现多层次超个性化 E. 分发(Distribution): - 增加定价和包装灵活性 - 实现新商业模式。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/jie-gou-%20AI%20-yuan-sheng-ying-yong-%20-%20-qi-ye-ruan-jian-de-wei-lai-tu-jing.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>解构 AI 原生应用 - 企业软件的未来图景</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">解构 AI 原生应用 - 企业软件的未来图景</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/16" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2a7cad0a-f31b-4ff1-b153-7c14a45da4ba"><img width="2000" height="1125" alt="Image" src="https://github.com/user-attachments/assets/2a7cad0a-f31b-4ff1-b153-7c14a45da4ba" style="max-width: 100%; height: auto; max-height: 1125px;"></a></p>
+<p>「来自 Sapphire Ventures 的重要文章，通过设计、数据、专业领域、动态特性、商业分发五大维度，探讨 AI 如何从"功能附加"转向"核心驱动"，重塑下一代企业软件的发展方向」 「AI 原生应用的定义」 - AI 是应用的核心体验，而不只是附加功能 - 建立在基础 AI 能力之上 - 能突破传统的速度、规模和成本限制 - 能持续改进和优化 - 包含一定程度的专有 AI 技术 「市场现状」 - 2024年 AI 原生应用的融资达到85亿美元 - 已有至少47家 AI 原生应用公司年收入超过2500万美元 - 预计明年将有同等数量公司年收入超过5000万美元 「评估框架(5个维度)」 A. 设计(Design): - 创建新的交互模式 - 加速反馈循环 - 开发 AI 原生系统架构 B. 数据(Data): - 提高端到端数据管理的严谨性 - 利用潜在数据价值 - 创建新的专有数据集 C. 领域专长(Domain Expertise): - 将特定领域活动转化为 AI 加速的工作流 - 大规模快速合成 - 结合全局和本地知识 D. 动态性(Dynamism): - 实时优化性能与成本权衡 - 创建生成式客户旅程 - 实现多层次超个性化 E. 分发(Distribution): - 增加定价和包装灵活性 - 实现新商业模式。</p>
+<p><a href="https://sapphireventures.com/" rel="nofollow">Sapphire<strong>Ventures</strong></a></p>
+<p>Partnering with expansion-stage, enterprise software companies that we believe can become category leaders.</p>
+<ul>
+<li>
+<p><a href="https://sapphireventures.com/" rel="nofollow">Home</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/companies/" rel="nofollow">Companies</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/team/?ventures-investment-team" rel="nofollow">Team</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/portfolio-growth/" rel="nofollow">Portfolio Growth</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/perspectives/" rel="nofollow">Perspectives</a></p>
+</li>
+<li>
+<p><a href="https://twitter.com/SapphireVC" rel="nofollow"></a></p>
+</li>
+<li>
+<p><a href="https://www.linkedin.com/company/sapphirevc/" rel="nofollow"></a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/channel/UCU15ELvJ1AcdL-c_-n_JCjQ" rel="nofollow"></a></p>
+</li>
+</ul>
+<p><a href="https://sapphireventures.com/sapphire-partners/" rel="nofollow">Sapphire<strong>Partners</strong></a></p>
+<p>Limited partner investing in exceptional early-stage venture fund managers.</p>
+<ul>
+<li>
+<p><a href="https://sapphireventures.com/sapphire-partners/" rel="nofollow">Home</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/team/?partners-investment-team" rel="nofollow">Team</a></p>
+</li>
+<li>
+<p><a href="https://openlp.sapphireventures.com/" rel="nofollow">OpenLP</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/perspectives/" rel="nofollow">Perspectives</a></p>
+</li>
+<li>
+<p><a href="https://twitter.com/SapphirePrtnrs" rel="nofollow"></a></p>
+</li>
+<li>
+<p><a href="https://www.linkedin.com/company/sapphire-partners-lp/" rel="nofollow"></a></p>
+</li>
+</ul>
+<p><a href="https://sapphireventures.com/funds/sapphire-sport/" rel="nofollow">Sapphire<strong>Sport</strong></a></p>
+<p>Partnering with early-stage companies at the nexus of technology and culture.</p>
+<ul>
+<li>
+<p><a href="https://sapphireventures.com/funds/sapphire-sport/" rel="nofollow">Home</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/sapphire-sport/#our-portfolio" rel="nofollow">Companies</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/team/?sport-investment-team" rel="nofollow">Team</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/perspectives/" rel="nofollow">Perspectives</a></p>
+</li>
+<li>
+<p><a href="https://www.linkedin.com/company/sapphire-sport/?" rel="nofollow"></a></p>
+</li>
+</ul>
+<p><a href="https://sapphireventures.com/" rel="nofollow"></a></p>
+<ul>
+<li><a href="https://sapphireventures.com/contact/" rel="nofollow">Contact</a></li>
+</ul>
+<p><a href="https://sapphireventures.com/" rel="nofollow"><img src="https://camo.githubusercontent.com/ed6cdc1c1673f7a53282cf6444d3c03826cfeecaa77c8be3418178dab28613f8/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f7468656d65732f53617070686972652f6173736574732f53617070686972655f4c6f676f5f57686974655f557064617465642e737667" alt="Sapphire Ventures" data-canonical-src="https://sapphireventures.com/wp-content/themes/Sapphire/assets/Sapphire_Logo_White_Updated.svg" style="max-width: 100%;"></a></p>
+<p><strong><a href="https://sapphireventures.com/perspectives/" rel="nofollow">Blog Post</a></strong><a href="https://sapphireventures.com/perspectives/?type=all&amp;topic=data-ai" rel="nofollow">Data/AI</a><a href="https://sapphireventures.com/perspectives/" rel="nofollow">Investment Themes</a></p>
+<h1>AI-Native Applications: A Framework for Evaluating the Future of Enterprise Software</h1>
+<p>Written by</p>
+<ul>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/1fc44948ca1026ef2601e4218f81f9c8cde1dc7e746c830753f38d5b5b343482/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f43617468795f47616f5f4865616473686f745f63726f707065642e706e67"><img src="https://camo.githubusercontent.com/1fc44948ca1026ef2601e4218f81f9c8cde1dc7e746c830753f38d5b5b343482/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f43617468795f47616f5f4865616473686f745f63726f707065642e706e67" alt="Cathy_Gao_Headshot_cropped" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2021/11/Cathy_Gao_Headshot_cropped.png" style="max-width: 100%;"></a></p>
+<p>Cathy Gao</p>
+<p>Partner</p>
+<p>](<a href="https://sapphireventures.com/team-member/cathy-gao/" rel="nofollow">https://sapphireventures.com/team-member/cathy-gao/</a>)</p>
+</li>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/26876f68b03d18c85bf961274e733ab822b78d744aace50d201d4ba9359cf29c/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f5765622d4b6576696e5f4275726b652d333739312d456469743732302e6a7067"><img src="https://camo.githubusercontent.com/26876f68b03d18c85bf961274e733ab822b78d744aace50d201d4ba9359cf29c/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f5765622d4b6576696e5f4275726b652d333739312d456469743732302e6a7067" alt="" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2021/11/Web-Kevin_Burke-3791-Edit720.jpg" style="max-width: 100%;"></a></p>
+<p>Kevin Burke</p>
+<p>Partner, Strategy</p>
+<p>](<a href="https://sapphireventures.com/team-member/kevin-burke/" rel="nofollow">https://sapphireventures.com/team-member/kevin-burke/</a>)</p>
+</li>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f954a60cea1feadb8c60423c2013bab5c74ee9ada7733aef0025df2f1e1bdc96/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31302f4c6f752d536567616c6c2e706e67"><img src="https://camo.githubusercontent.com/f954a60cea1feadb8c60423c2013bab5c74ee9ada7733aef0025df2f1e1bdc96/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31302f4c6f752d536567616c6c2e706e67" alt="Lou Segall" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/10/Lou-Segall.png" style="max-width: 100%;"></a></p>
+<p>Lou Segall</p>
+<p>Director, Strategy</p>
+<p>](<a href="https://sapphireventures.com/team-member/lou-segall/" rel="nofollow">https://sapphireventures.com/team-member/lou-segall/</a>)</p>
+</li>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/05893fab6c9ea21b2c8e10a87bb953666fb9c66747bbdc92f293387170a64fc6/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032332f30372f4a616b652d44656c6c615061737175612e706e67"><img src="https://camo.githubusercontent.com/05893fab6c9ea21b2c8e10a87bb953666fb9c66747bbdc92f293387170a64fc6/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032332f30372f4a616b652d44656c6c615061737175612e706e67" alt="Jake DellaPasqua" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2023/07/Jake-DellaPasqua.png" style="max-width: 100%;"></a></p>
+<p>Jake DellaPasqua</p>
+<p>Associate</p>
+<p>](<a href="https://sapphireventures.com/team-member/jake-dellapasqua/" rel="nofollow">https://sapphireventures.com/team-member/jake-dellapasqua/</a>)</p>
+</li>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ad84795a6f8d08d344ff74d643e381d47ca42ac5b67ab4e1cf55f3b2fdb443b8/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f41646974796152656464792d6d696e2e6a7067"><img src="https://camo.githubusercontent.com/ad84795a6f8d08d344ff74d643e381d47ca42ac5b67ab4e1cf55f3b2fdb443b8/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032312f31312f41646974796152656464792d6d696e2e6a7067" alt="" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2021/11/AdityaReddy-min.jpg" style="max-width: 100%;"></a></p>
+<p>Aditya Reddy</p>
+<p>Senior Associate</p>
+<p>](<a href="https://sapphireventures.com/team-member/aditya-reddy/" rel="nofollow">https://sapphireventures.com/team-member/aditya-reddy/</a>)</p>
+</li>
+<li>
+<p>[</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0ad9c2a33ded3611db3fd460e7b56dcaf8e9a6e24d4f5c30a22c62894d1294ef/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f30382f4d697374792d4c69616f5f6865616473686f745f2e706e67"><img src="https://camo.githubusercontent.com/0ad9c2a33ded3611db3fd460e7b56dcaf8e9a6e24d4f5c30a22c62894d1294ef/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f30382f4d697374792d4c69616f5f6865616473686f745f2e706e67" alt="Misty Liao_headshot_" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/08/Misty-Liao_headshot_.png" style="max-width: 100%;"></a></p>
+<p>Misty Liao</p>
+<p>Associate</p>
+<p>](<a href="https://sapphireventures.com/team-member/misty-liao/" rel="nofollow">https://sapphireventures.com/team-member/misty-liao/</a>)</p>
+</li>
+</ul>
+<p>Published</p>
+<p>November 19, 2024</p>
+<p>Table of contents</p>
+<ul>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#01" rel="nofollow">Defining AI-Native Applications</a>  </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#02" rel="nofollow">AI-Native: A Temporary Label for an Evolving Landscape</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#03" rel="nofollow">A Framework for Evaluating AI-Native Applications</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#04" rel="nofollow">Design</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#05" rel="nofollow">Data</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#06" rel="nofollow">Domain Expertise</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#07" rel="nofollow">Dynamism</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#08" rel="nofollow">Distribution</a> </li>
+<li><a href="https://sapphireventures.com/blog/ai-native-applications/#09" rel="nofollow">The Path Forward</a> </li>
+</ul>
+<p>Share</p>
+<ul>
+<li><a href="https://twitter.com/intent/tweet?url=https://sapphireventures.com/blog/ai-native-applications/&amp;text=AI-Native%20Applications:%20A%20Framework%20for%20Evaluating%20the%20Future%20of%20Enterprise%20Software&amp;via=" title="Share on Twitter" rel="nofollow"><img src="https://camo.githubusercontent.com/2c78c64c1f2b6dc121f18eb038e9c9da1ebda8f4c8017cbc8fa210c6e4cbb3a5/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f7468656d65732f53617070686972652f6173736574732f53617070686972655f585f4c6f676f2e737667" alt="Share on Twitter" data-canonical-src="https://sapphireventures.com/wp-content/themes/Sapphire/assets/Sapphire_X_Logo.svg" style="max-width: 100%;"></a></li>
+<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://sapphireventures.com/blog/ai-native-applications/&amp;title=AI-Native%20Applications:%20A%20Framework%20for%20Evaluating%20the%20Future%20of%20Enterprise%20Software" title="Share on Linkedin" rel="nofollow"><img src="https://camo.githubusercontent.com/81ee88a01fe6e0142d2aad8906708475038732f98d126676aa34504cc53c78f6/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f7468656d65732f53617070686972652f6173736574732f69636f6e2d6c696e6b6564696e2e706e67" alt="Share on Linkedin" data-canonical-src="https://sapphireventures.com/wp-content/themes/Sapphire/assets/icon-linkedin.png" style="max-width: 100%;"></a></li>
+</ul>
+<p>Over the past two years, there has been considerable discussion in the venture community and broader technology ecosystem about the coming era of AI-native applications. We have seen many frameworks outlining the progression of value capture from the infrastructure to platform to application layers, a surge of interest in the evolution of AI agents and countless deep dives on pick-your-favorite vertical AI.  </p>
+<p>However, what’s been less explored are the distinct characteristics that will define AI-native companies and the ways the enterprise software landscape will evolve. In other words, what truly constitutes an ‘AI-native’ application, and what are the competitive implications for such companies in the years ahead?  </p>
+<p>This is our attempt to address those questions directly, blending real-time observations from the field and forward-looking insights based on emerging market trends. Our conclusions are drawn from extensive research, hands-on product testing and demos, direct collaboration with startup founders and, critically, numerous in-depth discussions with product and technical leaders across companies of all sizes who are actively building with Generative AI.  </p>
+<p>Although the current wave of excitement and investment in GenAI began with an application (ChatGPT) in November 2022, the application layer has generally lagged behind other parts of the stack. Many critics of GenAI point to the absence of killer apps as proof that the technology has been overhyped. However, there’s growing evidence that the application layer is starting to catch up. </p>
+<p><a href="https://sapphireventures.com/wp-content/uploads/2024/11/By-the-numbers_AI-native-apps.png" rel="nofollow">Expand<img src="https://camo.githubusercontent.com/b17829e2ac934b4071cb89657704a3fbb891551efcfcce5edf7452e0a50b8a2a/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f42792d7468652d6e756d626572735f41492d6e61746976652d617070732e706e67" alt="By the numbers_AI native apps" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/By-the-numbers_AI-native-apps.png" style="max-width: 100%;"></a></p>
+<p>Funding for GenAI native applications surged in 2024, reaching $8.5B through the end of October and capturing a larger share of overall GenAI investment when compared to the last two years. In the last few months, we have seen announcements of major financing rounds by <a href="https://www.theinformation.com/articles/perplexity-nears-9-billion-valuation-in-investment-led-by-ivp?rc=bzpi4j" rel="nofollow">Perplexity</a> ($500M), <a href="https://techcrunch.com/2024/10/02/ai-coding-startup-poolside-raises-500m-from-ebay-nvidia-and-others/" rel="nofollow">Poolside</a> ($500M), <a href="https://techcrunch.com/2024/08/29/generative-ai-coding-startup-magic-lands-320m-investment-from-eric-schmidt-atlassian-and-others/" rel="nofollow">Magic</a> ($320M), <a href="https://www.cnbc.com/2024/10/28/bret-taylors-ai-startup-sierra-valued-at-4point5-billion-in-funding.html" rel="nofollow">Sierra</a> ($175M), <a href="https://siliconangle.com/2024/10/11/healthcare-ai-startup-abridge-reportedly-raising-250m-2-5b-valuation/" rel="nofollow">Abridge</a> ($250M), <a href="https://sapphireventures.com/blog/the-ultimate-work-ai-platform-why-were-excited-to-back-glean/" rel="nofollow">Glean</a>* ($260M), <a href="https://techcrunch.com/2024/11/12/generative-ai-startup-writer-raises-200m-at-a-1-9b-valuation/" rel="nofollow">Writer</a> ($200M) and <a href="https://www.prnewswire.com/news-releases/evenup-raises-135m-in-series-d-funding-and-launches-new-products-to-help-level-the-playing-field-in-personal-injury-cases-302270003.html" rel="nofollow">EvenUp</a> ($135M). While investment levels can signal market exuberance, the real proof lies in traction—and here, the momentum is unmistakable. Over the past few months, a growing number of AI-native applications have started to show significant revenue traction. By our count, there are now at least 47 AI-native applications in the market generating $25M+ in ARR vs. 34 at the beginning of the year, and we believe we will likely see an equivalent number north of $50M ARR by this time next year. Early successes in fields like code assistance, customer support, and marketing are expanding into new functions and vertical use cases. Startups and incumbents alike continue to announce ambitious AI-native offerings. Simply put, today’s ecosystem of AI-native applications is much more robust than it was a year, or even a quarter ago, in our opinion. </p>
+<p><a href="https://sapphireventures.com/wp-content/uploads/2024/11/11.20.24_AI-Native-App-Stack-Market-Map_vPublish-Final.png" rel="nofollow">Expand<img src="https://camo.githubusercontent.com/90c9fcc2bfd97e93812f914224fca3e3491d99aea0f761c64d05d66500cc5f70/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f31312e32302e32345f41492d4e61746976652d4170702d537461636b2d4d61726b65742d4d61705f765075626c6973682d46696e616c2e706e67" alt="11.20.24_AI Native App Stack Market Map_vPublish (Final)" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/11.20.24_AI-Native-App-Stack-Market-Map_vPublish-Final.png" style="max-width: 100%;"></a></p>
+<h2>Defining AI-Native Applications  </h2>
+<p> In our experience, an AI-native application means AI is central to the application’s experience, not just a supplementary feature. While the term is widely used, it’s definition—like much in the AI space—is loose and evolving. Drawing from our extensive research and conversations with builders at companies like Canva, Glean*, Meta, Runway, Figma, Abridge and others, we have developed what we believe is a bit more descriptive and nuanced definition: </p>
+<ul>
+<li>AI-native applications are built on foundational AI capabilities, like learning from large datasets, understanding context, or generating novel outputs. </li>
+<li>AI-native applications deliver outcomes that break traditional constraints of speed, scale and cost, enabling entirely new possibilities. </li>
+<li>AI-native applications are designed to continuously improve, both by leveraging advancements in underlying models and through feedback loops that refine performance using real-world data. </li>
+<li>AI-native applications involve some element of proprietary AI technology vs. 100% off-the-shelf capabilities (e.g., fine-tuning open-source models to improve specific features, model orchestration). </li>
+</ul>
+<p><a href="https://sapphireventures.com/wp-content/uploads/2024/11/Defining_AI-Native-Apps__.png" rel="nofollow">Expand<img src="https://camo.githubusercontent.com/e1d53eff958915274b96449a2a726235cbb98d6ae985a59c8ebb05b998c614da/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f446566696e696e675f41492d4e61746976652d417070735f5f2e706e67" alt="Defining_AI-Native Apps__" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/Defining_AI-Native-Apps__.png" style="max-width: 100%;"></a></p>
+<p>AI-native <strong>does not imply</strong> that applications must have started with GenAI capabilities. Just as some category defining software franchises from the on-prem era successfully transitioned to cloud-native versions of their products (e.g., Adobe Photoshop, Microsoft Office), we believe many companies can evolve from cloud-native to AI-native over time. </p>
+<h2>AI-Native: A Temporary Label for an Evolving Landscape </h2>
+<p>Last points before we get into the heart of the piece. </p>
+<p>The term AI-native, to the extent it is a helpful distinction today, will be a temporal one. Just as we rarely say internet-native, cloud-native or mobile-native anymore, the AI-moniker will fade away as AI becomes an assumed core component of nearly every product and service in the market. We use it now in this early phase of the adoption cycle to delineate between the companies moving fast to augment and/or extend existing products vs. those building from the ground up with a net-new set of capabilities and assumptions. Over time, the lines will blur, with the starting point mattering less than how deeply AI-first companies become in the way they build both their products and their organizations. </p>
+<p>Even in a more AI-native world, the fundamental drivers of value creation do not change. Companies must deeply understand customer pain points and build products and services that meet and surpass customer needs. Strong entrepreneurs must build great teams and execute relentlessly. AI, no matter how advanced it gets, is just a tool in service of those ambitions, not the proverbial hammer in search of its next nail.  </p>
+<p>Everything we do must be anchored very heavily on the top jobs to be done, the top personas and the top pain points that we need to solve for our customers. Our customers are our main source of innovation.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8370ff65de81337e619bef163ed9e147b7e6c73c95d61db0dd7c9692e07274c0/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f476c65616e2d6c6f676f2e706e67"><img src="https://camo.githubusercontent.com/8370ff65de81337e619bef163ed9e147b7e6c73c95d61db0dd7c9692e07274c0/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f476c65616e2d6c6f676f2e706e67" alt="Glean logo" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/Glean-logo.png" style="max-width: 100%;"></a></p>
+<p><strong>Emrecan Dogan</strong>Head of Product at Glean*</p>
+<h2>A Framework for Evaluating AI-Native Applications </h2>
+<p>Now that we have cleared up what is unlikely to change, it’s time to discuss how things might be new and different going forward. Since early this year, we at Sapphire have used a five-part dimensional framework to evaluate companies building applications with AI. </p>
+<p><a href="https://sapphireventures.com/wp-content/uploads/2024/11/241029_AI-native-framework_v233-Read-Only-1.png" rel="nofollow">Expand<img src="https://camo.githubusercontent.com/59ec521599113ad0a95c2cdbdd3bfb96f365dbbfba100cb39dbec5c3d82e6a9f/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f3234313032395f41492d6e61746976652d6672616d65776f726b5f763233332d526561642d4f6e6c792d312e706e67" alt="241029_AI native framework_v2[33] - Read-Only" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/241029_AI-native-framework_v233-Read-Only-1.png" style="max-width: 100%;"></a></p>
+<p>It is our view that companies will need to differentiate their applications across several of these dimensions to establish durable category leadership, given the already increasing competitive intensity within enterprise software, coupled with the now rapidly decreasing half-life of feature differentiation wrought by the era of AI-assisted development teams.  </p>
+<p>We will discuss each in turn. </p>
+<h2>Design </h2>
+<p>Enterprise software has grown into a multi-trillion-dollar market with vast sums spent annually on solutions that drive operational efficiency and scale. Yet, despite this growth, user-centric design has long been neglected, often sacrificed for functionality over form. The typical experience is cluttered with endless settings, complex menus and frequent notifications—functional, but rarely delightful. We believe this is set to change, with design emerging as a key differentiator for the next generation of enterprise software. GenAI is already opening the design space, and we are closely watching how the technology will enable builders to: </p>
+<h3><em>Create New Interaction Models</em> </h3>
+<p>Over the past two years, chat and search interfaces have been the dominant form of GenAI UI, offering users new opportunities to interact with their data—asking questions, synthesizing, summarizing and brainstorming, among countless other use cases, with a text-based AI companion. GenAI-native user interfaces will allow users to interact more naturally with their applications, while also providing access to advanced features that were previously limited to power users.  </p>
+<p>Many enterprise tools are filled with powerful features that most users rarely access, either because they are unaware of them or don’t know how to use them effectively. By using natural language–through text or voice–to express their needs, users can unlock more of these existing product capabilities. Multi-modal GenAI models have recently been catching up to their text-based counterparts, which is creating more opportunities for builders to rethink how users can work with software. More performant voice and video models present new ways to create, capture and transform inputs and outputs that complement clicking and typing. Recent releases from OpenAI, introducing Canvas, and from Anthropic, with compute use, though incredibly nascent, point towards the potential evolution from chat-bots to co-creation canvases and from co-pilots to auto-pilots. </p>
+<p>Multi-modality is extremely important, not only for delivering rich and varied outputs, but because the inputs and how we interact with these tools will continue to evolve. Models and tools that are flexible, expressive and have the ability to understand and generate across a variety of modalities are going to be incredibly important as we look to the future and as the technology continues to improve.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5a253618e22c72e4cebac83654df6e682b9c27aceeacc28217874b9c95035ab1/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f52756e7761792d6c6f676f2e706e67"><img src="https://camo.githubusercontent.com/5a253618e22c72e4cebac83654df6e682b9c27aceeacc28217874b9c95035ab1/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f52756e7761792d6c6f676f2e706e67" alt="Runway logo" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/Runway-logo.png" style="max-width: 100%;"></a></p>
+<p>Runway</p>
+<h3><em>Accelerate Feedback Loops</em> </h3>
+<p>The non-deterministic nature of GenAI outputs can create challenges for deploying capabilities into production. At the model layer, RLHF has been critical in better aligning AI with human intent and in accelerating iterative improvement. Companies building GenAI applications are both borrowing some of those training techniques and discovering new ways to collect user feedback that allows them to better tune performance and increase the velocity of feature development. In our discussions with product leaders, we heard examples of classic “up/down” and star-based ratings on outputs, human-in-the-loop reviewers and, most interestingly, many creative means of monitoring engagement to collect intent signal (e.g., shares, hover time, content recency and frequency of engagement, copy + pastes). </p>
+<p>We believe that products that can intelligently integrate feedback into the user experience in non-disruptive ways will iterate faster and refine their performance to better meet user needs over time.  </p>
+<h3><em>Develop AI-Native Systems</em> </h3>
+<p>One of the strongest takeaways from our interactions with AI-native application companies is their sophisticated systems-level thinking in application design. This includes balancing off-the-shelf commodity AI components with building proprietary capabilities that optimize performance for their specific use cases. It also involves using a mix of grounding techniques (e.g., fine-tuning, RAG, prompt engineering) and an ensemble approach at the model layer to achieve the best price-performance tradeoff at the query level. The elegance of the design at the UI layer for many AI-native applications is masking an incredible amount of backend complexity. </p>
+<p>The acumen associated with building an AI system is not which model you use, it’s breaking down the task, going deep into the application, taking it to its constituent parts and asking which parts do we not have to build because an open-source model can do it, which are we uniquely positioned to fine-tune, which are more subjective…you have to earn the right to be proprietary.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b1dfda739b08084034f08d1781a8afb56eb3680c17a910ce69b2266ea77c1aa8/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f322e706e67"><img src="https://camo.githubusercontent.com/b1dfda739b08084034f08d1781a8afb56eb3680c17a910ce69b2266ea77c1aa8/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f322e706e67" alt="Abridge" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/2.png" style="max-width: 100%;"></a></p>
+<p><strong>Zachary Lipton</strong>CTO at Abridge</p>
+<p>Another critical aspect in designing an AI-native system is integrating explainability into multiple steps of the process. As we transition from an era focused on actions and assistance to one of answers and agents, it becomes crucial to explain how the AI works on behalf of users to build trust and ensure alignment. AI-native applications must clearly tie input to output, cite specific pieces of content, include confidence intervals when appropriate and offer deeper levels of explanation to users who need to interrogate system performance. </p>
+<p>Some of the more interesting expressions of AI-native application design we have seen include: </p>
+<ul>
+<li><strong><a href="https://www.perplexity.ai/" rel="nofollow">Perplexity.ai</a></strong> and <strong><a href="https://openai.com/index/introducing-chatgpt-search/" rel="nofollow">OpenAI’s ChatGPT Search</a></strong> augment generated responses by integrating relevant web links and citations. </li>
+<li><a href="https://www.hebbia.ai/blog/introducing-matrix-the-interface-to-agi" rel="nofollow"><strong>Hebbia</strong></a> and <strong><a href="https://www.reliant.ai/" rel="nofollow">Reliant AI</a></strong> use tabular UI’s that establish strong feedback loops back to model by enabling users to interact with output on a more targeted, granular level. </li>
+<li><strong><a href="https://devin.ai/" rel="nofollow">Cognition</a></strong> offers a native code editor that users can work in directly alongside generated output, helping finetune the model on preferred coding practices. </li>
+<li><strong><a href="https://www.rilla.com/" rel="nofollow">Rilla</a></strong> and <strong><a href="https://www.bland.ai/" rel="nofollow">Bland.ai</a></strong> use multimodal AI to reinvent sales processes. Rilla analyzes customer conversations to improve training (speech-to-text), while Bland.ai automates sales and support calls with easily trained digital agents (text-to-speech).</li>
+</ul>
+<h2>Data </h2>
+<p>It is well understood how critical data is to training the foundational models that underpin all the AI products and services that have hit the market over the last two years. We believe data is just as critical at the application layer, if not more so, as it helps transform commoditized base capabilities across modalities into targeted defensible products that meet customer needs. As we consider how companies can action data in AI-native applications, we look for evidence that they have identified ways to: </p>
+<h3><em>Increase Rigor of End-to-End Data Management</em> </h3>
+<p>It’s almost a cliché to say there is no AI strategy without data strategy, but we believe it’s true. While AI-native applications benefit from foundational model companies incorporating global data into their products and from customers modernizing their broader data estates, they can still differentiate through strong data management best practices. </p>
+<p>This includes data procurement and curation, data quality, data governance and data security. Furthermore, as multi-modal model capabilities advance, the ability to work across both structured and unstructured data will become imperative to maximizing GenAI’s potential. We believe companies that more intelligently and quickly collect, clean and integrate data in a secure manner will win. </p>
+<h3><em>Leverage Latent Data</em> </h3>
+<p>Many companies have known for years that their data has value; however, actioning that knowledge has remained a challenge for most organizations. In our conversations with GenAI company leaders, a consistent theme was how much their products unlock customer data that had either been sitting dormant (e.g., on Box/Google Drive/SharePoint) or was not being captured in systems at all (e.g., customer calls, patient discussions, meeting notes). The benefits are significant, enabling users to: </p>
+<ul>
+<li>More seamlessly engage with existing data </li>
+<li>More quickly access the optimal content for their role and specific need </li>
+<li>Bring more structure and a defined taxonomy to data assets </li>
+</ul>
+<p>Each of these lead to a better understanding of how to use company data to create business value and serve as strong motivators to 1) optimize data architectures to support more AI investment (see above) and 2) give more data to trusted AI-native application partners that are demonstrating early ROI. </p>
+<p>We translate unwritten knowledge—like standard operating procedures that may be living in employee’s heads but not written down and insights from customer conversations—into structured data that teams can actually use and scale.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4a44999a6ab97426b5ed69e9b7c11dfacbb1a0720ca9b51af9d793e12916d08a/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f456c69736541492d6c6f676f5f5f2e706e67"><img src="https://camo.githubusercontent.com/4a44999a6ab97426b5ed69e9b7c11dfacbb1a0720ca9b51af9d793e12916d08a/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f456c69736541492d6c6f676f5f5f2e706e67" alt="EliseAI logo__" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/EliseAI-logo__.png" style="max-width: 100%;"></a></p>
+<p><strong>Tony Stoyanov</strong>Co-founder &amp; CTO at EliseAI*</p>
+<h3><em>Create New, Proprietary Data Sets</em> </h3>
+<p>Moving beyond existing data, GenAI promises the potential to capture net new data sets, which can form the basis of competitive differentiation relative to incumbent applications. This will take many forms, including multi-modal engagement data, metadata on AI generated content creation and consumption, pattern recognition in data at both the micro and macro-level, to name just a few. The consistent through-line here is that this data does not exist in an incumbent system. It therefore represents an opportunity for AI-native companies to capture it, create a consolidation point around it and build differentiated workflows that extend its value.  </p>
+<p>That new data and understanding of the user workflow can then be turned into training data to iteratively improve an underlying model’s performance, thereby extending the competitive advantage of AI-native challengers. This shift underscores that it is no longer simply the quantum of data that imparts advantage.</p>
+<p>Gone are the days where having “the most data” as an incumbent platform drove the greatest technical moat. There’s a clear shift in prioritization now, going from data quantity to its quality, privacy, and application.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/203362b359c1d5b29a71f78eed3ddd3e8130e897a8ffe3a1b18cb73dbe33b753/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f4d6f7665776f726b732d6c6f676f2e706e67"><img src="https://camo.githubusercontent.com/203362b359c1d5b29a71f78eed3ddd3e8130e897a8ffe3a1b18cb73dbe33b753/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f4d6f7665776f726b732d6c6f676f2e706e67" alt="Moveworks logo" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/Moveworks-logo.png" style="max-width: 100%;"></a></p>
+<p><strong>Vaibhav Nivargi</strong>Founder &amp; CTO at Moveworks*</p>
+<p>Examples of AI-native applications demonstrating strong data management and utilization include: </p>
+<ul>
+<li><a href="https://www.glean.com/" rel="nofollow"><strong>Glean</strong></a>* trains custom LLMs and builds organization-specific knowledge graphs, using real-time feedback to deliver personalized, contextually relevant search results for each user. </li>
+<li><strong><a href="https://writer.com/" rel="nofollow">Writer</a></strong> leverages specialized LLMs to gain a deep understanding of semantic relationships across enterprise data and retrieve relevant, context-aware results for any search or application query. </li>
+<li><strong><a href="https://www.jeeva.ai/" rel="nofollow">Jeeva.ai</a></strong>* unifies sales prospecting data from multiple sources “in flight” to enable users to granularly define their ICP, quickly build prospect lists with accurate enrichment data and generate highly-personalized messaging to automate engagement.  </li>
+</ul>
+<h2>Domain Expertise </h2>
+<p>As we alluded to earlier, there has been much discussion and excitement around vertical AI applications over the past year. The interest is warranted as industry-specific AI-native applications have been among the fastest to scale, with notable examples in legal, healthcare, real estate and financial services to name a few. We think GenAI’s ability to express deep domain understanding–not only in specific product interactions, but also in end-to-end workflows–is an exciting development that will have a major impact on both vertical and horizontal software categories. When evaluating this dimension, we are looking at an application’s ability to: </p>
+<h3><em>Translate Domain-Specific Activity into AI-Accelerated Workflows</em> </h3>
+<p>One reason we believe vertical AI is taking off so quickly is that GenAI is proving to be incredibly capable at creating better digital representations of end-user activity within specific domains. In our conversations with founders and product leaders, we heard many examples of this in practice, including more accurate translation/transcription of customer conversations (e.g., in doctor – patient discussions), more robust summaries of research inputs (e.g., in legal research and financial analysis), more refined understanding of user-to-user and user-to-entity relationships (e.g., in enterprise search). In all these instances, and many more, GenAI models are being trained to deeply understand the industry or function-specific context around an individual task and then automate actions that get users to faster and more efficient outcomes.  </p>
+<p>Domain expertise doesn’t always need to be industry specific. We have spoken with several product and engineering leaders who describe studying power users and senior leaders within customer organizations to codify their usage patterns. By translating these patterns into prompts and structured outputs, they aim to make these insights accessible across all levels of the organization. <em><em>Supio’s</em> Head of Product, Pamela Wickersham</em>***,** describes it as <em>“observing what really sophisticated users of the platform are doing and making that repeatable for other roles and personas at different layers of the firm.”</em> In this way, GenAI applications, sitting on top of foundational models fine-tuned with company-specific data, can enable the type of knowledge transfer that can uplevel an entire employee base. </p>
+<h3><em>Synthesize at Scale, with Speed</em> </h3>
+<p>Another strength of AI-native applications is their ability to derive insights from massive data sets in near real-time. New AI-native applications are emerging across many fields, combining access to verified, industry-specific documents and data (e.g., SEC’s EDGAR database), fine-tuned models and chat-based interfaces to dramatically accelerate how quickly customers can identify and process information relevant to specific objectives. This trend has perhaps been most evident in the legal field to date with companies like <a href="https://www.harvey.ai/" rel="nofollow">Harvey</a>, <a href="https://www.evenuplaw.com/" rel="nofollow">EvenUp</a>, <a href="https://www.robinai.com/" rel="nofollow">Robin AI</a> and <a href="https://www.supio.com/" rel="nofollow">Supio</a>*. However, we see the same pattern playing out in healthcare, the public sector, insurance, financial services and education.  </p>
+<p>AI-native applications give users superhuman capabilities on one or more dimensions related to domain-specific requests. It is not an exaggeration to state that questions that used to require large teams of often junior-level employees (or external consultants) days or weeks to answer, can now be at least partially addressed in minutes via these new services.  </p>
+<h3><em>Marry Global + Local Knowledge</em> </h3>
+<p>AI-native applications are uniquely positioned to combine three types of knowledge: global knowledge that is embedded into foundational models via their vast training data, domain-specific knowledge that lives in industry-relevant databases and company-specific insights from an organization’s own artifacts. On the latter point, domain expertise can be reflected in high quality presentations, memos, meeting notes, proprietary research, training materials and historical documents that are used to optimize AI-native application outputs that are consistent with an individual user’s expectations of “what good looks like.”  </p>
+<p>It’s not just better access to proprietary data, as discussed above. It’s the understanding of how that data reflects the relevant knowledge of an employee, team or organization, within a specific context. This combination unlocks the potential for users to move beyond optimizing individual tasks to automating entire workflows, all while focusing on more specific outcomes. Best-in-class expressions of deep domain understanding through vertical AI applications include: </p>
+<ul>
+<li><a href="https://www.abridge.com/" rel="nofollow"><strong>Abridge</strong></a> transforms real-time patient audio into precise clinical notes with a multi-LLM architecture trained on a large dataset of medical conversations.  </li>
+<li><a href="https://www.eliseai.com/" rel="nofollow"><strong>EliseAI</strong></a>* leverages LLMs to ingest relevant information about a residential building from property management systems (PMSs), CRMs, knowledgebases and directly from leasing professionals, and automate responses to questions from prospective and active tenants.</li>
+<li><a href="https://www.supio.com/about" rel="nofollow"><strong>Supio</strong></a>* has a proprietary model trained on large datasets of personal injury casework, allowing it to analyze and generate legal documents with high accuracy. </li>
+<li><strong><a href="https://www.magicschool.ai/" rel="nofollow">Magic School</a></strong> provides 80+ AI tools specifically tuned to help educators improve and automate lesson planning, assessment writing, academic content generation/management, and more. </li>
+</ul>
+<h2>Dynamism </h2>
+<p>In a recent post titled “<a href="https://stratechery.com/2024/metas-ai-abundance/" rel="nofollow">Meta’s AI Abundance</a>,” Ben Thompson makes a strong case for Meta’s GenAI opportunity. He specifically highlights the company’s ability to use GenAI to accelerate multi-modal dynamic ad creation and testing, as well as to enable the next generation of personalized content via the company’s new Imagine Yourself model. The potential implications for the digital marketing and commerce industries are clear, and the impacts are likely to be felt sooner than later.  </p>
+<p>They also speak to what we believe is a larger force as GenAI will drive an evolution in user expectations across several categories of enterprise software. While slightly less universal than the previous three dimensions we have discussed (e.g., you don’t want too much dynamism when dealing with the General Ledger), we expect to see a shift from static to more dynamic application experiences and are watching for examples of companies that can: </p>
+<h3><em>Optimize Actions “Under the Hood”/ Optimize Price vs. Performance Tradeoffs in Real-Time</em> </h3>
+<p>Most companies we speak with have moved beyond testing concepts with a single model to orchestrating sequences of model interactions to optimize outputs for a given use case. The process from input to output has become much more dynamic. Companies are developing their infrastructure with flexibility in mind, allowing them to easily swap modular components in and out to realize performance improvements and/or cost efficiencies. This dynamic has led to the rise of model routers, built by companies like <a href="https://withmartian.com/" rel="nofollow">Martian</a>, as a critical new component of the infrastructure stack underpinning AI-native applications. Over time, we expect more advanced AI capabilities, which are currently expressed as user choices (e.g., selecting underlying models in ChatGPT or Perplexity, tone of output, scoring outputs), to become hidden, as the underlying system can adapt to make decisions on a user’s behalf. </p>
+<h3><em>Create Generative Customer Journeys</em> </h3>
+<p>As we mentioned in the Design section, enterprise software has often underdelivered on user experience. While we don’t expect this to change overnight, we are excited about the potential for GenAI to improve the current situation. One way we envision this improvement is through the creation of more dynamic and adaptive content experiences that express a deeper understanding of end-users and customers. Think of sales and marketing collateral tuned to the preferences of individual prospects – from outreach emails, to pitch decks, to landing pages, to contract creation. Think of commerce platforms enabling shoppers to see merchandise in digital twin representations of their own physical spaces or on their own digital avatars.  </p>
+<p>We already see many examples of this in the market today; however, we can imagine a near-term future in which, as <em><em>Jeeva</em> CEO Gaurav Bhattacharya told us</em>*, applications “<em>become real-time, continuous learning systems where AI adapts autonomously based on customer interactions.”</em> Longer term, we may see capabilities advance to the point where entire user interfaces are generated in real-time, exposing and hiding underlying capabilities and content as required based on expressions of user intent. </p>
+<h3><em>Enable Hyper-Personalization at Multiple Levels</em> </h3>
+<p>Finally, we see greater opportunities for much more personalized experiences with enterprise software. This will happen on an end-user, team, department and organization-wide level within companies as AI learns relevant preferences, engagement patterns and relationships. For instance, <a href="https://www.outreach.io/" rel="nofollow">Outreach</a>* builds a custom win model for every team and seller in an organization that is updated in real-time as deals progress. Additionally, sales communications and collateral are becoming more finely tuned to individual customers. Over time, we believe agents, with shared memory, will represent the fullest expression of this theme. </p>
+<p>Some examples we believe showcase dynamism well include: </p>
+<ul>
+<li><strong><a href="https://www.heygen.com/" rel="nofollow">HeyGen</a></strong> offers an AI video creation platform enabling GTM and L&amp;D teams to rapidly generate hyper-personalized video content and deploy fully autonomous, conversational video experiences across sales, support and coaching.</li>
+<li><a href="https://mercor.com/" rel="nofollow"><strong>Mercor</strong></a> built an AI Interviewer that can evaluate candidates in real-time, drawing on pre-processed resume and profile data while adapting to live dialogue.  </li>
+<li><a href="https://evolv.ai/" rel="nofollow"><strong>Evolv AI</strong></a> continuously adapts UX in real-time through AI-driven experimentation, optimizing customer journeys based on live user behavior. </li>
+</ul>
+<h2>Distribution </h2>
+<p>Finally, there is the discussion on how this new AI value is packaged and priced. The question arises: does GenAI create an extinction-level event for the traditional seat-based SaaS model so favored by application companies in the cloud era? As we wrote in our <a href="https://view.sapphireventures.com/viewer/8bfbaa7011a21cbe90df96be6b9e2792" rel="nofollow">August 2024 market memo</a>, we think the reports of software’s imminent demise are greatly exaggerated. While it is too early to determine whether a dominant model emerges to disrupt the status quo, it is apparent that companies are embracing experimentation as they balance new value and costs while mitigating the potential of new competitive threats. We are closely studying how AI-native applications will: </p>
+<h3><em>Increase Pricing and Packaging Flexibility to Maximize Value</em> </h3>
+<p>We have already entered a much more heterogeneous pricing environment, as we see companies 1) embedding GenAI features into existing services at no additional cost (e.g., Workday), 2) creating premium SKUs of existing products that provide access to GenAI capabilities, 3) delivering entirely new standalone GenAI application, and 4) testing some consumption and outcome-based offerings on top of a base platform commitment.  </p>
+<p>The “dominant” model of distributing GenAI has not yet been established. It may vary widely by category; however, we see GenAI as technology that expands the ways that companies can deliver value to meet customer needs. The future is likely to include a mix of apps and agents, as well as co-pilots and auto-pilots. Rather than the <strong>“either, or”</strong> debate around pricing, we believe we will see a mix of seat-based, consumption-based, <strong>and</strong>, more selectively, outcome-based pricing. Application developers that can balance different models to ensure breadth of customer coverage, while more transparently aligning pricing with value delivered will be best positioned to win going forward. </p>
+<h3><em>Enable New Business Models</em>  </h3>
+<p>So much has been written recently about the growth of <a href="https://foundationcapital.com/system-of-agents/" rel="nofollow">software-enabled services</a> and the potential rise of agentic systems priced to deliver defined business outcomes that we won’t spend too much additional time on the topics. We would just note that true disruption is never simply a function of the technical capabilities of products, but also often includes a change in business model (e.g., transitioning from licenses to subscription software).</p>
+<p><a href="https://substack.com/@kylepoyar/note/c-71224890" rel="nofollow">Many companies</a> have already introduced new approaches to pricing that incorporate consumption-based and outcome-based components. Some notable examples include: </p>
+<ul>
+<li>Incubments like <a href="https://www.salesforce.com/agentforce/pricing/" rel="nofollow"><strong>Salesforce</strong></a> have announced pricing at a rate of $2 per conversation for its Agentforce suite, and Zendesk now charges $1.5-2 per automated resolution. </li>
+<li>Customer service AI agents like <a href="https://sierra.ai/" rel="nofollow"><strong>Sierra</strong></a>, <strong><a href="https://www.mavenagi.com/" rel="nofollow">MavenAGI</a></strong>, <strong><a href="https://decagon.ai/" rel="nofollow">Decagon</a></strong> and <a href="https://crescendo.ai/" rel="nofollow"><strong>Crescendo</strong></a> price based on outcomes (e.g., resolved tickets).  </li>
+<li><strong><a href="https://www.reserv.com/" rel="nofollow">Reserv</a></strong> provides AI-driven claims processing services and prices based on the volume of opened and executed claims. </li>
+<li>Content generation applications like <strong><a href="https://www.synthesia.io/pricing-options" rel="nofollow">Synthesia</a></strong> price per minute of video generated, while editing tools like <strong><a href="https://imagen-ai.com/pricing/" rel="nofollow">Imagen</a></strong> and <a href="https://account.aftershoot.com/pricing/" rel="nofollow"><strong>Aftershoot</strong></a> price per edit. </li>
+</ul>
+<h2>The Path Forward </h2>
+<p>We believe the framework outlined offers a powerful lens for both builders and investors to think about points of AI-enabled differentiation at the application layer. Yet, the real breakthroughs will come from entrepreneurs who blend these dimensions in novel ways, fundamentally reimagining work. Retrofitting existing products with more advanced capabilities will still be necessary and will create significant value, but reinvention will be required to birth companies that can reach, or surpass, today’s enterprise software leaders over the long term. Think single canvas, “always-on” multi-modal applications that collapse capabilities from disparate services into a single experience, priced on a metered basis. </p>
+<p>To get from today to that potential future will demand significant improvements to every layer of the tech stack and is implicitly predicated on the assumption that scaling laws hold, at least to some degree, and thus yield continued improvements in frontier model capabilities over the next several years. There is also the hard, though less glamorous, work to wrangle existing models in ways that increase performance, decrease hallucinations, ensure alignment, maintain compliance, improve security and manage costs.</p>
+<p>Encouragingly, these are all known challenges. Leaders at several of our portfolio companies assured us that there are years of innovation yet to be realized based on the capabilities of the current generation of models alone, so long as costs continue to decline. </p>
+<p>While the precise trajectory of GenAI remains uncertain, it’s reasonable to expect that capabilities don’t remain static. So, if we consider the future through a ‘what could go right?’ lens, what do we envision? How might enterprise software applications transform in the coming years? </p>
+<p><a href="https://sapphireventures.com/wp-content/uploads/2024/11/From-to-To___SV.png" rel="nofollow">Expand<img src="https://camo.githubusercontent.com/b9204062a353fe0e8971cb0e393b5d5a9d35f78068cebfc60a22a2ed9203b106/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f46726f6d2d746f2d546f5f5f5f53562e706e67" alt="From to To___SV" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/From-to-To___SV.png" style="max-width: 100%;"></a></p>
+<p>So how do we get there? </p>
+<p>GPT-5 class models, whenever they come, will alter how people view the trajectory of AI <a href="https://www.theinformation.com/articles/openai-shifts-strategy-as-rate-of-gpt-ai-improvements-slows" rel="nofollow">regardless of whether the models under or over-deliver on the hype</a>. Shattered benchmarks and newly emergent capabilities will unleash unbounded optimism, while incremental improvements will likely depress expectations, and valuations, in the near term.  </p>
+<p>Either way, we will have a clearer view of what will and won’t work, and at what cost, over the next few years. The companies both building and buying GenAI technology will be able to plan accordingly. While they are certainly “talking their own book,” we agree with the view expressed by Sam Altman and Greg Brockman that model capabilities will continue to advance and the companies building AI applications should be operating under that assumption.</p>
+<p>However, as we have seen in recent months, we do not necessarily need to see a higher number behind a model name to ignite excitement around AI’s future. When we asked product leaders what they were most excited about in the next few years, they talked about the direction of reasoning research and how that may accelerate the progression from core understanding to deeper thinking to true agentic systems.  </p>
+<p>Right now, people are focused on the “fast food” version of AI and want an answer immediately. One of our big bets is spinning up systems that, if given enough time, can come up with novel answers to complex questions.</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0f68e4aa9b720dc863d0d4e32fba5cef71da3ec03a5721eb76f818590ae6c0b5/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f332e706e67"><img src="https://camo.githubusercontent.com/0f68e4aa9b720dc863d0d4e32fba5cef71da3ec03a5721eb76f818590ae6c0b5/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032342f31312f332e706e67" alt="Reliant logo" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2024/11/3.png" style="max-width: 100%;"></a></p>
+<p><strong>Marc Bellemare</strong>Co-Founder and Chief Science Officer at Reliant</p>
+<p>Models taking actions, models taking more time to think, and other modalities “catching up” to the advancements in text will all further expand opportunities for applications to differentiate across dimensions in our framework, almost certainly complemented by new areas of research. This is all leading to a <strong>new age of experimentation</strong> at the application layer, which we could not be more excited about. Builders’ palettes are expanding on what seems like a weekly basis, and they can now mix product architectures, models, user interfaces, public and private data sources and delivery mechanisms in ways that have not previously existed. The rate of change feels relentless. </p>
+<p>That said, the path will be uneven. In many categories, we believe progress toward broad deployment may take longer than anticipated. Many, if not most, experiments at reinventing workflows will fail and rather than disrupting incumbents, AI will likely strengthen current leaders in many categories of software. However, the application and agent companies that demonstrate combinatorial innovation through the rapid integration and expression of new capabilities will position themselves as the Companies of Consequence that will define the coming AI era of software. </p>
+<p>At Sapphire Ventures, we remain committed to backing and learning from AI-native application companies. If you are building in the space, we would love to connect with you! Please reach out to <a href="mailto:cathy@sapphireventures.com">cathy@sapphireventures.com</a>, <a href="mailto:kburke@sapphireventures.com">kburke@sapphireventures.com</a>, <a href="mailto:misty@sapphireventures.com">misty@sapphireventures.com</a> or <a href="mailto:aditya@sapphireventures.com">aditya@sapphireventures.com</a>. </p>
+<p>Special thanks to Pamela Wickersham (Head of Product at Supio*), Emrecan Dogan (Head of Product at Glean*), Emily Golden (Head of Growth Marketing at Runway), Vaibhav Nivargi (Founder &amp; CTO at Moveworks*), Tim Smith (Co-Founder &amp; CTO at Medable*), Alon Slutzky (VP of Engineering at Paradox*), Sola Bright (Product Lead at Meta), Zachary Lipton (CTO at Abridge), Kunal Gosar (Co-Founder &amp; CEO at Arcus), Tony Stoyanov (CTO at EliseAI*), Gaurav Bhattacharya (CEO at Jeeva*), Marc Bellemare (Co-Founder &amp; CSO at Reliant AI) and Drew Regitsky (Lead / Founding Engineer at Gem*). </p>
+<p><em>***  Asterisks denote Sapphire Ventures portfolio companies.**</em></p>
+<p>Legal disclaimer</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9df873127d8ed047cd44011ff60a0abcfdb63965fdf9fb22cd403884fce76307/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f7468656d65732f53617070686972652f6173736574732f6c6f676f2d666f6f7465722e737667"><img src="https://camo.githubusercontent.com/9df873127d8ed047cd44011ff60a0abcfdb63965fdf9fb22cd403884fce76307/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f7468656d65732f53617070686972652f6173736574732f6c6f676f2d666f6f7465722e737667" alt="" data-canonical-src="https://sapphireventures.com/wp-content/themes/Sapphire/assets/logo-footer.svg" style="max-width: 100%;"></a></p>
+<ul>
+<li>
+<p><a href="https://sapphireventures.com/" rel="nofollow">Ventures</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/sapphire-partners/" rel="nofollow">Partners</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/sapphire-sport/" rel="nofollow">Sport</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/companies/" rel="nofollow">Companies</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/team/" rel="nofollow">Team</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/portfolio-growth/" rel="nofollow">Portfolio Growth</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/contact/" rel="nofollow">Contact</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/legal-terms/" rel="nofollow">Terms</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/privacy-policy/" rel="nofollow">Privacy Policy</a></p>
+</li>
+<li>
+<p><a href="https://sapphireventures.com/disclosures/" rel="nofollow">Disclosures</a></p>
+</li>
+<li>
+<p><a href="https://jobs.sapphireventures.com/jobs" rel="nofollow">Portfolio Jobs</a></p>
+</li>
+</ul>
+<p>Cookie Settings</p>
+<ul>
+<li>
+<p><a href="https://twitter.com/sapphirevc" rel="nofollow"></a></p>
+</li>
+<li>
+<p><a href="https://www.linkedin.com/company/sapphirevc" rel="nofollow"></a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/channel/UCU15ELvJ1AcdL-c_-n_JCjQ" rel="nofollow"></a></p>
+</li>
+<li>
+<h3>Austin, TX</h3>
+<p>801 W. 5th St., Ste 100,<br>
+Austin, TX 78703</p>
+</li>
+<li>
+<h3>San Francisco, CA</h3>
+<p>439 Bryant St,<br>
+San Francisco, CA 94107</p>
+</li>
+<li>
+<h3>Menlo Park, CA</h3>
+<p>556 Santa Cruz Avenue, Ste. 200<br>
+Menlo Park, CA 94025</p>
+</li>
+<li>
+<h3>London</h3>
+<p>Mortimer House<br>
+37-41 Mortimer Street<br>
+London, W1T 3JH</p>
+</li>
+</ul>
+<p>Sign up for our newsletter</p>
+<p>Signatory of:</p>
+<ul>
+<li>
+<p><a href="https://diversity.vc/diversity-vc-standard/" rel="nofollow"><img src="https://camo.githubusercontent.com/eae3f2b2b5faf7c58f5c67a3c078a527467f2369f1fce1f16d4794d42c5ae8d9/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032322f30372f6c6f676f2d647663732e706e67" alt="" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2022/07/logo-dvcs.png" style="max-width: 100%;"></a></p>
+</li>
+<li>
+<p><a href="https://ilpa.org/ilpa_diversityinaction/" rel="nofollow"><img src="https://camo.githubusercontent.com/a5f21346d595612faee8d6009ce56237f50ad79a6db0e492ab122a13f68d8bc1/68747470733a2f2f736170706869726576656e74757265732e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032332f30322f494c50412d4449412d45787465726e616c2d434d594b5f426c61636b2d65313637363637383236393630342e706e67" alt="" data-canonical-src="https://sapphireventures.com/wp-content/uploads/2023/02/ILPA-DIA-External-CMYK_Black-e1676678269604.png" style="max-width: 100%;"></a></p>
+</li>
+</ul>
+<p>© 2023 Sapphire Ventures.</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
