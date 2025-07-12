@@ -1,5 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:14:15 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>统治软件开发的著名定律</title><link>https://winnerineast.github.io/post/tong-zhi-ruan-jian-kai-fa-de-zhu-ming-ding-lv.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sat, 12 Jul 2025 12:15:15 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>DeepSearcher开源：告别传统RAG，私有数据+Deepseek，打造本地版Deep Research</title><link>https://winnerineast.github.io/post/DeepSearcher-kai-yuan-%EF%BC%9A-gao-bie-chuan-tong-RAG%EF%BC%8C-si-you-shu-ju-%2BDeepseek%EF%BC%8C-da-zao-ben-di-ban-Deep%20Research.html</link><description>
+原创 和你一起进步的 Zilliz
+
+ _2025年02月13日 19:06_
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/MqgA8Ylgeh69MGal1BGtDcKwvTTfp5d0DHtYLLGMqYNKG5qwPU0VWeyZibj6YxULOqb3M2heiaUflhftAyLmniciag/640?wx_fmt=other&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1&amp;tp=wxpic)
+
+![图片](https://mmbiz.qpic.cn/mmbiz_jpg/MqgA8Ylgeh5IGBMTYqBrAcxy5ZYQ8PyPustqwVcWc7JZ44y2ibSqYia0apqCylI22ia3goM9kmP8CHvwef4CgOLicw/640?wx_fmt=jpeg&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1)
+
+# **前言**
+
+近日，Open AI的Deep Research（深度研究）功能一经推出，迅速受到诸多关注，通过将大模型+超级搜索+研究助理的三合一，金融机构一键生成报告、科研党一键生成综述成为可能。</description><guid isPermaLink="true">https://winnerineast.github.io/post/DeepSearcher-kai-yuan-%EF%BC%9A-gao-bie-chuan-tong-RAG%EF%BC%8C-si-you-shu-ju-%2BDeepseek%EF%BC%8C-da-zao-ben-di-ban-Deep%20Research.html</guid><pubDate>Sat, 12 Jul 2025 12:14:48 +0000</pubDate></item><item><title>统治软件开发的著名定律</title><link>https://winnerineast.github.io/post/tong-zhi-ruan-jian-kai-fa-de-zhu-ming-ding-lv.html</link><description>
 原文：https://www.timsommer.be/famous-laws-of-software-development/
 
 翻译| 码农翻身
