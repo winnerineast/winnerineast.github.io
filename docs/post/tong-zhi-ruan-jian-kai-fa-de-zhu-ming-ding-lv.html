@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+原文：https://www.timsommer.be/famous-laws-of-software-development/
+
+翻译| 码农翻身
+
+和其他领域一样，在软件开发的世界中也有一些有趣而著名的定律，开发人员、管理人员还是架构师，都经常在会议或闲谈中提到他们，很多时候我们都只是点头附和，免得让人知道自己其实根本没听说过布鲁克斯(Brooks)、摩尔(Moore)或康威(Conway)这些大佬。">
+<meta property="og:title" content="统治软件开发的著名定律">
+<meta property="og:description" content="
+原文：https://www.timsommer.be/famous-laws-of-software-development/
+
+翻译| 码农翻身
+
+和其他领域一样，在软件开发的世界中也有一些有趣而著名的定律，开发人员、管理人员还是架构师，都经常在会议或闲谈中提到他们，很多时候我们都只是点头附和，免得让人知道自己其实根本没听说过布鲁克斯(Brooks)、摩尔(Moore)或康威(Conway)这些大佬。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/tong-zhi-ruan-jian-kai-fa-de-zhu-ming-ding-lv.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>统治软件开发的著名定律</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">统治软件开发的著名定律</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/22" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>原文：<a href="https://www.timsommer.be/famous-laws-of-software-development/" rel="nofollow">https://www.timsommer.be/famous-laws-of-software-development/</a></p>
+<p>翻译| 码农翻身</p>
+<p>和其他领域一样，在软件开发的世界中也有一些有趣而著名的定律，开发人员、管理人员还是架构师，都经常在会议或闲谈中提到他们，很多时候我们都只是点头附和，免得让人知道自己其实根本没听说过布鲁克斯(Brooks)、摩尔(Moore)或康威(Conway)这些大佬。</p>
+<p>在这里，我把这些定律整理出来，分享给大家。</p>
+<p><strong>墨菲定律 (Murphy's Law)</strong></p>
+<p>或许是所有的定律中最广为人知的，因为它不仅仅适用于软件开发领域。</p>
+<p>凡是可能出错的事就一定会出错。</p>
+<p>衍生定律：说脏话是唯一一门程序员用得都很流畅的语言。</p>
+<p>推论：计算机会按照你写出来的方式运行，而不是你臆想出来的。</p>
+<p>防御性编程、版本控制、测试驱动开发、模型驱动开发等等都是预防墨菲定律很好的做法。</p>
+<p><strong>布鲁克斯法则(Brook's Law)</strong></p>
+<p>大多数开发人员都会经历过布鲁克斯定律：</p>
+<p>向一个延期的项目增加人手只会让它延期得更加厉害</p>
+<p>如果一个项目进展落后了，仅仅增加人力很有可能会带来灾难性的后果。</p>
+<p>相反，提高编程效率、审查软件开发方法和技术架构是否合理，几乎总是会比增加人力带来更好的效果。如果没有，这可能意味着霍夫施塔特定律在起作用。</p>
+<p><strong>霍夫斯塔特定律 (Hofstadter's Law)</strong></p>
+<p>霍夫斯塔特定律是由道格拉· 霍夫斯塔特(Douglas Hofstadter) 提出，并且以他的名字来命名的。</p>
+<p>不要将这个定律与《生活大爆炸》中的伦纳德·霍夫斯塔特混为一谈。即使他的话对你们一些人或许有用。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/058de3809229d82730127cbdc27c3d3714b6104d5f262a225e525481705f0f37/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e5864744e4a4f374f544a515632786c39716f785631765247384e4277426d7234465f4d467758546b324d72414c4357584b5159514241636e68474533582d505f524c4f2d30506f3961714b5942386a6b65315f2d57614d313242717661734e50526679626b7944635938637930415a5736357157794d7a685a4e69624852344363584d7357556933513f6b65793d47366d42696a64505742756862482d417846505f46622d57"><img src="https://camo.githubusercontent.com/058de3809229d82730127cbdc27c3d3714b6104d5f262a225e525481705f0f37/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e5864744e4a4f374f544a515632786c39716f785631765247384e4277426d7234465f4d467758546b324d72414c4357584b5159514241636e68474533582d505f524c4f2d30506f3961714b5942386a6b65315f2d57614d313242717661734e50526679626b7944635938637930415a5736357157794d7a685a4e69624852344363584d7357556933513f6b65793d47366d42696a64505742756862482d417846505f46622d57" alt="" data-canonical-src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdtNJO7OTJQV2xl9qoxV1vRG8NBwBmr4F_MFwXTk2MrALCWXKQYQBAcnhGE3X-P_RLO-0Po9aqKYB8jke1_-WaM12BqvasNPRfybkyDcY8cy0AZW65qWyMzhZNibHR4CcXMsWUi3Q?key=G6mBijdPWBuhbH-AxFP_Fb-W" style="max-width: 100%;"></a></p>
+<p>这个定律是这么说的：</p>
+<p>事情总是要花费比你预想更长的时间，即使你把霍夫斯塔特定律也考虑在内。</p>
+<p>这条定律的递归性反映出，即使付出最大的努力，也知道任务是复杂的，去精确地估算它依然是非常难的，所以要给估算留一个缓冲区出来。 </p>
+<p><strong>康威定律 (Conway's Law)</strong></p>
+<p>软件的任何一部分都反应了创建它的组织结构</p>
+<p>或者更清楚一点：</p>
+<p>组织形式等同其设计的系统架构</p>
+<p>许多组织都根据他们的技能来划分团队。因此会有前端开发、后端开发和数据库开发组成的团队。这会导致某人想要修改一个不属于自己领域的东西会很难。</p>
+<p>最好是按照有边界的上下文(bounded context)来规划团队，并且越来越多的组织者也正在这么做。像微服务这样的架构围绕服务边界而不是孤立的技术体系划分来组织他们的团队。</p>
+<p>康威定律带来的具体的实践建议就是：你想要什么样的系统设计，就架构什么样的团队，这会带来事半功倍的效果。</p>
+<p><strong>伯斯塔尔定律(Postel's Law)</strong></p>
+<p>又称健壮性法则(Robustness principle)</p>
+<p>发送时要保守，接收时要大方</p>
+<p>Jon Postel 最初认为正是这个原则让TCP协议的实现很健壮。一些人认为这正是 HTML 很成功的原因，也有一些人认为这正是 HTML 很失败的原因。（因为HTML可以写得不那么严格，但是浏览器依然可以解析它）</p>
+<p><strong>帕累托法则 (Pareto Principle)</strong></p>
+<p>又称80/20法则(The 80-20 rule)</p>
+<p>对于许多现象来说，有 80% 的后果都是 20% 的原因造成的。</p>
+<p>在软件开发中的体现是： 代码中80%的错误都是由代码中的20%引起的。</p>
+<p>另外，公司80%的工作是由20%的员工完成的。问题是你并不总是清楚谁是那20%。</p>
+<p><strong>彼得原则(The Peter Principle)</strong></p>
+<p>该原则还是比较打击人的，特别是你碰巧正在经历的话。</p>
+<p>在等级制度中，每个员工都倾向于提升到他无法胜任的等级</p>
+<p>在各种组织中，由于习惯于对在某个等级上称职的人员进行晋升提拔，因而雇员总是趋向于被晋升到其不称职的地位。</p>
+<p>一旦组织中的相当部分人员被推到了其不称职的级别，就会造成组织的人浮于事，效率低下，导致平庸者出人头地，发展停滞。</p>
+<p><strong>柯克霍夫原则(Kerchkhoff's Principle)</strong></p>
+<p>在密码学中，即使一个系统中的所有东西都是公开的（密钥除外），该系统也应当是安全的。</p>
+<p>这就是非对称加密的主要原则。</p>
+<p>Advertisements</p>
+<p><strong>林纳斯定律 (Linus's Law)</strong></p>
+<p>以Linux之父林纳斯·托瓦兹（Linus Torvalds）的名字命名，该定律表述为：</p>
+<p>众目睽睽之下，一切 bug 都无所遁形</p>
+<p>这个定律出自著名的文集《大教堂与集市》，这个文集对比了两种不同的开源软件开发模型。</p>
+<p>大教堂模型，每个软件发行版都伴有源代码，但是仅限于软件开发人员查看。</p>
+<p>集市模型，以互联网为媒介，代码开发的过程完全暴露在大众的视野下。</p>
+<p>被公开审查、测试的代码越多，各种形式的错误就能更快地被发现。</p>
+<p><strong>摩尔定律 (Moore's Law)</strong></p>
+<p>每一美元所能买到的电脑性能，将每隔24个月翻一番。</p>
+<p>最流行的版本是：</p>
+<p>集成电路上可容纳的元器件的数目，约每隔18个月便会增加一倍。</p>
+<p>或</p>
+<p>计算机的处理性能每隔两年翻一倍。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/f5142b10a034137fd530a352851fc6ccbb00625e576e8e18fde3a0da9192bda0/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e58647a452d56573937492d5f516630525742585451705438546e345751742d344c467a53562d7947433159304d53316e3357783333455a5f44796766534d6c2d4b35516d35596f4b7a6b566d464b38785f4d324e66473766494b386874506a2d49646a795550387941646c4e4d745030496f396b3468693769624876455133574a5833664579413f6b65793d47366d42696a64505742756862482d417846505f46622d57"><img src="https://camo.githubusercontent.com/f5142b10a034137fd530a352851fc6ccbb00625e576e8e18fde3a0da9192bda0/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e58647a452d56573937492d5f516630525742585451705438546e345751742d344c467a53562d7947433159304d53316e3357783333455a5f44796766534d6c2d4b35516d35596f4b7a6b566d464b38785f4d324e66473766494b386874506a2d49646a795550387941646c4e4d745030496f396b3468693769624876455133574a5833664579413f6b65793d47366d42696a64505742756862482d417846505f46622d57" alt="" data-canonical-src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdzE-VW97I-_Qf0RWBXTQpT8Tn4WQt-4LFzSV-yGC1Y0MS1n3Wx33EZ_DygfSMl-K5Qm5YoKzkVmFK8x_M2NfG7fIK8htPj-IdjyUP8yAdlNMtP0Io9k4hi7ibHvEQ3WJX3fEyA?key=G6mBijdPWBuhbH-AxFP_Fb-W" style="max-width: 100%;"></a></p>
+<p><strong>90-90法则 (Ninety-ninety rule)</strong></p>
+<p>前90%的代码要花费10%的开发时间，剩余的10%的代码要再花费90%的开发时间。</p>
+<p>如此真实。还会有人不同意吗？</p>
+<p><strong>克努特优化原则 (Knuth's optimization principle)</strong></p>
+<p>不成熟的优化是万恶之源。</p>
+<p>先把代码写出来，定位瓶颈所在，然后优化它。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4ea1b3c43a33dfdfd086c9c34e67a69a81b3b8af2244dcd07eecbcfa75c551ad/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e5865384f737754503948664e504c6238386f684361306c31467034626f52525a484b3567504d65776c6b555a796259594967413038366153742d79613861346c6135657572706e336967504b70527a3934477966476a4d35454d6d6a2d366b7363785176374c455834654464724c445376756c664478464153617a6b6a556858765458723141436f413f6b65793d47366d42696a64505742756862482d417846505f46622d57"><img src="https://camo.githubusercontent.com/4ea1b3c43a33dfdfd086c9c34e67a69a81b3b8af2244dcd07eecbcfa75c551ad/68747470733a2f2f6c68372d72742e676f6f676c6575736572636f6e74656e742e636f6d2f646f63737a2f41445f346e5865384f737754503948664e504c6238386f684361306c31467034626f52525a484b3567504d65776c6b555a796259594967413038366153742d79613861346c6135657572706e336967504b70527a3934477966476a4d35454d6d6a2d366b7363785176374c455834654464724c445376756c664478464153617a6b6a556858765458723141436f413f6b65793d47366d42696a64505742756862482d417846505f46622d57" alt="" data-canonical-src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXe8OswTP9HfNPLb88ohCa0l1Fp4boRRZHK5gPMewlkUZybYYIgA086aSt-ya8a4la5eurpn3igPKpRz94GyfGjM5EMmj-6kscxQv7LEX4eDdrLDSvulfDxFASazkjUhXvTXr1ACoA?key=G6mBijdPWBuhbH-AxFP_Fb-W" style="max-width: 100%;"></a></p>
+<p><strong>诺维格定律 (Norvig's Law)</strong></p>
+<p>当公司的市场份额超过50%之后，就不能再翻番了。</p>
+<p>在一个市场占主导地位的公司必须不断开拓新财源，才能长盛不衰。</p>
+<p><strong>写在最后</strong></p>
+<p>这就是我喜欢的“定律”， 他们都有自己的故事和背景。作为软件开发人员你必须熟悉他们。</p>
+<p>你也许会赞同或不赞同某条定律，或在其中任何一条有过有趣的经历，欢迎在下方留言讨论！</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
