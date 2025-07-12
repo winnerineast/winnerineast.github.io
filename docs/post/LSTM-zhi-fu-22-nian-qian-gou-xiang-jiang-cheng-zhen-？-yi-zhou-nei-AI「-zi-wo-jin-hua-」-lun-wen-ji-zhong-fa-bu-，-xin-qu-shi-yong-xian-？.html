@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="*2025年06月02日 13:23*
+
+机器之心报道
+
+**编辑：张倩、+0**
+
+  
+
+让 AI 实现自我进化是人类一直以来的梦想。">
+<meta property="og:title" content="LSTM之父22年前构想将成真？一周内AI「自我进化」论文集中发布，新趋势涌现？">
+<meta property="og:description" content="*2025年06月02日 13:23*
+
+机器之心报道
+
+**编辑：张倩、+0**
+
+  
+
+让 AI 实现自我进化是人类一直以来的梦想。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/LSTM-zhi-fu-22-nian-qian-gou-xiang-jiang-cheng-zhen-%EF%BC%9F-yi-zhou-nei-AI%E3%80%8C-zi-wo-jin-hua-%E3%80%8D-lun-wen-ji-zhong-fa-bu-%EF%BC%8C-xin-qu-shi-yong-xian-%EF%BC%9F.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>LSTM之父22年前构想将成真？一周内AI「自我进化」论文集中发布，新趋势涌现？</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">LSTM之父22年前构想将成真？一周内AI「自我进化」论文集中发布，新趋势涌现？</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/40" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><em>2025年06月02日 13:23</em></p>
+<p>机器之心报道</p>
+<p><strong>编辑：张倩、+0</strong></p>
+<p>让 AI 实现自我进化是人类一直以来的梦想。</p>
+<p>早在 2003 年，AI 先驱、LSTM 之父 Jürgen Schmidhuber 就提出过一种名为「哥德尔机（Gödel Machine）」的构想——它使用一种递归的自我改进协议，如果能够证明新代码的策略较佳，就会重写自己的代码。但这终究只是一个假想。</p>
+<p>近年来，关于模型自我学习、进化的研究逐渐多了起来，很多研究者的目标在逐渐从单纯的「训练模型」向「让模型学会自我学习和自我进化」转变，谷歌最近发布的 <a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650969047&amp;idx=2&amp;sn=ef0aadc0ffa79ae0bea4266da98f2bc0&amp;scene=21#wechat_redirect" rel="nofollow">AlphaEvolve</a> 就是其中的重要代表。</p>
+<p>在过去的一周，这一方向的进展尤其丰富。有人发现，几篇关于「让 LLM（或智能体）学会自我训练」的论文在 arXiv 上集中出现，其中甚至包括受「哥德尔机」构想启发而提出的「达尔文哥德尔机」。或许，AI 模型的自我进化能力正在加速提升。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4e2376e55a97993be9be9f0b589e10c4186ba7567b5d602e2df03162334923cd/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32623074393847425276474269636b38636c636a4d6761346a4f525a30664f354f6a347a6b75654230374d4c38784b376962434235394f3341412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/4e2376e55a97993be9be9f0b589e10c4186ba7567b5d602e2df03162334923cd/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32623074393847425276474269636b38636c636a4d6761346a4f525a30664f354f6a347a6b75654230374d4c38784b376962434235394f3341412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2b0t98GBRvGBick8clcjMga4jORZ0fO5Oj4zkueB07ML8xK7ibCB59O3AA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>在这篇文章中，我们将详细介绍最近的几篇论文，它们分别是：</p>
+<ul>
+<li>
+<p>Sakana AI 与不列颠哥伦比亚大学等机构合作的「达尔文哥德尔机（DGM）」 ：DGM 利用基础模型和开放式算法来创建和评估新的 AI 智能体，并能够读取和修改自身的 Python 代码库以进行自我改进，还通过评估在编码基准上的性能来判断更改是否有效。实验表明，DGM 可以持续自我改进，并能在不同模型和编程语言之间实现迁移。</p>
+</li>
+<li>
+<p>CMU 的「自我奖励训练（SRT）」 ：提出了一种名为「自我奖励训练」的在线自我训练强化学习算法，旨在让大型语言模型通过自身的判断信号进行自我监督和训练，从而在没有外部标签的情况下提升性能。</p>
+</li>
+<li>
+<p>上海交通大学等机构提出的多模态大模型的持续自我改进框架「MM-UPT」 ：在完全无监督场景下，通过强化学习框架 GRPO 实现多模态大模型的持续自我改进。他们提出了一种简洁而高效的框架：MM-UPT（Multi-Modal Unsupervised Post-Training），并在多个图文数学推理 benchmarks 上验证了其有效性。</p>
+</li>
+<li>
+<p>香港中文大学联合 vivo 等机构的自改进框架「UI-Genie」 ：旨在解决 GUI 智能体中的两大核心挑战：一是轨迹结果的验证十分困难，二是高质量训练数据的规模化获取不易。针对这两个挑战，研究团队分别提出了一种奖励模型和一个自改进流水线。</p>
+</li>
+</ul>
+<h2>达尔文哥德尔机：让 AI 通过重写自己的代码实现自我改进</h2>
+<ul>
+<li>论文标题：Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents</li>
+<li>论文链接：<a href="https://arxiv.org/abs/2505.22954" rel="nofollow">https://arxiv.org/abs/2505.22954</a></li>
+<li>博客：<a href="https://sakana.ai/dgm/" rel="nofollow">https://sakana.ai/dgm/</a></li>
+</ul>
+<p>人工智能研究的一个长期目标是创造能够持续学习的 AI 系统。实现这一目标的一条诱人路径是让 AI 通过重写自身代码（包括负责学习的代码）来实现自我改进。这一由 Jürgen Schmidhuber 数十年前提出的构想被称为「哥德尔机」，是一种假想中的自我改进型 AI。当它在数学上证明存在更优策略时，它会通过递归地重写自身代码来优化问题解决方案，因此成为元学习（即「学会学习」）领域的核心概念。</p>
+<p>虽然理论上的哥德尔机能确保可证明的良性自我修改，但 其实现依赖于一个不切实际的假设：AI 必须能在数学上证明代码修改会带来净效益才会实施变更。</p>
+<p>针对此问题，Sakana AI 与不列颠哥伦比亚大学 Jeff Clune 实验室合作，提出了一种更可行的方案： 利用达尔文进化等开放式算法的原理，通过实证检验来寻找能提升性能的改进方法。</p>
+<p>他们将这一成果命名为「达尔文哥德尔机（DGM）」。DGM 系统利用基础模型提出代码改进方案，并采用开放式算法的最新创新来搜索不断增长的多样化优质 AI 智能体库。 实验表明，DGM 获得的算力越多，自我改进效果就越显著。 鉴于依赖学习的 AI 系统终将超越人工设计系统这一明确趋势，DGM 很可能在短期内超越人工设计的 AI 系统。</p>
+<p>第一个 DGM 是一个编码智能体，它能够：</p>
+<ul>
+<li>读取并修改自己的代码；</li>
+<li>评估修改是否提高了性能；</li>
+<li>开放式地探索 AI 设计空间。</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9338fc386d0757e26afee081568dcda67aea6a4155240e87fa71c856d5840e99/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f6769662f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262616d7453644b3171664a69616c4850626d5a346c4b4d4f69614b50304a7161706d5a524b39597145445857563333774d45333063347975772f3634303f77785f666d743d6769662666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/9338fc386d0757e26afee081568dcda67aea6a4155240e87fa71c856d5840e99/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f6769662f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262616d7453644b3171664a69616c4850626d5a346c4b4d4f69614b50304a7161706d5a524b39597145445857563333774d45333063347975772f3634303f77785f666d743d6769662666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="Image" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_gif/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bamtSdK1qfJialHPbmZ4lKMOiaKP0JqapmZRK9YqEDXWV33wME30c4yuw/640?wx_fmt=gif&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>达尔文哥德尔机是一种通过重写自身代码来提升编程任务性能的自我改进型编程智能体。它能实现多种自我改进，包括：增加补丁验证步骤、优化文件查看功能、增强编辑工具、生成并排序多个解决方案以选择最优选项，以及在实施新修改时记录历史尝试记录（包括失败原因）。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/26abdadbfd61db0642856c5135d8a0623cef5f2e8408ac6567a923b0c30160c1/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262464c673351423177527774646373315652445979497562344455535075456963324270456d625765794d6b393069614878336535415530512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/26abdadbfd61db0642856c5135d8a0623cef5f2e8408ac6567a923b0c30160c1/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262464c673351423177527774646373315652445979497562344455535075456963324270456d625765794d6b393069614878336535415530512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bFLg3QB1wRwtdcs1VRDYyIub4DUSPuEic2BpEmbWeyMk90iaHx3e5AU0Q/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>达尔文哥德尔机通过运用开放式探索原则，逐步构建起一个不断扩增的智能体库。该系统通过交替执行自我修改与下游任务评估的方式，持续创建新智能体并对其进行评分。</p>
+<p>在 sw-bench 上，DGM 自动将其性能从 20.0% 提高到 50.0%。在 Polyglot 上，DGM 的表现从最初的 14.2% 跃升至 30.7%，远远超过了 Aider 手工设计的代表性智能体。这些可观的收益证明了 DGM 发现并实现对其自身代码的有益更改的能力。</p>
+<h2>模型的自我奖励训练：潜力、崩溃与缓解策略</h2>
+<ul>
+<li>论文标题：Can Large Reasoning Models Self-Train?</li>
+<li>论文链接：<a href="https://arxiv.org/abs/2505.21444" rel="nofollow">https://arxiv.org/abs/2505.21444</a></li>
+<li>项目地址：<a href="https://self-rewarding-llm-training.github.io/" rel="nofollow">https://self-rewarding-llm-training.github.io/</a></li>
+<li>代码地址：<a href="https://github.com/tajwarfahim/srt">https://github.com/tajwarfahim/srt</a></li>
+<li>数据集：<a href="https://huggingface.co/collections/ftajwar/self-rewarding-llm-training-6835218091832c3664176553" rel="nofollow">https://huggingface.co/collections/ftajwar/self-rewarding-llm-training-6835218091832c3664176553</a></li>
+</ul>
+<p>通过可验证奖励进行的强化学习显著增强了大语言模型的推理能力，尤其是在数学和编码方面。然而，这种方法依赖于人工创建的真实标签验证器，这使得为每个问题生成奖励信号的成本高昂且受到限制。在这项工作中，研究团队提出以下问题：</p>
+<ul>
+<li>推理模型能否仅使用自身的反馈进行自我训练，而无需访问真实标签？</li>
+<li>自我训练的性能能否达到基于真实标签的强化学习训练的水平？</li>
+<li>自我训练能否无限期持续？其改进最终是否会受到限制？</li>
+<li>哪些策略可以有效地维持模型的自我训练？</li>
+</ul>
+<p>自我奖励培训（SRT）</p>
+<p>受先前基于一致性自我提升研究的启发，研究团队引入了一种简单而有效的自我训练强化学习方法论，称为自我奖励训练（Self-Rewarded Training，SRT）。 该方法在强化学习训练期间，通过模型生成的多个解决方案之间的一致性来评估正确性，从而在没有标注数据的情况下提供自监督信号。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/bca5e332fdb2bb42d406183b346d815b3ac68d3ec448836873eda3614f9b5bfa/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326241463470686e354f75576535457848566e366164675966544e69624e36564733415463565666386145743774655848316d6343733353512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/bca5e332fdb2bb42d406183b346d815b3ac68d3ec448836873eda3614f9b5bfa/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326241463470686e354f75576535457848566e366164675966544e69624e36564733415463565666386145743774655848316d6343733353512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bAF4phn5OuWe5ExHVn6adgYfTNibN6VG3ATcVVf8aEt7teXH1mcCs3SQ/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>SRT 概览。在 RLVR 方法中，系统通过真实验证器生成用于强化学习训练的奖励信号。与之相反，SRT 方法并不依赖真实验证器，而是通过模型自身生成结果的多数投票机制来估算真实值，并利用这一替代性奖励信号来训练模型。</p>
+<h2>SRT 与早期训练阶段的 RL 性能相匹配</h2>
+<p>研究团队通过经验证明，在早期训练阶段，SRT 能够达到与那些在黄金标准答案上进行显式训练的标准强化学习方法相媲美的性能。测试数据集包括：AMC、AIME24、AIME25。 然而，研究团队发现其性能最终会崩溃，例如在最右图中展示的 DAPO 数据集上的训练情况。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7c52c7c66f06f309b76598563c48508ff756ec369b671bd0e2fad78ff8a2e9f4/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326268426a4f4b7943455a674144674d416743447658394b5a315638575254587777514a4e31454254716c4c46616c725734644c794966412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/7c52c7c66f06f309b76598563c48508ff756ec369b671bd0e2fad78ff8a2e9f4/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326268426a4f4b7943455a674144674d416743447658394b5a315638575254587777514a4e31454254716c4c46616c725734644c794966412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bhBjOKyCEZgADgMAgCDvX9KZ1V8WRTXwwQJN1EBTqlLFalrW4dLyIfA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>自我训练必然会崩溃</p>
+<p>研究团队分析了 SRT 在具有挑战性的 DAPO 数据集上训练时的训练动态。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/182e59f256b8fd2d7e60aaf9998f1a53f602d4cdb33157aa16c60376d5f9f384/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326269617869635647354c354c4f3876344262323974567a79624d44545171374478686961706e76375a56517867784b6e4a6b73393376764579772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/182e59f256b8fd2d7e60aaf9998f1a53f602d4cdb33157aa16c60376d5f9f384/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326269617869635647354c354c4f3876344262323974567a79624d44545171374478686961706e76375a56517867784b6e4a6b73393376764579772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="srt_training_dynamics" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2biaxicVG5L5LO8v4Bb29tVzybMDTQq7Dxhiapnv7ZVQxgxKnJks93vvEyw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>srt_training_dynamics</p>
+<p>这些发现表明，模型通过产生一致（见上方第二个图）但错误（见上方最左图）的答案来学习最大化自我分配的奖励。人工检查证实了这一点：在崩溃之后，模型的输出会退化为随机的词元序列，并带有一个固定的、与提示无关的答案（例如，「答案是 1」）。这种行为有一个简单而精确的理论依据：</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/22b9845f9a279a507e46e3d33ff4364a2c6a79e8754744184edde2d01e427d04/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262716c6f7957456d536144746d776963746556494a364d6f73696257724c73696373376e47395359684e387478586e34764842676e37626348672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/22b9845f9a279a507e46e3d33ff4364a2c6a79e8754744184edde2d01e427d04/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262716c6f7957456d536144746d776963746556494a364d6f73696257724c73696373376e47395359684e387478586e34764842676e37626348672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bqloyWEmSaDtmwicteVIJ6MosibWrLsics7nG9SYhN8txXn4vHBgn7bcHg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>由 SRT 目标定义的强化学习优化问题明确鼓励输出之间的一致性，而不考虑其正确性。因此，在该目标下的最优策略会退化为无论输入如何都产生相同的答案，从而人为地最大化奖励。在这种代理 (proxy) 目标上持续进行自我训练，自然会驱动模型朝向这种平凡解 (trivial solution) 发展，特别是当这种解比解决实际任务更简单时。</p>
+<p>缓解策略可能是有效的</p>
+<p>研究团队提出了一些策略来缓解奖励作弊 (reward hacking)，为未来维持模型持续改进的有效方法奠定基础。</p>
+<p>（i）早停（Early Stopping）：一个小的验证集可以可靠地检测到模型的最佳性能点，并防止在自我训练过程中发生崩溃。对于所有的留出集（heldout sets），最佳性能点几乎出现在同一位置，因此使用任何一个留出集进行早停都是有效的。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/acbdd42d5601628e8b5e94b079d3fc352e4c1703d9bb7f4ece8a9b9194f9d297/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326244644f69616b71633468585268713651384541776963674c716146724d644468614a727a3232576234706c384d366a69616963357371524a41772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/acbdd42d5601628e8b5e94b079d3fc352e4c1703d9bb7f4ece8a9b9194f9d297/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326244644f69616b71633468585268713651384541776963674c716146724d644468614a727a3232576234706c384d366a69616963357371524a41772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="srt_early_stopping" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bDdOiakqc4hXRhq6Q8EAwicgLqaFrMdDhaJrz22Wb4pl8M6jiaic5sqRJAw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>srt_early_stopping</p>
+<p>（ii）使用离线生成的标签进行自我训练：一种有效的方法是从一个稳定的、先前固定的检查点生成伪标签，而不是利用来自演进中的策略的标签。这样做可以稳定训练，同时达到与 SRT 相当的性能。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e269a5f926cf46c9b387420dfd456643f92611944848d9d86f7a42def1c06ff0/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262364c4a5961416159796364396d5a6f4a5a47616962414d3064324a41384e464536435773395734376a38374f394c454d65437a35484d412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/e269a5f926cf46c9b387420dfd456643f92611944848d9d86f7a42def1c06ff0/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262364c4a5961416159796364396d5a6f4a5a47616962414d3064324a41384e464536435773395734376a38374f394c454d65437a35484d412f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="srt_offline_generated_data" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2b6LJYaAaYycd9mZoJZGaibAM0d2JA8NFE6CWs9W47j87O9LEMeCz5HMA/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>srt_offline_generated_data</p>
+<p>（iii）结合课程学习的自我训练：研究团队假设，在更具挑战性的数据集上训练时，模型崩溃会发生得更快，这一推测与研究团队的经验性发现一致。其直觉是，在更具挑战性的数据集上，模型更容易放弃其预训练知识，转而优化自我一致性，而不是真正学习解决潜在的任务。研究团队利用这一假设，通过根据（a）通过率和（b）多数投票的频率来识别 DAPO 数据集中「最简单」的子集，从而实施一种课程学习策略（更多细节请参见论文）。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/003b6713dd334ecae631f06c92bddc5c96e4b6b52f3a765f9f7407a65707a374/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326243724d7051317a5a53377575494d4f52696256696244417a6b74696169636d756d58595a3743566d454f736541414f48456c41526578666563672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/003b6713dd334ecae631f06c92bddc5c96e4b6b52f3a765f9f7407a65707a374/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326243724d7051317a5a53377575494d4f52696256696244417a6b74696169636d756d58595a3743566d454f736541414f48456c41526578666563672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="srt_curriculum" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bCrMpQ1zZS7uuIMORibVibDAzktiaicmumXYZ7CVmEOseAAOHElARexfecg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>srt_curriculum</p>
+<p>在这些课程子集上的性能达到了与在整个 DAPO 数据集上使用真实标签进行标准强化学习训练相当的水平。这些富有前景的结果表明，课程学习策略可能会进一步扩展 SRT 的益处，为未来的研究开辟了激动人心的途径。</p>
+<h2>MM-UPT：多模态大模型的持续自我进化</h2>
+<ul>
+<li>论文标题：Unsupervised Post-Training for Multi-Modal LLM Reasoning via GRPO</li>
+<li>论文链接：<a href="https://arxiv.org/abs/2505.22453" rel="nofollow">https://arxiv.org/abs/2505.22453</a></li>
+<li>项目代码：<a href="https://github.com/waltonfuture/MM-UPT">https://github.com/waltonfuture/MM-UPT</a></li>
+</ul>
+<p>近年来，多模态大语言模型在视觉问答、图文推理等任务上取得了显著进展。然而，要在这些强大的基础模型之上进一步提升性能，往往需要依赖高质量人工标注数据进行监督微调或强化学习，这在成本与可扩展性上面临严峻挑战。过往研究虽然探索了无监督后训练方法，但大多流程复杂、难以迭代、数据利用率低。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/efe10629c47f9e24e65477ed81529365cd1c4d34c128dc3554c261b49e0d6361/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326242746d62546963795a783453644e6568736a6e6439783169625073747161574b766a777a4c3658386d69626c434337524f637039686e3659672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/efe10629c47f9e24e65477ed81529365cd1c4d34c128dc3554c261b49e0d6361/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f326242746d62546963795a783453644e6568736a6e6439783169625073747161574b766a777a4c3658386d69626c434337524f637039686e3659672f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bBtmbTicyZx4SdNehsjnd9x1ibPstqaWKvjwzL6X8miblCC7ROcp9hn6Yg/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>在这篇论文中，作者首次探索了在完全无监督场景下， 通过强化学习框架 GRPO 实现多模态大模型的持续自我改进。 他们提出了一种简洁而高效的框架：MM-UPT（Multi-Modal Unsupervised Post-Training），并在多个图文数学推理 benchmarks 上验证了其有效性。</p>
+<p>MM-UPT 的核心思想主要为以下两个关键点：</p>
+<ul>
+<li>强化学习中的 GRPO 提供了稳定高效的在线策略优化能力；</li>
+<li>多数投票可以在无标签数据上为模型输出生成伪标签，驱动自我优化。</li>
+</ul>
+<p>整个流程如下：</p>
+<ul>
+<li>给定一张图片和一个问题，模型生成多个候选回答；</li>
+<li>使用多数投票选出出现频率最高的回答，作为当前输入的「伪标签」；</li>
+<li>使用这个「伪标签」来计算 reward，引导模型根据 GRPO 策略更新；</li>
+</ul>
+<p>这整个过程无需任何外部监督信号或真实答案，使得模型可以基于自身的「共识」行为进行强化学习，从而实现持续的性能提升。</p>
+<p>作者在四个多模态数学推理基准测试集（MathVisioan、MathVista、We-Math、MathVerse）上进行了广泛实验。表格 1 的结果显示：</p>
+<ul>
+<li>在使用标准的训练集但不使用任何人工标注答案的情况下，MM-UPT 可以使 Qwen2.5-VL-7B 的准确率从 66.3% 提升至 72.9%（MathVista）；</li>
+<li>超过之前的无监督自我改进方法（如 Genixer、STIC、SRLM 等）；</li>
+<li>表现甚至媲美有监督的 GRPO；</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/683ff62a96ae4c37649f8e4f9ec47304bf9009d76c7485546588bd290ba76674/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32627869615247704444514f7271785456696136776d574d696359704431503857696168497a5036436c545864304f61774f4f4c7866426c4d6671512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/683ff62a96ae4c37649f8e4f9ec47304bf9009d76c7485546588bd290ba76674/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32627869615247704444514f7271785456696136776d574d696359704431503857696168497a5036436c545864304f61774f4f4c7866426c4d6671512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bxiaRGpDDQOrqxTVia6wmWMicYpD1P8WiahIzP6ClTXd0OawOOLxfBlMfqQ/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>在标准数据集上遮盖答案进行无监督训练后，作者进一步探究了一个更具挑战的问题：模型能否通过自己生成训练数据来实现自我提升？为此，MM-UPT 引入了两种简单的合成数据生成策略：</p>
+<p>In-Context Synthesizing（上下文引导生成）</p>
+<p>模型在给定图像、原问题和原答案的前提下生成一个新的问题。生成的问题与原问题在结构上相近，相当于进行语义改写或条件替换来进行数据增强。</p>
+<p>Direct Synthesizing（直接生成）</p>
+<p>仅提供图像输入，模型完全基于图片内容生成问题。这种方法生成的问题更加多样，但也存在一定概率的幻觉。 无论使用哪种方式生成问题，MM-UPT 都采用多数投票生成伪标签，驱动模型进行强化学习更新。</p>
+<p>表格 2 中的结果显示：即便训练数据完全由模型自己生成，MM-UPT 仍然能显著提升多模态推理能力，甚至在部分任务上超越使用原始问题的数据。这表明，多模态大模型具备一定的「自我提问 + 自我优化」的潜力，为未来依靠 AI 自行生成训练语料进行自我进化的范式提供了坚实基础。</p>
+<p>MM-UPT 为什么有效？作者用一个简单的例子解释了其有效性。假设模型对某个二分类问题，模型每次预测正确的概率较高， 。从该模型独立采样 个回答 ，多数投票选出出现频率最高的答案作为伪标签。定义随机变量 表示预测正确的次数，则多数投票正确的概率为：</p>
+<p>由于 ，有：</p>
+<p>即： 多数投票比单次预测更可靠。 这就是 MM-UPT 中用多数投票作为伪标签的合理性所在 —— 它可以构造一个有效的自监督奖励信号。但作者也指出了边界条件：当模型对任务缺乏先验时（如在 ThinkLite-11K 这种困难的数据集上），多数投票会反而强化错误预测，导致性能下降。</p>
+<p>总的来说，MM-UPT 为多模态大模型的后训练阶段提供了一种无需人工标注、无需外部奖励模型的自我提升方式，展现了强化学习在无监督场景下的潜力。后续可以探索结合更强的自我评估机制（如 LLM-as-a-Judge）、复杂 reward 设计等，进一步拓展 MM-UPT 框架的能力边界。</p>
+<p>UI-Genie：赋能 GUI 智能体高效自改进的新框架</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6ff80a71d331174d59b7454aaf1b48db1b59923128f31255583cadceb9de4d49/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262425a7632515a696246366b346a6d787a68526737506a6962307365744f3769634a6c4b3258347a4843666e6f69634363446e6a6446456a616d772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/6ff80a71d331174d59b7454aaf1b48db1b59923128f31255583cadceb9de4d49/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262425a7632515a696246366b346a6d787a68526737506a6962307365744f3769634a6c4b3258347a4843666e6f69634363446e6a6446456a616d772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bBZv2QZibF6k4jmxzhRg7Pjib0setO7icJlK2X4zHCfnoicCcDnjdFEjamw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<ul>
+<li>论文标题：UI-Genie: A Self-Improving Approach for Iteratively Boosting MLLM-based Mobile GUI Agents</li>
+<li>论文链接：<a href="https://arxiv.org/abs/2505.21496" rel="nofollow">https://arxiv.org/abs/2505.21496</a></li>
+<li>项目地址：<a href="https://github.com/Euphoria16/UI-Genie">https://github.com/Euphoria16/UI-Genie</a></li>
+</ul>
+<p>在这篇论文中，研究团队介绍了一种名为 UI-Genie 的自改进框架，旨在解决 GUI 智能体中的两大核心挑战：一是轨迹结果的验证十分困难，二是高质量训练数据的规模化获取不易。针对这两个挑战，研究团队分别提出了一种奖励模型和一个自改进流水线。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/171ba75b1da15ab3d25113020c4cbd341f21f42156a9a8dd35c78794693bc94d/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262456b6d794530346961446961396137394b4d70797a386a584b70527638523769616963394d55343133444263416963533139353273464a6a734f772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/171ba75b1da15ab3d25113020c4cbd341f21f42156a9a8dd35c78794693bc94d/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f3262456b6d794530346961446961396137394b4d70797a386a584b70527638523769616963394d55343133444263416963533139353273464a6a734f772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bEkmyE04iaDia9a79KMpyz8jXKpRv8R7iaic9MU413DBcAicS1952sFJjsOw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>该奖励模型，即 UI-Genie-RM，采用了一种图文交错的架构，能够高效处理历史上下文信息，并统一了动作级别和任务级别的奖励：</p>
+<ul>
+<li>通过迭代式合成轨迹生成，消除人工标注</li>
+<li>通过自改进循环，共同演进智能体和奖励模型</li>
+<li>无需人工干预即可生成高质量数据集</li>
+</ul>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7737ed7204ddd11851c6c8c39d9d37debf60f04c71c2cf4d62b2f0599914acae/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32625a615a6833615a6961696166356865776a3269616e38534c75427435654d5570696367535462474948364a69636e4b426961696333356963716e44474b512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/7737ed7204ddd11851c6c8c39d9d37debf60f04c71c2cf4d62b2f0599914acae/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32625a615a6833615a6961696166356865776a3269616e38534c75427435654d5570696367535462474948364a69636e4b426961696333356963716e44474b512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2bZaZh3aZiaiaf5hewj2ian8SLuBt5eMUpicgSTbGIH6JicnKBiaic35icqnDGKQ/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>为了支持 UI-Genie-RM 的训练，研究团队开发了精心设计的数据生成策略，包括基于规则的验证、受控的轨迹损坏以及难负例挖掘。</p>
+<p>为应对第二个挑战，研究团队设计了一个自改进流水线，通过在动态环境中进行奖励引导的探索和结果验证，逐步增强智能体和奖励模型的能力，从而扩展可解决的复杂 GUI 任务范围。</p>
+<p>在模型训练方面，研究团队生成了 UI-Genie-RM-517k 和 UI-Genie-Agent-16k 数据集，这不仅是首个针对 GUI 智能体的奖励专用数据集，同时也展示了无需人工标注即可生成高质量合成轨迹的能力。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2510b8b35540332e9ad6e263a34e5f14dd2677602153318619036541ea54acb5/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32626f414862334d756f4c53776a5768434731794b556b4a57525a6e63777a363836566963436e446e703537436a4d56474b49513238436b772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/2510b8b35540332e9ad6e263a34e5f14dd2677602153318619036541ea54acb5/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32626f414862334d756f4c53776a5768434731794b556b4a57525a6e63777a363836566963436e446e703537436a4d56474b49513238436b772f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2boAHb3MuoLSwjWhCG1yKUkJWRZncwz686VicCnDnp57CjMVGKIQ28Ckw/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>UI-Genie 数据集统计信息。UI-Genie-RM-517k 是首个专用于 GUI 智能体的奖励数据集，而 UI-Genie-Agent-16k 则包含了无需人工标注的合成轨迹。</p>
+<p>实验结果表明，经过三代数据与模型的自改进迭代，UI-Genie 在多个 GUI 智能体基准测试中均达到了业界领先水平。研究团队已将完整的框架实现和生成的数据集开源，以促进该领域的进一步研究。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e6d75fae946ff8260316c2450dff1a6452c777096f86201905ae3002cffaddda/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32626f55456e4e4b43454869625850504a66335635735a696331495a36445159556e3772696349424c6c68675237485267684d5046706b755645512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/e6d75fae946ff8260316c2450dff1a6452c777096f86201905ae3002cffaddda/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f706e672f4b6d58504b413139675738774e433137754d576771507a304c574631334f32626f55456e4e4b43454869625850504a66335635735a696331495a36445159556e3772696349424c6c68675237485267684d5046706b755645512f3634303f77785f666d743d706e672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="image.png" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_png/KmXPKA19gW8wNC17uMWgqPz0LWF13O2boUEnNKCEHibXPPJf3V5sZic1IZ6DQYUn7ricIBLlhgR7HRghMPFpkuVEQ/640?wx_fmt=png&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>UI-Genie、Qwen2.5-VL 和 UI-TARS 在三个基准上的性能比较。</p>
+<p>关于模型自我改进的论文还有很多，如果你也在做相关研究，欢迎在评论区留言推荐自己的工作。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b1535d3f89edbbdde266a758cdd1e620f711f4b64ebdf644eeccf57e49be8a67/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f6a70672f4b6d58504b413139675769633664574a503466626a5151304a3738736b74544159385130704b6f507368487354315a69637869636b4c52726c6e54636c5237536b52356379787375576b67343463516f474a384e375a69624f772f3634303f77785f666d743d6a7065672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31"><img src="https://camo.githubusercontent.com/b1535d3f89edbbdde266a758cdd1e620f711f4b64ebdf644eeccf57e49be8a67/68747470733a2f2f6d6d62697a2e717069632e636e2f737a5f6d6d62697a5f6a70672f4b6d58504b413139675769633664574a503466626a5151304a3738736b74544159385130704b6f507368487354315a69637869636b4c52726c6e54636c5237536b52356379787375576b67343463516f474a384e375a69624f772f3634303f77785f666d743d6a7065672666726f6d3d6170706d73672674703d7765627026777866726f6d3d352677785f6c617a793d31" alt="Image" data-canonical-src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/KmXPKA19gWic6dWJP4fbjQQ0J78sktTAY8Q0pKoPshHsT1ZicxickLRrlnTclR7SkR5cyxsuWkg44cQoGJ8N7ZibOw/640?wx_fmt=jpeg&amp;from=appmsg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" style="max-width: 100%;"></a></p>
+<p>© THE END</p>
+<p>转载请联系本公众号获得授权</p>
+<p>投稿或寻求报道：<a href="mailto:liyazhou@jiqizhixin.com">liyazhou@jiqizhixin.com</a></p>
+<p>继续滑动看下一个</p>
+<p>机器之心</p>
+<p>向上滑动看下一个</p>
+<p>Drag &amp; drop here to download</p>
+<p>图片将完成下载</p>
+<p>AIX Downloader</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
