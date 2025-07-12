@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言
+Image
+Image
+编辑 | 伊风
+
+
+
+这应该是我听过最扎实、最客观的一场 AI 编程演讲。">
+<meta property="og:title" content="Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言">
+<meta property="og:description" content="Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言
+Image
+Image
+编辑 | 伊风
+
+
+
+这应该是我听过最扎实、最客观的一场 AI 编程演讲。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://winnerineast.github.io/post/Claude-han-AI-liang-chao-Cursor-yi-bei-%EF%BC%81-zi-shen-gong-cheng-zhu-guan-jie-mi-AI-bian-ma-zhen-xiang-%EF%BC%81-gu-ge-jin-shen-quan-gao-zi-yan-%EF%BC%9B-ruan-jian-jia-gou-jiao-fu-%EF%BC%9A-xiang-cong-hui-bian-shi-dai-yue-qian-dao-gao-ji-yu-yan.html">
+<meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
+<title>Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言</h1>
+<div class="title-right">
+    <a href="https://winnerineast.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/winnerineast/winnerineast.github.io/issues/37" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>Claude含AI量超Cursor一倍！资深工程主管揭秘AI编码真相！谷歌谨慎全搞自研；软件架构教父：像从汇编时代跃迁到高级语言<br>
+Image<br>
+Image<br>
+编辑 | 伊风</p>
+<p>这应该是我听过最扎实、最客观的一场 AI 编程演讲。</p>
+<p>它不讲“奇迹”，也不兜售“焦虑”。而是抛出一个很实在的问题：</p>
+<p>“今天我们能不能做一次现实核查：</p>
+<p>那些极度乐观的 AI 编程预言，靠谱吗？还是现实中根本没那么神？”</p>
+<p>微软 CEO 说：‘30% 的代码都是由 AI 编写的’；</p>
+<p>Authoropic 的 CEO 几个月前声称，‘一年之内所有代码都会由 AI 生成’；</p>
+<p>但为啥这和工程师跑起来的感觉不一样？</p>
+<p>怎么有初创公司的人用了Devin，不仅没提效，还出了bug倒亏了 700 美元的事故成本？</p>
+<p>这场演讲来自 Gergely Orosz —— 曾任 Uber 技术主管、后来转型为全职技术作者。</p>
+<p>他写的《The Tech Resume Inside Out》一度被称为“程序员简历圣经”，如今则靠着 The Pragmatic Engineer 这一全球最火工程类 Newsletter，持续影响着数十万技术人。</p>
+<p>Image</p>
+<p>为了回答上面的问题，他花了两个月，采访了 AI DevTools 初创团队、大厂内部工程师、AI 生物创业公司和一群“热爱代码本身”的独立开发者。最终拼出了一份关于 AI 编程真实状态 的多维画像。</p>
+<p>先来说个初步结论给大家：</p>
+<p>AI DevTools 初创公司：重度使用（不意外）；<br>
+大厂：投入巨大，使用率持续上升；<br>
+AI 创业公司：使用情况不稳定，有的有效、有的无感；<br>
+独立开发者：比以前更兴奋、更愿意用。</p>
+<p>最令人意外的是一位真正的“老程序员”——Kent Beck（是的，就是《Extreme Programming》作者），他是第四类人的一个代表：</p>
+<p>“我现在写代码，比过去 52 年任何时候都开心。” ——Kent Beck今年是第 52 年写代码了。</p>
+<p>AI 让他终于能动手做自己一直想做但觉得“太复杂、太贵”的项目，比如用 Smalltalk 写一个并行计算服务器。他说：</p>
+<p>“技术栈中‘什么便宜、什么昂贵’的格局正在被重写，很多过去被我们放弃的事情，现在其实便宜得令人发笑。”</p>
+<p>小编将这篇干货满满的演讲，梳理成了好读、有料的文章，接下来你将读到：</p>
+<p>AI DevTools 初创公司：9成代码AI生成，成千上万个 MCP请求一起跑！<br>
+Google 和 Amazon：怎么将 LLM 集成进开发工具？<br>
+AI 初创公司：Claude Code、Cursor、Windsurf 等开发者怎么用？<br>
+独立开发者：谁在“彻底转变”、谁在“理智观察”？<br>
+最后是他留下的 4 个反思性问题，每一个都戳中真实工程场景。</p>
+<p>Image<br>
+Claude Code、Windsurf 9成已是AI代码，Cursor仅为前者一半</p>
+<p>首先是 AI DevTools 初创公司。</p>
+<p>我上周刚和 Anthropic 团队聊过，问他们最近在内部观察到什么趋势。虽然这些公司难免会有些“自带滤镜”，但他们的回答还挺值得一听的。</p>
+<p>他们说，当第一次在内部开放 Claude Code 给工程师使用时，几乎所有人都立即开始每天使用，而且热情持续到现在。这种“自然启动”让他们自己也有点意外。</p>
+<p>要知道，当时这还只是内部版本。Claude Code 直到一个月前才对外发布，它其实不是 IDE，而是一个命令行工具（CLI），运行在终端里。</p>
+<p>他们还告诉我，目前 Claude Code 这个产品本身，有 90% 的代码就是用 Claude Code 写的。这个数字听起来非常夸张，甚至像广告词。但我也专门和工程师确认过——他们不像市场部门那样会“演”，所以这个说法还是挺可信的。</p>
+<p>他们还提到一个很有意思的数据：Claude Code 正式上线后第一天，使用量就暴涨了 40%；三周不到，涨幅已经达到 160%。不论原因是什么，这说明这个工具的确有吸引力。</p>
+<p>此外，Anthropic 还启动了一个叫 MCP（Model Context Protocol） 的项目。他们的目标是用一个协议，把 IDE 或 Agent 接入到开发者已有的上下文环境中，比如数据库、GitHub、Google Drive、Puppet 等。</p>
+<p>我自己也动手试了一下，连上了自己的一个 API 数据源，然后直接问它：“有多少人领取了某个优惠码？”它自动生成 SQL 查询，结果也挺靠谱。这种“自然语言连数据”的体验，确实让人眼前一亮。</p>
+<p>据他们说，MCP 是在去年 11 月开源的。到今年年初，有几家中型公司开始采用。然后在 3 月、4 月，连 OpenAI、Google、Microsoft 这些“大玩家”也加入了对 MCP 的支持。</p>
+<p>现在，每天都有成千上万条 MCP 请求在运行，后面演讲中还会提到它为何重要。</p>
+<p>除了 Claude，我还和另外两个 AI IDE 团队聊了聊：</p>
+<p>Windsurf：他们说目前团队中 95% 的代码都是用 Windsurf 的 Agent 或自动补全生成的；<br>
+Cursor：给出的估算是 40% 到 50% 的代码使用了 AI。虽然比不上前面两个，但他们也坦言：有些地方确实有用，有些还不太行。</p>
+<p>我很欣赏 Cursor 的坦诚。毕竟这些公司做的就是 AI 编程工具，谁都想把“AI使用率”尽量做到 100%，那可是卖点。但 Cursor 没藏着掖着，这就已经很难得了。</p>
+<p>Image<br>
+Google：“谨慎而长期主义”，所有AI工具都是自研</p>
+<p>我和 Google 的几位工程师匿名聊了聊，大概五个人。首先要知道的是：Google 的所有工程系统几乎都是自研的。</p>
+<p>不用 Kubernetes，而是内部自研的 Borg；<br>
+不用 GitHub，用的是自己的代码仓库系统；<br>
+不用公开的 Code Review 工具，而是用内部工具 Critique；<br>
+他们的 IDE 是自研系统 Cider（全称：Integrated Development Environment and Repository）。</p>
+<p>Cider 最初是网页工具，现在已经演变为一个基于 VS Code 的定制分支，与 Google 的内部基础设施高度集成，开发体验非常顺滑，打通程度很高。</p>
+<p>工程师告诉我，现在 AI 工具几乎无处不在。</p>
+<p>在 Google 内部，他们已经将大模型集成进自己的 IDE「Cider」中。Cider 是基于 VS Code 的一个定制分支，还有一个网页版叫 Cider V，里面集成了自动补全、基于对话的 IDE。他们说使用体验还不错，虽然可能比不上 Cursor，但总体表现已经相当可以。在代码评审工具 Critique 中，AI 也能给出审查反馈，评价是“很合理，能用”。</p>
+<p>再比如代码搜索，这是 Google 内部非常强大的工具，现在也已经集成了 LLM 支持。你可以问它一些问题，它会帮你定位相关代码部分。而就在一年前，这些功能在 Google 内部几乎没人用。但半年内一切都变了。</p>
+<p>一位现任 Google 工程师告诉我，Google 内部推行 AI 工具的方式是非常“谨慎而长期主义”的。他们希望这些工具能真正被工程师信任、持续使用。</p>
+<p>此外，还有不少只面向 Google 内部的工具，比如：</p>
+<p>Notebook LM：你可以上传文档、和它对话；<br>
+Prompt Playground：有点像 OpenAI 的 Playground，但其实 Google 在 OpenAI 发布之前就已经做出来了；<br>
+Moma：一个基于 LLM 的知识检索系统，在 Google 工程师中广泛使用。</p>
+<p>我听一位 Googler（不便透露姓名）说，现在每个 org（组织）都在搞属于自己的 GenAI 工具，原因很简单：领导层希望看到这种创新，而且这么做更容易拿到内部资源和预算支持。像 Notebook LM 这样的工具，就是靠“某个团队拉到预算就自己搞起来”的。</p>
+<p>不过让我印象最深的，是一位前 SRE 告诉我——他和很多 Google 的 SRE 还保持联系——现在 Google 的基础设施团队正在为“10 倍代码量”的增长做准备。他们在升级部署流水线、代码审查工具、功能开关机制等等。</p>
+<p>这让我非常好奇：Google 是不是已经看到了某些我们还没意识到的趋势？</p>
+<p>Image<br>
+Amazon：采用AI比谷歌激进，但相当低调</p>
+<p>谈起 AI 工具，大多数人第一反应不会想到 Amazon。</p>
+<p>虽然外界对 Amazon 的 AI 能力印象不深，但我跟内部工程师聊下来发现，几乎所有开发者都在用一个叫 Amazon Q Developer Pro 的工具。它对 AWS 相关任务非常好用。</p>
+<p>让我惊讶的是，Amazon 内部的人很疑惑，为什么外界对这个工具几乎一无所知？他们表示，“只要你是做 AWS 的，这个工具的上下文理解能力就特别棒。”</p>
+<p>大概半年前，我听他们说这个工具“不太行”；但现在，很多人都说：“真的很好用了。”</p>
+<p>他们还告诉我，现在写 Amazon 的 PR FAQ（六页文案、模拟新闻稿的那种），也会用 AI 工具。年中绩效季，很多写作任务也用它来加速。</p>
+<p>Amazon 和 Anthropic 有合作关系，他们有一个内部版本的 Claude。</p>
+<p>关于 Amazon，我觉得最有趣的是 MCP（Model Context Protocol）在内部的推进。</p>
+<p>Anthropic 最早提出 MCP，现在 Amazon 似乎在全面接入。</p>
+<p>稍微讲讲背景：Amazon 是个“API 驱动”的公司，早在 2002 年，Jeff Bezos 发出著名命令：</p>
+<p>“所有团队必须通过服务接口（API）暴露功能和数据，不得使用内部通信，违者将被开除。”</p>
+<p>这也是 AWS 能诞生的底层原因。他们的所有服务都可以通过 API 公开，因此现在只需要在 API 上“外挂”一个 MCP server，AI Agent 就能直接对接调用，非常轻松。</p>
+<p>我从某位 Amazon 员工那里得知，目前 Amazon 内部的大多数工具和网站已经支持 MCP，这应该是第一次被公开提到。</p>
+<p>自动化在 Amazon 内部随处可见。我听说很多人正在用 AI 工具自动处理工单系统、邮件、内部流程等等，有些工程师甚至已经自动化了大部分工作流。</p>
+<p>虽然外界没人讨论这些，但它确实正在发生。Amazon 作为“API First”公司，现在可能也正悄悄成为“MCP First”的引领者，时间点就在 2025。</p>
+<p>Image<br>
+初创公司的两极分化：有人爱疯了，有人说“不如手写”</p>
+<p>我还和一些小型初创公司聊了聊。它们并不是做 AI 工具起家的，但在日常流程中逐步开始集成 AI —— 有的甚至已经转向“AI 优先”的方向。</p>
+<p>1.支持者 Incident IO：整个团队都在用，形成浓厚的“知识共创”氛围</p>
+<p>Incident IO，本来是一家做 on-call 报警平台的公司。它本来是做 on-call 平台的，但 AI 明显是很适合用来做报警、排查和解决方案推理的。所以他们逐步变成了 AI 优先的公司。</p>
+<p>我采访了联合创始人 Lawrence Jones（他也是这次大会的讲者），他告诉我：</p>
+<p>整个团队都在大规模使用 AI 来提效，还会在 Slack 中分享使用技巧、最佳实践，一种“知识共创”的氛围已经形成。</p>
+<p>一些具体例子很有代表性：</p>
+<p>有人尝试用另一台 MCP server 来处理一张复杂的工单，结果 AI 给出的初稿非常靠谱；<br>
+他把这个经验发到群里，其他人纷纷试用，讨论 prompt 设计和生成逻辑；<br>
+还有人发现了一个“提示词新玩法”：让 AI 给出 3~5 个不同代码方案，再追问“为什么这样写、换个思路会怎样”。</p>
+<p>Lawrence 表示最关键的转折点是 Claude Code 上线后的三周。</p>
+<p>他查了一下数据（当时是周日），发现整个团队都已经在日常使用它了。没有任何品牌赞助，只是纯粹觉得Claude太好用了。</p>
+<p>2.弃用者 某AI 生物初创公司：最新的模型也满足不了需求，领域太小众了？</p>
+<p>这家公司大概成立三年了，团队规模在 50 到 100 人之间，整个系统架构很现代：基于 Kubernetes 的自动化数值管道、Python、Hugging Face 等技术。</p>
+<p>他们的工程师对我说：  “我们试过很多 LLMs，但没有一个能真正用起来。因为我们手动写出正确代码，其实比修改 AI 写的代码还要快得多 —— 即便是用最新模型，比如 Claude 3.7、甚至 Claude 4，还是这样。”</p>
+<p>他们觉得自己的领域可能太小众，不适合让 LLMs 发挥作用。</p>
+<p>这位工程师也坦言，不愿意公开名字，是因为他们不想被贴上“AI怀疑者”的标签——但这是实话。</p>
+<p>他们是一家节奏很快的初创公司，尝试过各种 AI 工具（包括代码审查助手），但最终发现这些工具不适用于他们开发的新型复杂软件。他们不是不试，而是试了发现不行，就迅速换方向了。</p>
+<p>Image<br>
+“从未如此兴奋！”——独立开发者与老程序员如何评价 AI 编码？</p>
+<p>聊完初创公司，我也采访了几位独立软件工程师，他们在 AI 时代之前就已经非常厉害了，对“写代码”这件事有深深的热爱。</p>
+<p>1、Flask 作者 Armin：我现在更想当 AI 智能体工程师</p>
+<p>Armin Ronacher，Python Web 框架 Flask 的作者，十几年来一直是个“纯写代码”的技术人。他最近离开了 Sentry，准备自己创业。</p>
+<p>最近他发布了一篇文章，标题是：《AI 改变了一切》。他说了一句非常颠覆性的话：</p>
+<p>“如果你在六个月前告诉我，我会更愿意做一名‘AI 智能体工程师’而不是亲自编码，我肯定不会相信。”</p>
+<p>他的转变有三个原因：</p>
+<p>Claude Code 用起来真的很顺；<br>
+自己在密集使用 LLMs 之后，终于“突破了心理障碍”，开始接受 AI 合作模式；<br>
+最关键：agent 能自动执行、观察反馈，这种机制可以极大地降低‘幻觉错误’的影响。</p>
+<p>2、iOS 工具作者 Peter：我又找回了“写代码的热情”</p>
+<p>Peter Steinberger 是 PSPDFKit 的作者，iOS 最流行的 PDF SDK 创始人。他把公司卖掉后一直在探索新技术，最近发了一篇文章，标题就叫：</p>
+<p>“The Spark Returns（热情回来了）”</p>
+<p>他说他感受到一个转折点到来了：语言和框架不再重要，AI 工具让他轻松从 Objective-C 转到 TypeScript，写什么都行。工具层的解耦能力太强了，生产效率暴涨。</p>
+<p>他还跟我分享了一个他发在社交平台的段子：  “很多技术人都因为玩 AI 工具兴奋到睡不着。”</p>
+<p>有趣的是，我们是在凌晨 5 点互发消息的，我因为别的事早醒，他因为写代码根本没睡。</p>
+<p>3、ThoughtWorks 的 Brigita：LLM 是技术栈的“横向力量”</p>
+<p>Brigita是ThoughtWorks的Distinguished Engineer，她这样总结 LLM 的意义：LLMs 是极少数可以在任意抽象层使用的工具。</p>
+<p>你可以把它当作汇编级别的 low code 工具，也可以用来操控高级语言，甚至用自然语言编程。 这不是简单地‘加一层 AI’，而是在整个技术栈中横向渗透的东西。</p>
+<p>正是这种“跨层抽象使用能力”，让 LLMs 真正令人兴奋。说这话的人，本身也是在 AI 出现之前就已功成名就的资深工程师。</p>
+<p>4、Django 联合创始人 Simon：真正的突破刚刚开始</p>
+<p>Simon Willison 是 Django 框架的联合创始人，靠写博客和开源维生，被 Andrej Karpathy 称为“LLM 博客必读作者”。</p>
+<p>他说：</p>
+<p>“代码agent确实可以跑得通，可以反复循环、调试编译器、干实事。 过去 6 个月，大模型的迭代明显突破了一道门槛，现在开始真的‘有用’了。”</p>
+<p>5、Kent Beck：52 年码农生涯，现在写得最开心！</p>
+<p>最后是重量级嘉宾：Kent Beck，极限编程（XP）之父，JUnit 作者，软件工程界的活传奇。</p>
+<p>他说：</p>
+<p>“我现在编程比过去 52 年任何时候都开心。”</p>
+<p>他正在用 Smalltalk 写一个并行虚拟服务器的项目 —— 是他多年来的梦想。</p>
+<p>他说 LLM 的出现让他终于可以专注做自己真正想做的事，不用被工具框架牵着走。</p>
+<p>在他眼中，LLM 是继微处理器、互联网、智能手机之后，又一次彻底改变成本结构的技术浪潮：</p>
+<p>“过去我们因为贵、不现实而不做的事，现在突然变得便宜又容易。”</p>
+<p>Image<br>
+延伸：值得思考的四个问题</p>
+<p>这些趋势很有意思，但我认为现在仍然谈不上“AI 已彻底改变软件开发”。它远不是那种“板上钉钉、未来已来”的故事。</p>
+<p>所以我自己也留了 4 个问题：</p>
+<p>❓问题一：为什么创始人和 CEO 远比工程师更兴奋？</p>
+<p>虽然有一些工程师确实很激动，比如 Armin 和 Peter，他们本身就可能是创业型人才。但比如 Warp 的创始人 Zack Lloyd 就问得很到位：</p>
+<p>“有没有人注意到，最资深的工程师往往不怎么用 AI，最热情的反而是创始人和产品经理？”</p>
+<p>这可是一个做 AI 工具终端的创始人在反思。</p>
+<p>再看那些 CEO 公开发言，几乎都在极力宣传 AI 的潜力。这值得我们思考。</p>
+<p>❓问题二：AI 工具的使用在开发者中到底有多主流？</p>
+<p>我让现场举手：“每周至少用一次 AI 工具写代码的有多少人？”</p>
+<p>现场大约有 60–70% 的人举手。</p>
+<p>这和 DX 的调研数据相符。他们最近调查了 3.8 万名开发者，结果是：</p>
+<p>一个典型组织中，大约 一半人每周使用 AI 工具；<br>
+最头部的公司能达到六成。</p>
+<p>但请注意，我演讲里讲的大多数例子，其实都高于这个中位数（除了那个 AI 生物初创公司）。</p>
+<p>也可能有样本偏差——愿意分享经验的人，本来就更愿意使用 AI。</p>
+<p>❓问题三：我们到底节省了多少时间？</p>
+<p>比如 Pete 告诉我，他感觉自己产出效率提升了 10–20 倍。</p>
+<p>但 DX 的调研显示，AI 工具一周大约能帮开发者节省 3–5 小时，平均大概 4 小时。</p>
+<p>4 小时也不赖，但要说“10 倍提效”就显得有点夸张了。问题是：我们真的把省下来的时间用来创造更多价值了吗？</p>
+<p>我也不知道。</p>
+<p>❓问题四：为什么 AI 对个人开发者特别有效，而对团队却效果不佳？</p>
+<p>这个现象非常普遍。DX 的 Laura Tacho 也告诉我，AI 工具在“个体层面”表现不错，但在“组织层面”尚未发挥价值。</p>
+<p>CEO 和创始人如此热情，不难理解，毕竟他们公司押注 AI，也有财务压力在身上。</p>
+<p>大厂积极投资、探索 AI 工具，也说得通。</p>
+<p>但最让我在意的是那些“有年头”的资深开发者，他们是真的用出了成果、感受到了变化、愿意投入更多。</p>
+<p>我觉得我们可能正处在一个软件开发方式的“台阶式变革”时刻。</p>
+<p>我联系了软件工程思想领袖 Martin Fowler，请他为我审阅的一篇文章给点看法。他的回答是：</p>
+<p>“LLMs 将对软件开发产生的影响，堪比当年从汇编语言转向高级语言的变革。</p>
+<p>后来各种高级语言的更新，虽然改进了生产力，但没有那种‘质变’了。</p>
+<p>但 LLM 是不同的：它是计算机历史上第一次引入“非确定性”的工具，这非常关键。”</p>
+<p>Image<br>
+结语</p>
+<p>我的结论是：变化正在发生，我们需要更大胆地去实验。</p>
+<p>我们应该像初创公司那样多试错，弄清楚：</p>
+<p>什么是有效的？<br>
+什么是没用的？<br>
+什么是真的便宜了？<br>
+什么才是真正值得投资的？</p>
+<p>这场演讲到这里也告一段落，内容之扎实、视角之多元，令人回味。</p>
+<p>你对演讲中的这些观察有没有共鸣？</p>
+<p>AI 写代码对你来说，是赋能，还是添乱？欢迎在评论区聊聊你的真实感受</p>
+<p>——好文推荐——</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MjM5ODI5Njc2MA==&amp;mid=2655926998&amp;idx=1&amp;sn=efb5ae0a378b38762a7efd83dc089e3d&amp;scene=21#wechat_redirect" rel="nofollow">硬刚Claude！谷歌上线免费终端AI编程工具，立省 200 刀？网友实测却翻车：功能不行、还要偷我数据训练Gemini 3？</a><br>
+<a href="https://mp.weixin.qq.com/s?__biz=MjM5ODI5Njc2MA==&amp;mid=2655927131&amp;idx=1&amp;sn=7764ab9563059d10da7601909a64170f&amp;scene=21#wechat_redirect" rel="nofollow">OpenAI播客再谈AI编程大战！开发者是最有福的人：特定需求的代码模型将涌现！主持人说漏嘴：我最喜欢Claude！</a></p>
+<p>图片</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://winnerineast.github.io">Winnerineast Blog</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","winnerineast/winnerineast.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+
+
+</script>
+
+
+</html>
