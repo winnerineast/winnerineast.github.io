@@ -1,0 +1,8 @@
+作者 Scott 是微软开发者社区 VP, 这应该也是他在开发者中遇到的实际问题, 这个问题的讨论非常激烈。多轮讨论后, 我们看到的结论是: - 目前没有可行方案能够很容易的实现它 - 那些嘴里说着只要这样只要那样就行了的人, 显然对问题的复杂度认知不足 这确实是一个非常实战的问题, 想象一下, 6000 篇论文, 平均每篇 10MB 左右, 那一定是充斥着各种表格、图表、插图的; 另外医学又是一个很专业的领域, 比如它的实验图表、照片等, 如果没有充分的文字说明, 非专业的人 (或 AI) 很难理解。 咱们先假设一个前提: 医学知识可以通过医学知识微调医学类 LLM, 或做医学知识库的 RAG 背景知识来解决, 现在主要看这 6000 个文件怎么处理。 首先, 对这 6000 个文件做归类, 目标是至少可以有大致的分类, (不懂医学的分类, 用计算机类比) 比如计算机方向的论文可能分为 NLP、CV 等, 还可以有更细分的分类。 然后, 对这些分类做基础的说明和索引, 想达到的目的是一个问题提过来, 可以知道调用哪个分类的知识库, 全部调用的性能就真的不太行, 针对单个分类的向量数据, 查询可能会遇到性能和存储量问题, 我们也可以通过互联网行业的分库分表等思路来解决。 接着就到了 PDF 解析的步骤了, 之前咱们做过简单列举, 再补充一次: 
+- MinerU [@OpenDataLab_AI](https://x.com/OpenDataLab_AI[https://github.com/opendatalab/MinerU…](https://t.co/hJ69ooDEUv) 
+- UnstructedIO [@UnstructuredIO](https://x.com/UnstructuredIO) [https://github.com/Unstructured-IO/unstructured…](https://t.co/6psG8zMlTH) 
+- ColQwen2 [@illuintech](https://x.com/illuintech) [https://huggingface.co/vidore/colqwen2-v0.1…](https://t.co/s6QpgR89x5) 
+- GOT-OCR2_0 [https://huggingface.co/stepfun-ai/GOT-OCR2_0…](https://t.co/M5oWtWITIW) 
+- TFT-ID-1.0 [@hu_yifei](https://x.com/hu_yifei) [https://huggingface.co/yifeihu/TFT-ID-1.0…](https://t.co/tW4yijBYau) 
+ 
+医学论文类解析, 图表、图像等与文字的结合非常重要, 所以以上几种解析方式都很关注对结构和图片的解析, 有的是把图表图像中的文字信息提取出来, 有的是图像的嵌入, 医学场景我会更倾向于提取文字和数据信息, 因为实验过程可能有很多数据记录, 当然大家也可以试试多模态模型直接解析来对比。 另外, 解析中要特别关注 Meta 信息, 在找到合适的分块方式后, 给分块保留论文的信息: 论文链接、作者信息、发表时间、论文标题和摘要等, 当然可以用外链方式保存。这些都是实际 RAG 时对内容准确性和权威性的证明。
