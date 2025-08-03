@@ -1,5 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Mon, 21 Jul 2025 03:47:42 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>The Big LLM Architecture Comparison From DeepSeek-V3 to Kimi K2: A Look At Modern LLM Architecture Design</title><link>https://winnerineast.github.io/post/The%20Big%20LLM%20Architecture%20Comparison%20From%20DeepSeek-V3%20to%20Kimi%20K2-%20A%20Look%20At%20Modern%20LLM%20Architecture%20Design.html</link><description>[The Big LLM Architecture Comparison
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sun, 03 Aug 2025 04:01:56 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Rethinking industrial artificial intelligence: A unified foundation framework</title><link>https://winnerineast.github.io/post/Rethinking%20industrial%20artificial%20intelligence-%20A%20unified%20foundation%20framework.html</link><description>美国马里兰大学Jay Lee教授和Hanqi Su博士最新前瞻性文章：工业人工智能的革新：统一基础框架 | IJAMD封面文章
+
+英文原题：Rethinking industrial artificial intelligence: A unified foundation framework
+
+通讯作者：Hanqi Su, University of Maryland
+
+作者：Jay Lee, Hanqi Su*
+
+引用信息: 
+
+Lee J, Su H. Rethinking industrial artificial intelligence: A unified foundation framework. Int J AI Mater Design. 2025;2(2):56-68. doi: 10.36922/IJAMD025080006
+
+
+
+文章背景
+
+
+
+工业人工智能（AI）的快速发展正在重塑全球各行各业。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Rethinking%20industrial%20artificial%20intelligence-%20A%20unified%20foundation%20framework.html</guid><pubDate>Sun, 03 Aug 2025 04:01:22 +0000</pubDate></item><item><title>The Big LLM Architecture Comparison From DeepSeek-V3 to Kimi K2: A Look At Modern LLM Architecture Design</title><link>https://winnerineast.github.io/post/The%20Big%20LLM%20Architecture%20Comparison%20From%20DeepSeek-V3%20to%20Kimi%20K2-%20A%20Look%20At%20Modern%20LLM%20Architecture%20Design.html</link><description>[The Big LLM Architecture Comparison
 From DeepSeek-V3 to Kimi K2: A Look At Modern LLM Architecture Design](https://sebastianraschka.com/blog/2025/the-big-llm-architecture-comparison.html)。</description><guid isPermaLink="true">https://winnerineast.github.io/post/The%20Big%20LLM%20Architecture%20Comparison%20From%20DeepSeek-V3%20to%20Kimi%20K2-%20A%20Look%20At%20Modern%20LLM%20Architecture%20Design.html</guid><pubDate>Mon, 21 Jul 2025 03:47:18 +0000</pubDate></item><item><title>A Survey of Context Engineering</title><link>https://winnerineast.github.io/post/A%20Survey%20of%20Context%20Engineering.html</link><description>&lt;img width='604' height='680' alt='Image' src='https://github.com/user-attachments/assets/52e55e02-c9fb-4dda-a584-69e7bad821c9' /&gt;
 
 The paper provides a taxonomy of context engineering in LLMs categorized into foundational components, system implementations, evaluation methodologies, and future directions.
