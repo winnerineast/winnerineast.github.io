@@ -1,5 +1,24 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Thu, 07 Aug 2025 03:51:26 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>AI Real Estate Agent Team</title><link>https://winnerineast.github.io/post/AI%20Real%20Estate%20Agent%20Team.html</link><description>https://cookbook.openai.com/articles/gpt-oss/fine-tune-transfomers
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sun, 10 Aug 2025 15:29:56 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>The Generative AI Data Scientist is NOW what companies want.</title><link>https://winnerineast.github.io/post/The%20Generative%20AI%20Data%20Scientist%20is%20NOW%20what%20companies%20want..html</link><description>&lt;img width='1696' height='900' alt='Image' src='https://github.com/user-attachments/assets/4d956c7e-6c86-4a7f-8722-bca4a765994d' /&gt;
+
+Companies are sitting on mountains of unstructured data. 
+
+PDF
+Word docs
+Meeting notes
+Emails
+Videos
+Audio Transcripts
+
+This is useful data. But it's unusable in its existing form.
+The AI data scientist builds the systems to analyze information, gain business insights, and automates the process. 
+
+- Models the system
+- Use AI to extract insights
+- Drives predictive business insights
+
+&lt;img width='1201' height='649' alt='Image' src='https://github.com/user-attachments/assets/9953b5dd-6d28-4e37-af9b-981119753c5e' /&gt;
+。</description><guid isPermaLink="true">https://winnerineast.github.io/post/The%20Generative%20AI%20Data%20Scientist%20is%20NOW%20what%20companies%20want..html</guid><pubDate>Sun, 10 Aug 2025 15:29:27 +0000</pubDate></item><item><title>AI Real Estate Agent Team</title><link>https://winnerineast.github.io/post/AI%20Real%20Estate%20Agent%20Team.html</link><description>https://cookbook.openai.com/articles/gpt-oss/fine-tune-transfomers
 
 OpenAI gpt-oss (开源 LLM) + 
 [@firecrawl_dev](https://x.com/firecrawl_dev)
