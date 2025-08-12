@@ -1,5 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Sun, 10 Aug 2025 15:32:13 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Hugging Face 团队开源了一个强大的 AI 工具：AI Sheets</title><link>https://winnerineast.github.io/post/Hugging%20Face%20-tuan-dui-kai-yuan-le-yi-ge-qiang-da-de-%20AI%20-gong-ju-%EF%BC%9AAI%20Sheets.html</link><description>提供类似 Excel 表格的界面，无需编写代码，即可使用数千个开源模型来构建、丰富和转换数据集，支持本地部署或直接在 Hub 上使用。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Hugging%20Face%20-tuan-dui-kai-yuan-le-yi-ge-qiang-da-de-%20AI%20-gong-ju-%EF%BC%9AAI%20Sheets.html</guid><pubDate>Sun, 10 Aug 2025 15:31:43 +0000</pubDate></item><item><title>The Generative AI Data Scientist is NOW what companies want.</title><link>https://winnerineast.github.io/post/The%20Generative%20AI%20Data%20Scientist%20is%20NOW%20what%20companies%20want..html</link><description>&lt;img width='1696' height='900' alt='Image' src='https://github.com/user-attachments/assets/4d956c7e-6c86-4a7f-8722-bca4a765994d' /&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Tue, 12 Aug 2025 02:11:39 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Embedding Atlas</title><link>https://winnerineast.github.io/post/Embedding%20Atlas.html</link><description>https://github.com/apple/embedding-atlas
+
+Embedding Atlas is a tool that provides interactive visualizations for large embeddings. It allows you to visualize, cross-filter, and search embeddings and metadata.
+
+Features
+
+🏷️ Automatic data clustering &amp; labeling: Interactively visualize and navigate overall data structure.
+
+🫧 Kernel density estimation &amp; density contours: Easily explore and distinguish between dense regions of data and outliers.
+
+🧊 Order-independent transparency: Ensure clear, accurate rendering of overlapping points.
+
+🔍 Real-time search &amp; nearest neighbors: Find similar data to a given query or existing data point.
+
+🚀 WebGPU implementation (with WebGL 2 fallback): Fast, smooth performance (up to few million points) with modern rendering stack.
+
+📊 Multi-coordinated views for metadata exploration: Interactively link and filter data across metadata columns.
+
+Please visit https://apple.github.io/embedding-atlas for a demo and documentation.。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Embedding%20Atlas.html</guid><pubDate>Tue, 12 Aug 2025 02:11:10 +0000</pubDate></item><item><title>Hugging Face 团队开源了一个强大的 AI 工具：AI Sheets</title><link>https://winnerineast.github.io/post/Hugging%20Face%20-tuan-dui-kai-yuan-le-yi-ge-qiang-da-de-%20AI%20-gong-ju-%EF%BC%9AAI%20Sheets.html</link><description>提供类似 Excel 表格的界面，无需编写代码，即可使用数千个开源模型来构建、丰富和转换数据集，支持本地部署或直接在 Hub 上使用。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Hugging%20Face%20-tuan-dui-kai-yuan-le-yi-ge-qiang-da-de-%20AI%20-gong-ju-%EF%BC%9AAI%20Sheets.html</guid><pubDate>Sun, 10 Aug 2025 15:31:43 +0000</pubDate></item><item><title>The Generative AI Data Scientist is NOW what companies want.</title><link>https://winnerineast.github.io/post/The%20Generative%20AI%20Data%20Scientist%20is%20NOW%20what%20companies%20want..html</link><description>&lt;img width='1696' height='900' alt='Image' src='https://github.com/user-attachments/assets/4d956c7e-6c86-4a7f-8722-bca4a765994d' /&gt;
 
 Companies are sitting on mountains of unstructured data. 
 
