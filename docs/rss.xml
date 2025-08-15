@@ -1,5 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Fri, 15 Aug 2025 15:05:57 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>微软开源的 MarkItDown</title><link>https://winnerineast.github.io/post/wei-ruan-kai-yuan-de-%20MarkItDown.html</link><description>[开源项目重读] MarkItDown : 今天无意间看到微软开源的 MarkItDown 已经 71.2K⭐️了，试着重新解读它的技术实现和作用，学习它的抽象封装，但每种文件解析都有更好的实现，特别是 PDF。</description><guid isPermaLink="true">https://winnerineast.github.io/post/wei-ruan-kai-yuan-de-%20MarkItDown.html</guid><pubDate>Fri, 15 Aug 2025 15:05:27 +0000</pubDate></item><item><title>网页中接入 PDF viewer</title><link>https://winnerineast.github.io/post/wang-ye-zhong-jie-ru-%20PDF%20viewer.html</link><description>EmbedPDF：[https://github.com/embedpdf/embed-pdf-viewer](https://t.co/8mku6ukBqU)
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Winnerineast Blog</title><link>https://winnerineast.github.io</link><description>Humachine Studio</description><copyright>Winnerineast Blog</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://winnerineast.github.io</link></image><lastBuildDate>Fri, 15 Aug 2025 15:08:57 +0000</lastBuildDate><managingEditor>Winnerineast Blog</managingEditor><ttl>60</ttl><webMaster>Winnerineast Blog</webMaster><item><title>Marker、MinerU、Docling、Markitdown、Llamaparse 这五个工具</title><link>https://winnerineast.github.io/post/Marker%E3%80%81MinerU%E3%80%81Docling%E3%80%81Markitdown%E3%80%81Llamaparse%20-zhe-wu-ge-gong-ju.html</link><description>这几天在给公司产品的 AI 助手选择知识库的数据处理工具，重新看了一遍 Marker、MinerU、Docling、Markitdown、Llamaparse 这五个工具，结合几个 Deep Search 产品做了一些对比给用户接入做参考，也分享出来，大家有其他更优的工具推荐，欢迎回复给我，先感谢了！
+
+1. Marker
+技术架构
+· 基于 PyMuPDF 和 Tesseract OCR，支持 GPU 加速（Surya OCR 引擎），开源轻量化
+功能特性
+· 专注 PDF 转 Markdown，支持公式转 LaTeX、图片内嵌保存，OCR 识别扫描版 PDF
+· 多语言文档处理，但表格转换易错位，复杂公式识别精度一般
+适用场景
+· 科研文献、书籍等基础 PDF 转换需求，适合技术背景用户快速部署
+优劣势
+✅ 开源免费、处理速度快（比同类快 4 倍）
+❌ 缺乏复杂布局解析能力，依赖本地 GPU 资源
+
+2. MinerU
+技术架构
+· 集成 LayoutLMv3、YOLOv8 等模型，支持多模态解析（表格/公式/图像），依赖 Docker 和 CUDA 环境
+功能特性
+· 精准提取 PDF 正文（自动过滤页眉/页脚），支持 EPUB/MOBI/DOCX 转 Markdown 或 JSON
+· 多语言 OCR（84 种语言），内置 UniMERNet 模型优化公式识别
+适用场景
+· 学术文献管理、财务报表解析等需高精度结构化的场景
+优劣势
+✅ 企业级安全合规，支持 API 和图形界面
+❌ 依赖 GPU，表格处理速度较慢，配置复杂
+
+3. Docling
+技术架构
+· 模块化设计，集成 Unstructured、LayoutParser 等库，支持本地化处理
+功能特性
+· 解析 PDF/DOCX/PPTX 等格式，保留阅读顺序和表格结构，支持 OCR 和 LangChain 集成。</description><guid isPermaLink="true">https://winnerineast.github.io/post/Marker%E3%80%81MinerU%E3%80%81Docling%E3%80%81Markitdown%E3%80%81Llamaparse%20-zhe-wu-ge-gong-ju.html</guid><pubDate>Fri, 15 Aug 2025 15:08:25 +0000</pubDate></item><item><title>微软开源的 MarkItDown</title><link>https://winnerineast.github.io/post/wei-ruan-kai-yuan-de-%20MarkItDown.html</link><description>[开源项目重读] MarkItDown : 今天无意间看到微软开源的 MarkItDown 已经 71.2K⭐️了，试着重新解读它的技术实现和作用，学习它的抽象封装，但每种文件解析都有更好的实现，特别是 PDF。</description><guid isPermaLink="true">https://winnerineast.github.io/post/wei-ruan-kai-yuan-de-%20MarkItDown.html</guid><pubDate>Fri, 15 Aug 2025 15:05:27 +0000</pubDate></item><item><title>网页中接入 PDF viewer</title><link>https://winnerineast.github.io/post/wang-ye-zhong-jie-ru-%20PDF%20viewer.html</link><description>EmbedPDF：[https://github.com/embedpdf/embed-pdf-viewer](https://t.co/8mku6ukBqU)
 
 Typescript 实现的，支持多种框架或者 vanilla.js，简单看了一下，真的非常棒，必须推荐一下。</description><guid isPermaLink="true">https://winnerineast.github.io/post/wang-ye-zhong-jie-ru-%20PDF%20viewer.html</guid><pubDate>Fri, 15 Aug 2025 13:26:56 +0000</pubDate></item><item><title>Awesome-GraphRAG</title><link>https://winnerineast.github.io/post/Awesome-GraphRAG.html</link><description>A curated list of resources (surveys, papers, benchmarks, and opensource projects) on graph-based retrieval-augmented generation. 
 
